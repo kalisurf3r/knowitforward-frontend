@@ -1,0 +1,62 @@
+.home-img {
+    width: 100%;
+
+}
+
+.tagline {
+    font-size: 6vw;
+    position: absolute;
+    top: 36vh;
+    width: 35vw;
+    text-align: center;
+    color: var(--dark_gray);
+    margin-left: 7vw;
+    z-index: 10;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.mission-section {
+    background-color: var(--primary);
+    height: 55vh;
+}
+
+.heart-img {
+    width: 20vw;
+    margin: 5vw 8vw;
+}
+
+.mission-stmt {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 2vw;
+    position: relative;
+    top: -38vh;
+    width: 55vw;
+    text-align: left;
+    color: var(--dark_gray);
+    margin-left: 37vw;
+}
+
+.bold {
+    font-weight: 400;
+}
+
+.login-section {
+    background-color: var(--light_gray);
+    height: 45vh;
+}
+
+.services-section {
+    background-color: var(--dark_gray);
+    height: 45vh;
+}
+
+.charities-section {
+    background-color: var(--primary);
+    height: 80vh;
+}
