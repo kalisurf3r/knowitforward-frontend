@@ -54,8 +54,6 @@ export default function Charities() {
                     <CharityCard />
                 </div>
             </div>
-
-            
     </>
   );
 }
