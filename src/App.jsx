@@ -1,14 +1,14 @@
-import Charities from './pages/Charities'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import { Outlet } from 'react-router-dom';
 import './App.css'
-
-function App() {
-  
+function App() { 
   return (
     <>
-    <Navbar />
-     <Charities />
+      <Navbar />
+      <main className="">
+        <Outlet />
+      </main>
       <Footer />
     </>
   )
