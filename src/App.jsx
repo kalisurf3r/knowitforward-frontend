@@ -1,3 +1,5 @@
+import { Outlet } from 'react-router-dom';
+
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
 import Signup from "./components/Signup"
@@ -7,7 +9,11 @@ function App() {
   
   return (
     <>
-     <Signup />
+      <Navbar />
+      <main className="">
+        <Outlet />
+      </main>
+      <Footer />
     </>
   )
 }
