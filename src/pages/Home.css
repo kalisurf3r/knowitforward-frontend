@@ -1,0 +1,149 @@
+.home-page {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.heroSection {
+    display: flex;
+    flex-direction: row;
+}
+
+.home-img {
+    width: 100%;
+}
+
+.tagline {
+    font-size: 6vw;
+    font-weight: 200;
+    width: 45%;
+    position: relative;
+    /* bottom: 50vh; */
+    /* left: 5vw; */
+    left: -85vw;
+    top: 18vh;
+    text-align: center;
+    color: var(--dark_gray);
+    z-index: 10;
+
+}
+
+.mission-section {
+    background-color: var(--primary);
+    display: flex;
+    /* position: relative; */
+    /* bottom: 24vh; */
+}
+
+.heart-img {
+    height: 30vh;
+    margin: 5vw 8vw;
+}
+
+.mission-stmt {
+    font-size: 2vw;
+    text-align: left;
+    color: var(--dark_gray);
+    position: relative;
+    top: 8vw;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.login-section {
+    background-color: var(--light_gray);
+    height: 45vh;
+    display: flex;
+
+}
+
+.login-form {
+    font-size: 5vh;
+    color: var(--dark_gray);
+    margin: 19vh 5vw;
+}
+
+.or {
+    font-size: 5vh;
+    margin: 19vh 5vw;
+}
+
+.signup-button {
+    font-size: 16pt;
+    color: var(--dark_gray);
+    padding: 10px;
+    margin: 19vh 5vw;
+    background-color: var(--accent);
+    border: outset 3px solid var(--accent);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px gray;
+}
+
+.services-section {
+    background-color: var(--dark_gray);
+    height: 45vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.services-categories {
+    display: flex;
+    flex-wrap: wrap;
+    width: 60vw;
+    margin: 5vh 2vw;
+    /* justify-content: space-between; */
+}
+
+.services-category {
+    font-size: 3vh;
+    color: var(--dark_gray);
+    background-color: var(--light_gray);
+    border-radius: 10px;
+    height: 12vh;
+    width: 15vw;
+    text-align: center;
+    padding-top: 4vh;
+    margin: 2vh 1vw;
+}
+
+.services-title {
+    font-size: 7vh;
+    font-weight: 200;
+    color: var(--light_gray);
+    text-align: right;
+    margin: 18vh 0 18vh 5vw;
+}
+
+.charities-section {
+    background-color: var(--primary);
+    color: var(--dark_gray);
+    height: 60vh;
+    display: flex;
+}
+
+.charities-title {
+    font-size: 7vh;
+    font-weight: 200;
+    text-align: left;
+    position: relative;
+    /* top: 25vh; */
+    margin: 0 7vw;
+    padding-top: 25vh;
+}
+
+.charities-logos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+
+.logo {
+    height: 7vh;
+    margin: 2vh 4vw;
+}
