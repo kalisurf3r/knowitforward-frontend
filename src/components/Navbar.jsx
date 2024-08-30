@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 export default function Navbar() {
     const logoStyle = {
-        height: '50px',
+        height: '40px',
         width: 'auto',
         marginRight: '10px'
     }
