@@ -1,14 +1,15 @@
-import Navbar from "./components/Navbar"
-import Footer from "./components/Footer"
-import Signup from "./components/Signup"
-import CharityCard from "./components/CharityCard"
+import Charities from './pages/Charities'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 import './App.css'
 
 function App() {
   
   return (
     <>
-     <CharityCard />
+    <Navbar />
+     <Charities />
+      <Footer />
     </>
   )
 }

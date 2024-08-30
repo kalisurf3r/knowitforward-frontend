@@ -12,11 +12,11 @@ export default function CharityCard() {
 
         const donatedStyle = {
             backgroundColor: '#FFBC2C',
-            boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)"
+            boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
+            padding: "6px",
+            borderRadius: "5px",
         }
 
-
-    
 
   return (
     <div className="card"  style={cardStyle}>
@@ -25,7 +25,7 @@ export default function CharityCard() {
         <img style={charityLogoStyle} src="unicef.png" alt="Unicef"/>  
         </div>
         <p className="card-text text-center">Insert Card Desc</p>
-        <h6 style={donatedStyle} className="text-center">Total Donated:<span> Insert $$$ Here</span></h6>
+        <h6 style={donatedStyle} className="text-center">Total Donated:<span style={{ backgroundColor: '#FFBC2C'}}> Insert $$$ Here</span></h6>
       </div>
     </div>
   )
