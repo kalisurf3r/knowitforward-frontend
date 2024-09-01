@@ -7,8 +7,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './components/Layout';
 import { verifyTokenValidity } from "./utils/util";
 import { useEffect, useState } from 'react';
-import { verifyTokenValidity } from "./utils/util";
-import { useEffect, useState } from 'react';
 
 
 function App() {

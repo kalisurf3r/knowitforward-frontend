@@ -9,9 +9,10 @@ export default function Login(props) {
     const [lblcolor, setlblcolor] = useState("red");
 
 
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         try {
             console.log('Before Username:', username);
             console.log('Before Password:', password);
@@ -25,10 +26,12 @@ export default function Login(props) {
             props.setUserData({ id: response.data.UserId, username: response.data.username, token: response.data.token })
             setlabeltext("Login successful!");
             setlblcolor("blue");
+            // TODO: Refresh page and scroll to the top of the page
             setUsername("");
             setPassword("");
         } catch (err) {
-            alert('An error occurred while login. Please try again.');
+            setlabeltext("Unexpected error: " + err + " while trying to login. Try again!");
+            setlblcolor("red"); // If error too long it does not wrap
         }
     };
 
@@ -63,7 +66,7 @@ export default function Login(props) {
                     onChange={handlePwdChange}
                     required
                 ></input>
-                <label id="loginmsg" style={{ color: lblcolor }}>{labeltext}</label>
+                <label id="loginmsg" style={{ color: lblcolor, textWrap: 'wrap', maxWidth: '400px', textAlign: 'left' }}>{labeltext}</label>
                 <button type="submit" id="loginBtn" className="btn text-center">Login</button>
             </form>
         </div>

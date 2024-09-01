@@ -11,6 +11,10 @@ export default function Navbar(props) {
 
     const navbarStyle = {
         backgroundColor: '#9DBC98',
+        fontFamily: 'Montserrat, sans-serif',
+        fontOpticalSizing: 'auto',
+        fontWeight: '300',
+        fontStyle: 'normal',
     }
 
     const navitemStyle = {
