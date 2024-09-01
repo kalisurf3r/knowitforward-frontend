@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 
-export default function Navbar() {
+export default function Navbar(props) {
     const logoStyle = {
         height: '40px',
         width: 'auto',
@@ -26,19 +26,6 @@ export default function Navbar() {
     };
 
 
-    const [username, setUsername] = useState('JohnDoe');
-
-    // useEffect(() => {
-    //     const fetchUsername = async () => {
-    //         const user = await getUserFromAuthService();
-    //         if (user) {
-    //             setUsername(user.username);
-    //         }
-    //     };
-    //     fetchUsername();
-    // }, []);
-
-
     return (
         <nav className="navbar navbar-expand-lg" style={navbarStyle}>
             <div className="container-fluid">
@@ -47,7 +34,14 @@ export default function Navbar() {
                         <img src="logo.png" alt="logo" style={logoStyle} />
                     </a>
                 </div>
-                <span className="nav-link" style={usernameStyle}>Hi, {username}</span>
+                {props.isLoggedIn ? (
+                    <>
+                        <span className="nav-link" style={usernameStyle}>Hi, {props.userData.username}</span>
+                    </>
+                ) : (
+                    <></>
+                )}
+
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>

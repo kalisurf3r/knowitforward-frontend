@@ -6,58 +6,73 @@ import Charities from './pages/Charities';
 import Services from './pages/Services';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './components/Layout';
-import { Outlet } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import './App.css'
-import './style.css'
+import { verifyTokenValidity } from "./utils/util";
+import { useEffect, useState } from 'react';
 
 
 function App() {
+
+  const [user, setUser] = useState({
+    id: 0,
+    username: "",
+  });
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const setUserData = (userData) => {
+    console.log("userData in setUser: ", userData);
+    setUser({ ...userData });
+    setIsLoggedIn(true);
+    localStorage.setItem("token", userData.token);
+  };
+
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Layout isLoggedIn={isLoggedIn} userData={user} />,
+      children: [
+        {
+          index: true,
+          element: <Home setUserData={setUserData} />
+        },
+        {
+          path: "/profile",
+          element: <Profile />
+        },
+        {
+          path: "/volunteer",
+          element: <Volunteer />
+        },
+        {
+          path: "/charities",
+          element: <Charities />
+        },
+        {
+          path: "/services",
+          element: <Services />
+        },
+      ],
+    },
+  ]);
+
+  // called once during page load
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const data = verifyTokenValidity(token);
+    console.log("Data recvd in useeffect: ", data);
+    console.log(typeof (data))
+    if (data) {
+      const uData = {
+        id: data.id,
+        username: data.username
+      }
+      setUser({ ...uData });
+      setIsLoggedIn(true);
+    } 
+  }, []);
+
   return (
-    <>
-      <Navbar />
-      <main className="">
-        <Outlet />
-      </main>
-      <Footer />
-    </>
-  )
+    <RouterProvider router={router} />
+  );
 }
-// const router = createBrowserRouter([
-//   {
-//     path: '/',
-//     element: <Layout />,
-//     children: [
-//       {
-//         index: true,
-//         element: <Home />
-//       },
-//       {
-//         path: "/profile",
-//         element: <Profile />
-//       },
-//       {
-//         path: "/volunteer",
-//         element: <Volunteer />
-//       },
-//       {
-//         path: "/charities",
-//         element: <Charities />
-//       },
-//       {
-//         path: "/services",
-//         element: <Services />
-//       },
-//     ],
-//   },
-// ]);
-
-
-// function App() {
-//   return (
-//     <RouterProvider router={router} />
-//   );
-// }
 
 export default App

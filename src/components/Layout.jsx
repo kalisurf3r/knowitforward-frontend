@@ -4,11 +4,11 @@ import Footer from "./Footer";
 import '../App.css'
 import '../style.css'
 
-export default function Layout() {
+export default function Layout(props) {
     return (
         <>
-            <Navbar />
-            <main className="">
+            <Navbar isLoggedIn={props.isLoggedIn} userData={props.userData} />
+            <main>
                 <Outlet />
             </main>
             <Footer />
