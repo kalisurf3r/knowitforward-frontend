@@ -93,8 +93,8 @@
 .services-categories {
     display: flex;
     flex-wrap: wrap;
-    width: 60vw;
-    margin: 5vh 2vw;
+    width: 56vw;
+    margin: 5vh 1vw;
     /* justify-content: space-between; */
 }
 
@@ -105,17 +105,28 @@
     border-radius: 10px;
     height: 12vh;
     width: 15vw;
+    min-width: 155px;
     text-align: center;
     padding-top: 4vh;
     margin: 2vh 1vw;
 }
 
+.services-button {
+    font-size: 16pt;
+    color: var(--dark_gray);
+    padding: 10px 20px;
+    margin: 20vh 0vw;
+    background-color: var(--accent);
+    border: outset 3px solid var(--accent);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px gray;
+}
 .services-title {
     font-size: 7vh;
-    font-weight: 200;
+    font-weight: 100;
     color: var(--light_gray);
     text-align: right;
-    margin: 18vh 0 18vh 5vw;
+    margin: 18vh 0 18vh 2vw;
 }
 
 .charities-section {
@@ -131,8 +142,19 @@
     text-align: left;
     position: relative;
     /* top: 25vh; */
-    margin: 0 7vw;
+    margin: 0 2vw 0 2vw;
     padding-top: 25vh;
+}
+
+.charities-button {
+    font-size: 16pt;
+    color: var(--dark_gray);
+    padding: 10px 20px;
+    margin: 26.5vh 0vw;
+    background-color: var(--accent);
+    border: outset 3px solid var(--accent);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px gray;
 }
 
 .charities-logos {

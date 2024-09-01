@@ -1,0 +1,67 @@
+* {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    color: var(--dark_gray);
+}
+
+.card {
+    color: var(--dark_gray);
+}
+
+.svc-card-title {
+    font-size: 14pt;
+    background-color: var(--primary);
+    padding: 5px;
+    text-align: center;
+}
+
+.svc-card-provider {
+    font-weight: 400;
+    /* text-align: center; */
+}
+
+.svc-card-text {
+    font-size: 10pt;
+    /* text-align: center; */
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.svc-card-logo {
+    height: 30px;
+}
+
+.svc-card-button {
+    font-size: 16pt;
+    color: var(--dark_gray);
+    padding: 10px;
+    background-color: var(--accent);
+    border: outset 3px solid var(--accent);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px gray;
+}
+
+/* .modalTitleStyle {
+    background-color: #9DBC98;
+}
+
+.charityLogoStyle {
+    width: 120px;
+    height: 100px;
+}
+
+.cardStyle {
+        width: 300px;
+        margin: 0 auto;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+   300p     border: 1px solid black;
+    };
+
+.donatedStyle {
+        background-color: #FFBC2C;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        padding: 6px;
+        border-radius: 5px;
+    } */
