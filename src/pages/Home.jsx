@@ -37,11 +37,13 @@ export default function Home() {
                     <h5 className='services-category'>Wellness</h5>
                     <h5 className='services-category'>Photography</h5>
                 </div>
+                <button className='services-button'>more...</button>
                 <h3 className='services-title'>Services</h3>
 
             </div>
             <div className='charities-section'>
                 <h3 className='charities-title'>Charities</h3>
+                <button className='charities-button'>more...</button>
                 <div className='charities-logos'>
                     <img className='logo' src={faLogo} alt="" />
                     <img className='logo' src={stcLogo} alt="" />
