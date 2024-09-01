@@ -7,6 +7,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './components/Layout';
 import { verifyTokenValidity } from "./utils/util";
 import { useEffect, useState } from 'react';
+import { verifyTokenValidity } from "./utils/util";
+import { useEffect, useState } from 'react';
 
 
 function App() {
@@ -66,53 +68,12 @@ function App() {
       }
       setUser({ ...uData });
       setIsLoggedIn(true);
-    }
+    } 
   }, []);
 
   return (
-    <>
-      <Navbar />
-      <main className="">
-        <Outlet />
-      </main>
-      <Footer />
-    </>
-  )
+    <RouterProvider router={router} />
+  );
 }
-// const router = createBrowserRouter([
-//   {
-//     path: '/',
-//     element: <Layout />,
-//     children: [
-//       {
-//         index: true,
-//         element: <Home />
-//       },
-//       {
-//         path: "/profile",
-//         element: <Profile />
-//       },
-//       {
-//         path: "/volunteer",
-//         element: <Volunteer />
-//       },
-//       {
-//         path: "/charities",
-//         element: <Charities />
-//       },
-//       {
-//         path: "/services",
-//         element: <Services />
-//       },
-//     ],
-//   },
-// ]);
-
-
-// function App() {
-//   return (
-//     <RouterProvider router={router} />
-//   );
-// }
 
 export default App
