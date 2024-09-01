@@ -1,3 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --primary: #9DBC98;
+    --accent: #FFBC2C;
+    --dark_gray: #4D4D4D;
+    --light_gray: #F0F0F0;
+    --medium_gray: #E2E2E2;
+}
+
 :root {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;

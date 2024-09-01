@@ -70,8 +70,49 @@ function App() {
   }, []);
 
   return (
-    <RouterProvider router={router} />
-  );
+    <>
+      <Navbar />
+      <main className="">
+        <Outlet />
+      </main>
+      <Footer />
+    </>
+  )
 }
+// const router = createBrowserRouter([
+//   {
+//     path: '/',
+//     element: <Layout />,
+//     children: [
+//       {
+//         index: true,
+//         element: <Home />
+//       },
+//       {
+//         path: "/profile",
+//         element: <Profile />
+//       },
+//       {
+//         path: "/volunteer",
+//         element: <Volunteer />
+//       },
+//       {
+//         path: "/charities",
+//         element: <Charities />
+//       },
+//       {
+//         path: "/services",
+//         element: <Services />
+//       },
+//     ],
+//   },
+// ]);
+
+
+// function App() {
+//   return (
+//     <RouterProvider router={router} />
+//   );
+// }
 
 export default App
