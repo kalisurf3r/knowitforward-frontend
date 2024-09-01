@@ -16,7 +16,7 @@ export default function Home() {
         <div className='home-page'>
             <div className='heroSection'>
                 <img className="home-img" src={homeImg} alt="image of many hands creating a heart" />
-                <h2 className='tagline'>Donate the gift of time</h2>
+                {/* <h2 className='tagline'>Donate the gift of time</h2> */}
             </div>
             <div className='mission-section'>
                 <img className="heart-img" src={heartImg} alt="image of two hands creating a heart" />
@@ -45,11 +45,11 @@ export default function Home() {
                 <div className='charities-logos'>
                     <img className='logo' src={faLogo} alt="" />
                     <img className='logo' src={stcLogo} alt="" />
-                    <img className='logo' src={habitatLogo} alt="" />                    
+                    <img className='logo' src={habitatLogo} alt="" />
                     <img className='logo' src={jgLogo} alt="" />
                     <img className='logo' src={redCrossLogo} alt="" />
                     <img className='logo' src={unicefLogo} alt="" />
-                    
+
                 </div>
             </div>
         </div>
