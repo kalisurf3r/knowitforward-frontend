@@ -82,6 +82,10 @@
     box-shadow: 5px 5px 5px gray;
 }
 
+.signup-button:hover {
+    border: outset 3px solid rgba(255, 188, 44, 0.85);
+}
+
 .services-section {
     background-color: var(--dark_gray);
     height: 45vh;

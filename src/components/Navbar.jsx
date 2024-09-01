@@ -10,7 +10,7 @@ export default function Navbar() {
     }
 
     const navbarStyle = {
-        backgroundColor: '#F0F0F0',
+        backgroundColor: '#9DBC98',
         fontFamily: 'Rubik, sans-serif'
     }
 
@@ -43,7 +43,7 @@ export default function Navbar() {
         <nav className="navbar navbar-expand-lg" style={navbarStyle}>
         <div className="container-fluid">
             <div className="navbar-brand">
-                <img src="logo.png" alt="logo" style={logoStyle} />
+                <img src="logo.jpg" alt="logo" style={logoStyle} />
             </div>
             <span className="nav-link" style={usernameStyle}>Hi, {username}</span>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
