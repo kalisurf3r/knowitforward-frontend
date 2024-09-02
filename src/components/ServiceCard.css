@@ -8,7 +8,7 @@
 
 .card {
     color: var(--dark_gray);
-    margin: 10px;
+    margin: 5px;
 }
 
 .svc-card-title {
@@ -21,17 +21,25 @@
 .svc-card-container {
     display: flex;
     justify-content: center;
+    padding: 0;
+    margin: 0;
 }
 
 .svc-card-img {
     height: 100px;
     width: fit-content;
-    /* padding: 5px; */
+}
+
+.svc-card-body {
+    padding: 0;
+    margin: 0;
 }
 
 .svc-card-provider {
     font-weight: 400;
     text-align: center;
+    height: 25px;
+    padding: 0;
     margin: 5px;
 }
 
@@ -39,7 +47,7 @@
     -webkit-box-orient: vertical;
     display: -webkit-box;
     /* WHY ISN"T THIS WORKING? */
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 4;
     overflow: hidden;
 }
 
@@ -51,13 +59,13 @@
     text-overflow: ellipsis;
     width: fit-content;
     white-space: nowrap;
-    margin: 5px;
+    padding: 0;
+    margin: 10px;
 }
 
 .list-group-item {
     font-size: 11pt;
     padding: 5px 20px;
-    /* text-align: center; */
 }
 
 .svc-card-logo {

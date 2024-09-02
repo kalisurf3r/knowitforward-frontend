@@ -2,32 +2,17 @@ import "./charities.css";
 import CharityCard from "../components/CharityCard";
 
 export default function Charities() {
-  const imgStyle = {
-    width: "250px",
-    height: "200px",
-  };
 
-  const imgScale = {
-    position: "relative",
-    top: "50px",
-    left: "30px",
-  };
-
-  const containerStyle = {
-    display: "flex",
-    alignItems: "center",
-    gap: "70px",
-  };
 
   return (
     <>
-      <div style={containerStyle}>
-        <div style={imgScale}>
-          <img style={imgStyle} src="/hands.png" alt="hands" />
+      <div className="container-style">
+        <div className="img-scale">
+          <img className="img-style" src="/hands.png" alt="hands" />
         </div>
         <div className="text-center">
-          <h3 >Charities</h3>
-          <p style={{ marginRight: "10px" }}>
+          <h1>Charities</h1>
+          <p className="header-text" style={{ marginRight: "10px" }}>
             With <span className="fw-semibold">KnowItForward</span> you can support the charities that are important
             to you, simply by donating your time doing the things you do best.
           </p>
