@@ -32,21 +32,25 @@
 .mission-section {
     background-color: var(--primary);
     display: flex;
-    /* position: relative; */
-    /* bottom: 24vh; */
+    flex-direction: row;
+    align-items: center;
 }
 
 .heart-img {
-    height: 30vh;
-    margin: 5vw 8vw;
+    width: 250px;
+    padding: 25px;
+    /* height: 30vh;
+    margin: 5vw 8vw; */
 }
 
 .mission-stmt {
-    font-size: 2vw;
-    text-align: left;
     color: var(--dark_gray);
+    font-size: 1.7rem;
+    /* 
+    text-align: left;
+   
     position: relative;
-    top: 8vw;
+    top: 8vw; */
 }
 
 .bold {
@@ -55,27 +59,59 @@
 
 .login-section {
     background-color: var(--light_gray);
-    height: 45vh;
+    min-height: 25vh;
     display: flex;
-
+    justify-content: space-around;
+    align-items: center;
 }
 
-.login-form {
-    font-size: 5vh;
+#loginmsg {
+    display: block;
+}
+
+#login-form {
+    /* font-size: 5vh; */
     color: var(--dark_gray);
-    margin: 19vh 5vw;
+    min-width: 500px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border: 3px solid #B8B8B8;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    /* margin: 19vh 5vw; */
+}
+
+.form-control {
+    width: 100%;
+    margin-top: 25px;
 }
 
 .or {
-    font-size: 5vh;
-    margin: 19vh 5vw;
+    font-size: 2rem;
+    /* margin: 19vh 5vw; */
+}
+
+#loginLink {
+    text-decoration: none;
+}
+
+#loginBtn {
+    color: var(--dark_gray);
+    padding: 10px;
+    background-color: var(--accent);
+    border: outset 3px solid var(--accent);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px gray;
+    font-size: 1.5rem;
+    margin-top: 25px;
 }
 
 .signup-button {
-    font-size: 16pt;
+    font-size: 1.5rem;
     color: var(--dark_gray);
     padding: 10px;
-    margin: 19vh 5vw;
+    /* margin: 19vh 5vw; */
     background-color: var(--accent);
     border: outset 3px solid var(--accent);
     border-radius: 10px;
@@ -125,6 +161,7 @@
     border-radius: 10px;
     box-shadow: 5px 5px 5px gray;
 }
+
 .services-title {
     font-size: 7vh;
     font-weight: 100;
@@ -172,4 +209,41 @@
 .logo {
     height: 7vh;
     margin: 2vh 4vw;
+}
+
+
+
+@media (max-width: 900px) {
+
+    .mission-section {
+        flex-direction: column;
+    }
+
+    .mission-stmt {
+        font-size: 1.4rem;
+    }
+
+    .login-section {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #login-form {
+        min-width: 400px;
+        margin-bottom: 0px;
+    }
+
+    .signup-button,
+    .or,
+    #loginBtn {
+        font-size: 1rem;
+    }
+
+    .or {
+        margin-bottom: 0px;
+    }
+
+    .signup-button {
+        margin-bottom: 25px;
+    }
 }

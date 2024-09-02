@@ -1,7 +1,7 @@
 import './Home.css'
 import homeImg from '../../public/heart-hands.jpeg'
 import heartImg from '../../public/Heart-hand-shake.svg'
-// import Login from '../components/Login'
+import Login from '../components/Login'
 import unicefLogo from '../../public/logos/UNICEF-logo.png'
 import faLogo from '../../public/logos/feeding-america-logo.png'
 import habitatLogo from '../../public/logos/Habitat-for-Humanity-Logo.png'
@@ -10,7 +10,7 @@ import stcLogo from '../../public/logos/save-the-children-logo.png'
 import redCrossLogo from '../../public/logos/red-cross-logo.png'
 
 
-export default function Home() {
+export default function Home(props) {
 
     return (
         <div className='home-page'>
@@ -22,9 +22,9 @@ export default function Home() {
                 <img className="heart-img" src={heartImg} alt="image of two hands creating a heart" />
                 <p className='mission-stmt'><strong className='bold'>KnowItForward</strong> connects skilled professionals with charitable causes. Experts in fields like music, tutoring, and resume reviewing volunteer their time to support meaningful initiatives. Join us in donating the gift of time to make a difference.</p>
             </div>
-            <div className='login-section'>
-                {/* <Login /> */}
-                <h3 className='login-form'>login form</h3>
+            <div id="login" className='login-section'>
+                <Login setUserData={props.setUserData} />
+                {/* <h3 className='login-form'>login form</h3> */}
                 <p className='or'>- OR -</p>
                 <button className='signup-button'>Sign Up</button>
             </div>
@@ -47,11 +47,11 @@ export default function Home() {
                 <div className='charities-logos'>
                     <img className='logo' src={faLogo} alt="" />
                     <img className='logo' src={stcLogo} alt="" />
-                    <img className='logo' src={habitatLogo} alt="" />                    
+                    <img className='logo' src={habitatLogo} alt="" />
                     <img className='logo' src={jgLogo} alt="" />
                     <img className='logo' src={redCrossLogo} alt="" />
                     <img className='logo' src={unicefLogo} alt="" />
-                    
+
                 </div>
             </div>
         </div>

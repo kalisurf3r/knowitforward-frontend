@@ -2,13 +2,15 @@ import { Link, useLocation } from "react-router-dom";
 
 export default function Footer() {
   const footerStyle = {
-    backgroundColor: "#F0F0F0",
+    backgroundColor: "#9DBC98",
     color: "black",
     padding: "1rem",
     // position: "absolute",
     width: "100%",
     textAlign: "center",
-    fontFamily: "Rubik, sans-serif",
+    fontFamily: 'Montserrat, sans-serif',
+    fontOpticalSizing: 'auto',
+    fontStyle: 'normal',
   };
 
   const linkStyle = {
