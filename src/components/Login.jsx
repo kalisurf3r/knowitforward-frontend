@@ -14,15 +14,12 @@ export default function Login(props) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            console.log('Before Username:', username);
-            console.log('Before Password:', password);
-
             const response = await login({ username, password });
             if (response.status != 200) {
                 setlabeltext("Error: " + response.error + " while trying to login. Try agian!");
                 return;
             }
-            console.log("response in handleSubmit: ", response);
+        
             props.setUserData({ id: response.data.UserId, username: response.data.username, token: response.data.token })
             setlabeltext("Login successful!");
             setlblcolor("blue");
