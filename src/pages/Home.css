@@ -32,21 +32,25 @@
 .mission-section {
     background-color: var(--primary);
     display: flex;
-    /* position: relative; */
-    /* bottom: 24vh; */
+    flex-direction: row;
+    align-items: center;
 }
 
 .heart-img {
-    height: 30vh;
-    margin: 5vw 8vw;
+    width: 250px;
+    padding: 25px;
+    /* height: 30vh;
+    margin: 5vw 8vw; */
 }
 
 .mission-stmt {
-    font-size: 2vw;
-    text-align: left;
     color: var(--dark_gray);
+    font-size: 1.7rem;
+    /* 
+    text-align: left;
+   
     position: relative;
-    top: 8vw;
+    top: 8vw; */
 }
 
 .bold {
@@ -210,6 +214,15 @@
 
 
 @media (max-width: 900px) {
+
+    .mission-section {
+        flex-direction: column;
+    }
+
+    .mission-stmt {
+        font-size: 1.4rem;
+    }
+
     .login-section {
         flex-direction: column;
         justify-content: center;
