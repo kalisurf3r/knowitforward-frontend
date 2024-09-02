@@ -29,6 +29,7 @@ export default function Home(props) {
                 <button className='signup-button'>Sign Up</button>
             </div>
             <div className='services-section'>
+                <h3 className='services-title'>Services</h3>
                 <div className='services-categories'>
                     <h5 className='services-category'>Education</h5>
                     <h5 className='services-category'>Career</h5>
@@ -37,13 +38,13 @@ export default function Home(props) {
                     <h5 className='services-category'>Wellness</h5>
                     <h5 className='services-category'>Photography</h5>
                 </div>
-                <button className='services-button'>more...</button>
-                <h3 className='services-title'>Services</h3>
+                {/* <button className='services-button'>more...</button> */}
+
 
             </div>
             <div className='charities-section'>
                 <h3 className='charities-title'>Charities</h3>
-                <button className='charities-button'>more...</button>
+                {/* <button className='charities-button'> > </button> */}
                 <div className='charities-logos'>
                     <img className='logo' src={faLogo} alt="" />
                     <img className='logo' src={stcLogo} alt="" />
