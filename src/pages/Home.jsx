@@ -8,9 +8,17 @@ import habitatLogo from '../../public/logos/Habitat-for-Humanity-Logo.png'
 import jgLogo from '../../public/logos/Jane-Goodall-logo.png'
 import stcLogo from '../../public/logos/save-the-children-logo.png'
 import redCrossLogo from '../../public/logos/red-cross-logo.png'
+import Signup from '../components/Signup'
+import { useState } from 'react'
 
 
 export default function Home(props) {
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+
+    const handleShow = () => setShow(true);
 
     return (
         <div className='home-page'>
@@ -26,7 +34,10 @@ export default function Home(props) {
                 <Login setUserData={props.setUserData} />
                 {/* <h3 className='login-form'>login form</h3> */}
                 <p className='or'>- OR -</p>
-                <button className='signup-button'>Sign Up</button>
+                <button className='signup-button' onClick={handleShow}>Sign Up</button>
+                {/* <Button type="button" className='signup-button' onClick={handleShow}>
+                    Sign Up
+                </Button> */}
             </div>
             <div className='services-section'>
                 <div className='services-categories'>
@@ -54,6 +65,9 @@ export default function Home(props) {
 
                 </div>
             </div>
+            <Signup show={show}
+                setUserData={props.setUserData} handleShow={handleShow}
+                handleClose={handleClose} />
         </div>
     )
 
