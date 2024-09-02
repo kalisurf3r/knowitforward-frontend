@@ -1,5 +1,6 @@
+import "./Login.css";
 import { useState } from 'react';
-import { login } from "../utils/apiUtil"
+import { login } from "../utils/apiUtil";
 
 export default function Login(props) {
 
@@ -7,9 +8,6 @@ export default function Login(props) {
     const [password, setPassword] = useState('');
     const [labeltext, setlabeltext] = useState('');
     const [lblcolor, setlblcolor] = useState("red");
-
-
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -19,7 +17,7 @@ export default function Login(props) {
                 setlabeltext("Error: " + response.error + " while trying to login. Try agian!");
                 return;
             }
-        
+
             props.setUserData({ id: response.data.UserId, username: response.data.username, token: response.data.token })
             setlabeltext("Login successful!");
             setlblcolor("blue");
