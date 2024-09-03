@@ -1,8 +1,16 @@
 import './Services.css'
 import ServiceCard from '../components/ServiceCard'
 import Form from 'react-bootstrap/Form';
+import { useLoaderData } from 'react-router-dom';
 
 export default function Services() {
+    const servicesPageData = useLoaderData();
+    const services = servicesPageData.services.data;
+    const charities = servicesPageData.charities.data;
+    const categories = servicesPageData.categories.data;
+    console.log("Services.jsx services data: ", services);
+    console.log("Services.jsx charities data: ", charities);
+    console.log("Services.jsx categories data: ", categories);
 
     // How do we load and store our data/STATE (?)
     // const [categories, setCategories] = useState([]);
