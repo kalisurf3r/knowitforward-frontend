@@ -10,11 +10,15 @@ import stcLogo from '../../public/logos/save-the-children-logo.png'
 import redCrossLogo from '../../public/logos/red-cross-logo.png'
 import Signup from '../components/Signup'
 import { useState } from 'react'
+import { useLoaderData } from 'react-router-dom'
 
 
 export default function Home(props) {
 
     const [show, setShow] = useState(false);
+    const homePageData = useLoaderData();
+    const services = homePageData.services.data;
+    const charities = homePageData.charities.data;
 
     const handleClose = () => setShow(false);
 

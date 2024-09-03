@@ -1,8 +1,13 @@
 import './Services.css'
 import ServiceCard from '../components/ServiceCard'
 import Form from 'react-bootstrap/Form';
+import { useLoaderData } from 'react-router-dom';
 
 export default function Services() {
+    const servicesPageData = useLoaderData();
+    const services = servicesPageData.services.data;
+    const charities = servicesPageData.charities.data;
+    const categories = servicesPageData.categories.data;
     return (
         <>
             <div className='services-page'>
