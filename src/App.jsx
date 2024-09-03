@@ -26,6 +26,7 @@ function App() {
     setToken(userData.token);
     localStorage.setItem("token", userData.token);
   };
+  console.log("token: ", token);
 
   const router = createBrowserRouter([
     {
@@ -72,6 +73,7 @@ function App() {
       }
       setUser({ ...uData });
       setIsLoggedIn(true);
+      setToken(token);
     }
   }, []);
 
