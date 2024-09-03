@@ -17,11 +17,13 @@ function App() {
     username: "",
   });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [token, setToken] = useState("");
 
   const setUserData = (userData) => {
     console.log("userData in setUser: ", userData);
     setUser({ ...userData });
     setIsLoggedIn(true);
+    setToken(userData.token);
     localStorage.setItem("token", userData.token);
   };
 
@@ -37,11 +39,11 @@ function App() {
         },
         {
           path: "/profile",
-          element: <Profile />
+          element: <Profile isLoggedIn={isLoggedIn} token={token} user={user} />
         },
         {
           path: "/volunteer",
-          element: <Volunteer />,
+          element: <Volunteer token={token} />,
           loader: loadCategoriesAndCharities
         },
         {
