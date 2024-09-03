@@ -19,8 +19,6 @@
     font-weight: 200;
     width: 45%;
     position: relative;
-    /* bottom: 50vh; */
-    /* left: 5vw; */
     left: -85vw;
     top: 18vh;
     text-align: center;
@@ -75,7 +73,7 @@
     min-width: 500px;
     margin-top: 25px;
     margin-bottom: 25px;
-    border: 3px solid #B8B8B8;
+    border: .5px solid #B8B8B8;
     padding: 10px;
     border-radius: 10px;
     text-align: center;
@@ -110,7 +108,7 @@
 .signup-button {
     font-size: 1.5rem;
     color: var(--dark_gray);
-    padding: 10px;
+
     /* margin: 19vh 5vw; */
     background-color: var(--accent);
     border: outset 3px solid var(--accent);
@@ -118,7 +116,9 @@
     box-shadow: 5px 5px 5px gray;
 }
 
-.signup-button:hover {
+/* .signup-button:hover { */
+button:hover {
+    background-color: #ffc956;
     border: outset 3px solid rgba(255, 188, 44, 0.85);
 }
 

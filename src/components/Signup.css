@@ -1,0 +1,45 @@
+#signUpBtn {
+    background-color: var(--accent);
+    color: var(--dark_gray);
+    font-size: 1.2rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    display: block;
+    border: outset 3px solid var(--accent);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px gray
+}
+
+#modalTitle {
+    background-color: #9DBC98;
+    color: var(--dark_gray);
+    font-style: 'bold';
+}
+
+#signUpBtn:hover {
+    background-color: #ffc956;
+    border: outset 3px solid rgba(255, 188, 44, 0.85);
+}
+
+#modalBody {
+    background-color: #F0F0F0;
+    color: var(--light_gray);
+}
+
+#profileImg {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid black;
+    display: 'block'
+}
+
+#profileImgContainer {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid var(--dark_gray);
+    text-align: center;
+    display: none;
+}

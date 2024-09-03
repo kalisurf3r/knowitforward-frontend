@@ -1,0 +1,56 @@
+* {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    color: var(--dark_gray);
+}
+
+.services-page {
+    background-color: var(--light_gray);
+    margin: 0;
+}
+
+.services-header {
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    padding: 30px;
+}
+.services-content {
+    display: flex;
+}
+
+.services-filters {
+    min-width: 250px;
+    height: 100vh;
+    border: 0.5px solid #B8B8B8;
+    border-radius: 5px;
+    margin: 5px 0 0 5px;
+}
+
+.filter-title {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.filter-categories,
+.filter-charities {
+    margin: 10px;
+    border: .5px solid #B8B8B8;
+    border-radius: 5px;
+}
+
+h5 {
+    margin: 10px;
+}
+
+.mb-3 {
+    margin: 0 20px;
+}
+
+
+.services-page-cards {
+    display: flex;
+    flex-wrap: wrap;
+}

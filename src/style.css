@@ -15,3 +15,12 @@
     font-weight: 200;
     font-style: normal;
 }
+
+button {
+    padding: 10px;
+}
+
+button:hover {
+    background-color: #ffc956;
+    border: outset 3px solid rgba(255, 188, 44, 0.85);  
+}

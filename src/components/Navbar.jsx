@@ -60,7 +60,7 @@ export default function Navbar(props) {
                             <Link to="/services" className="nav-link" style={navitemStyle}>Services</Link>
                         </li>
                         <li className="nav-item ms-4">
-                            <Link to="/charities" className="nav-link" style={navitemStyle}>Charity</Link>
+                            <Link to="/charities" className="nav-link" style={navitemStyle}>Charities</Link>
                         </li>
                     </ul>
                 </div>

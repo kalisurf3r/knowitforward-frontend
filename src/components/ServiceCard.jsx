@@ -14,14 +14,9 @@ export default function ServiceCard() {
                 <div className='svc-card-container'>
                     <img className='svc-card-img' src={tempPic} alt="" />
                 </div>
-                <Card.Body>
+                <Card.Body className='svc-card-body'>
                     <Card.Text className='svc-card-provider'>
                         John Doe
-                    </Card.Text>
-                    <Card.Text className='svc-card-container'>
-                        <p className='svc-card-text'>
-                            We will cover key topics such as fractions, decimals, multiplication, division, and basic geometry. The session will include problem-solving exercises and tips to improve math skills. The goal is to help your child strengthen their understanding of these concepts and build confidence in their math abilities.
-                        </p>
                     </Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
@@ -32,6 +27,11 @@ export default function ServiceCard() {
                         <img className='svc-card-logo' src={redCrossLogo} alt="" />
                     </ListGroup.Item>
                 </ListGroup>
+                <Card.Text className='svc-card-container'>
+                        <p className='svc-card-text'>
+                            We will cover key topics such as fractions, decimals, multiplication, division, and basic geometry. The session will include problem-solving exercises and tips to improve math skills. The goal is to help your child strengthen their understanding of these concepts and build confidence in their math abilities.
+                        </p>
+                </Card.Text>
                 <Card.Link href="#" className='svc-card-container'>
                     <Button className='svc-card-button' >Book</Button>
                 </Card.Link>
