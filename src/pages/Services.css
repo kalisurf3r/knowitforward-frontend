@@ -26,7 +26,7 @@
     height: 100vh;
     border: 0.5px solid #B8B8B8;
     border-radius: 5px;
-    margin: 5px 0 0 5px;
+    margin: 0 5px 0 5px;
 }
 
 .filter-title {
@@ -48,7 +48,6 @@ h5 {
 .mb-3 {
     margin: 0 20px;
 }
-
 
 .services-page-cards {
     display: flex;

@@ -24,7 +24,6 @@
     text-align: center;
     color: var(--dark_gray);
     z-index: 10;
-
 }
 
 .mission-section {
@@ -37,16 +36,16 @@
 .heart-img {
     width: 250px;
     padding: 25px;
-    /* height: 30vh;
-    margin: 5vw 8vw; */
+    height: 30vh;
+    margin: 3vw 6vw;
 }
 
 .mission-stmt {
     color: var(--dark_gray);
-    font-size: 1.7rem;
+    font-size: 2vw;
+    margin-right: 1vw;
     /* 
     text-align: left;
-   
     position: relative;
     top: 8vw; */
 }
@@ -59,7 +58,7 @@
     background-color: var(--light_gray);
     min-height: 25vh;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 
@@ -74,7 +73,7 @@
     margin-top: 25px;
     margin-bottom: 25px;
     border: .5px solid #B8B8B8;
-    padding: 10px;
+    padding: 10px 40px;
     border-radius: 10px;
     text-align: center;
     /* margin: 19vh 5vw; */
@@ -87,7 +86,7 @@
 
 .or {
     font-size: 2rem;
-    /* margin: 19vh 5vw; */
+    margin: 0 7vw;
 }
 
 #loginLink {
@@ -107,8 +106,8 @@
 
 .signup-button {
     font-size: 1.5rem;
+    font-weight: 200;
     color: var(--dark_gray);
-
     /* margin: 19vh 5vw; */
     background-color: var(--accent);
     border: outset 3px solid var(--accent);
@@ -153,6 +152,7 @@ button:hover {
 
 .services-button {
     font-size: 16pt;
+    font-weight: 200;
     color: var(--dark_gray);
     padding: 10px 20px;
     margin: 20vh 0vw;
@@ -189,6 +189,7 @@ button:hover {
 
 .charities-button {
     font-size: 16pt;
+    font-weight: 200;
     color: var(--dark_gray);
     padding: 10px 20px;
     margin: 26.5vh 0vw;

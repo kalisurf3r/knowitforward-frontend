@@ -3,6 +3,32 @@ import ServiceCard from '../components/ServiceCard'
 import Form from 'react-bootstrap/Form';
 
 export default function Services() {
+
+    // How do we load and store our data/STATE (?)
+    // const [categories, setCategories] = useState([]);
+    // const [error, setError] = useState(null);
+
+    // const getData = async () => {
+    //     // here is where we make our request to our backend
+    //     fetch('/api/categories', {
+    //         method: 'GET'
+    //     })
+    //         .then(response => response.json)
+    //         .then(data => {
+    //             setCategories(data)
+    //         })
+    //         .catch(err => {
+    //             console.log(err);
+    //             setError(err);
+    //         })
+
+    //     //    let allCategories = await fetch('/api/categories')
+    // }
+
+    // useEffect(() => {
+    //     getData()
+    // }, [])
+
     return (
         <>
             <div className='services-page'>
