@@ -101,8 +101,8 @@ export const getCategories = async () => {
 
 // api GET /api/user/:id
 export const getUserProfileDetails = async (userId, token) => {
-    console.log("Quering for all user details with id: " + userId);
-    const url = API_PREFIX + `api/user/:${userId}`;
+    console.log("Quering for  user details with id: " + userId);
+    const url = API_PREFIX + `api/user/${userId}`;
     console.log("user profile url: ", url);
     const response = await fetch(url, {
         method: "GET",
@@ -115,6 +115,23 @@ export const getUserProfileDetails = async (userId, token) => {
     console.log("got back response from getUserProfileDetails api call as: ", response);
     return response.json();
 };
+
+export const getSvcsAsServiceProvider = async (userId, token) => {
+    console.log("Quering for all services with service provider id as: " + userId);
+    const url = API_PREFIX + `/api/services/serviceprovider/${userId}`;
+    console.log("get services as service provider  url: ", url);
+    const response = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`,
+        }
+    });
+
+    console.log("got back response from getSvcsAsServiceProvider api call as: ", response);
+    return response.json();
+};
+
 
 
 //--------------- Loader functions --------------
@@ -148,6 +165,16 @@ export const loadCategoriesAndCharities = async () => {
     const categoriesData = await getCategories();
     response["categories"] = categoriesData;
     response["charities"] = charitiesData;
+    console.log("Response data: ", response);
+    return response;
+}
+
+export const profilePageLoader = async (userId, token) => {
+    let response = {};
+    const userprofiledata = await getUserProfileDetails(userId, token);
+    const svcAsSvcProviderData = await getSvcsAsServiceProvider(userId, token);
+    response["userprofile"] = userprofiledata;
+    response["svcprovidersvcs"] = svcAsSvcProviderData;
     console.log("Response data: ", response);
     return response;
 }

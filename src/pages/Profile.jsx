@@ -1,3 +1,4 @@
+import { useEffect, useState, } from 'react';
 import { getUserProfileDetails } from '../utils/apiUtil';
 import './Profile.css';
 
@@ -9,15 +10,34 @@ export default function Profile(props) {
     console.log(`got back user id as: ${userId} and token as: ${token}`);
 
     console.log("Get user profile");
-    const userDetResponse = getUserProfileDetails(userId, token);
+    const [userDetails, setUserDetails] = useState({});
+
     console.log("Get services where user is the service provider");
     //TODO: 
     console.log("Get services where user is the customer");
     //TODO: 
 
+    useEffect(() => {
+        const fetchProfileData = async () => {
+            try {
+                console.log(`Fetching profile data for user ID: ${userId}`);
+
+                const userDetResponse = await getUserProfileDetails(userId, token);
+                console.log("user det response after");
+                setUserDetails(userDetResponse);
+            } catch (error) {
+                console.error("Error fetching profile data:", error);
+            }
+        };
+
+        fetchProfileData();
+    }, [userId, token]);
+    console.log("udetails");
+    console.log(userDetails);
 
 
     return (
+
         <>
             <h1 id='profileHeader'>My Profile</h1>
             <div className="container-fluid profilePageContainer">
@@ -25,10 +45,7 @@ export default function Profile(props) {
                     <div className='col col-md-4 userDetailsSection'>
                         <div className='userPicAndPersonalDetails'>
 
-                            <div className='userPic'>
-                                <h6>User pic goes here</h6>
-
-                            </div>
+                            <img className="profilePicImg" src={userDetails.data.profileImgUrl} alt="profile pic" />
                             <div className='userPersonalDetails'>
                                 <h6>User personal details goes here</h6>
 
@@ -58,3 +75,4 @@ export default function Profile(props) {
         </>
     );
 }
+
