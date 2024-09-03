@@ -1,7 +1,7 @@
 * {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 200;
+    font-weight: 300;
     font-style: normal;
     color: var(--dark_gray);
 }
@@ -22,11 +22,12 @@
 }
 
 .services-filters {
-    min-width: 250px;
-    height: 100vh;
+    min-width: 260px;
+    height: fit-content;
     border: 0.5px solid #B8B8B8;
     border-radius: 5px;
     margin: 0 5px 0 5px;
+
 }
 
 .filter-title {
@@ -47,6 +48,11 @@ h5 {
 
 .mb-3 {
     margin: 0 20px;
+}
+
+.radio-buttons {
+    margin: 0 5px;
+    font-weight: 300;
 }
 
 .services-page-cards {

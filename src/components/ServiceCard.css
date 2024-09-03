@@ -36,8 +36,12 @@
     font-size: 11pt;
 }
 
-.list-group-item {
-    border: none;
+.list-group-flush {
+    border: 0 5px solid blue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .list-group-item {
@@ -58,15 +62,10 @@
     height: 30px;
 }
 
-.svc-card-text-container {
+.svc-card-text {
     -webkit-box-orient: vertical;
     display: -webkit-box;
-    /* WHY ISN"T THIS WORKING? */
-    -webkit-line-clamp: 4;
-    overflow: hidden;
-}
-
-.svc-card-text {
+    -webkit-line-clamp: 3;
     font-size: 9pt;
     font-weight: 300;
     text-wrap: wrap;
@@ -74,7 +73,6 @@
     max-width: 100%;
     text-overflow: ellipsis;
     width: fit-content;
-    white-space: nowrap;
     padding: 0;
     margin: 5px;
 }

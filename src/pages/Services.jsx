@@ -12,30 +12,13 @@ export default function Services() {
     console.log("Services.jsx charities data: ", charities);
     console.log("Services.jsx categories data: ", categories);
 
-    // How do we load and store our data/STATE (?)
-    // const [categories, setCategories] = useState([]);
-    // const [error, setError] = useState(null);
+services.map((service) => (
+    <ServiceCard 
+    key={service.id} serviceTitle={service.title}
+    />
 
-    // const getData = async () => {
-    //     // here is where we make our request to our backend
-    //     fetch('/api/categories', {
-    //         method: 'GET'
-    //     })
-    //         .then(response => response.json)
-    //         .then(data => {
-    //             setCategories(data)
-    //         })
-    //         .catch(err => {
-    //             console.log(err);
-    //             setError(err);
-    //         })
+))
 
-    //     //    let allCategories = await fetch('/api/categories')
-    // }
-
-    // useEffect(() => {
-    //     getData()
-    // }, [])
 
     return (
         <>
@@ -48,115 +31,44 @@ export default function Services() {
                         <h2 className='filter-title'>Filters</h2>
                         <div className='filter-categories'>
                             <h5>Categories</h5>
-                            <Form>
-
-                            {/* {categories.map((data) => (
-                                {['radio'].map((type) => (
-                                    <div key={`default-${type}`} className="mb-3">
-                                        <Form.Check
-                                            type={type}
-                                            id={`default-${type}`}
-                                            label={}
-                                        />
-                                    </div>
-                                ))}
-                            ))} */}
-                            
-                                {['radio'].map((type) => (
-                                    <div key={`default-${type}`} className="mb-3">
-                                        <Form.Check
-                                            type={type}
-                                            id={`default-${type}`}
-                                            label={`All Categories`}
-                                        />
-                                        <Form.Check
-                                            type={type}
-                                            id={`default-${type}`}
-                                            label={`Education`}
-                                        />
-                                        <Form.Check
-                                            type={type}
-                                            id={`default-${type}`}
-                                            label={`Career`}
-                                        />
-                                        <Form.Check
-                                            type={type}
-                                            id={`default-${type}`}
-                                            label={`Therapy`}
-                                        />
-                                        <Form.Check
-                                            type={type}
-                                            id={`default-${type}`}
-                                            label={`Music`}
-                                        />
-                                        <Form.Check
-                                            type={type}
-                                            id={`default-${type}`}
-                                            label={`Wellness`}
-                                        />
-                                        <Form.Check
-                                            type={type}
-                                            id={`default-${type}`}
-                                            label={`Photography`}
-                                        />
-                                    </div>
-                                ))}
-                            </Form>
+                            <div className="radio mb-3">
+                                <label>
+                                    <input key="categoryAll" type="radio" value="all-categories" name="category" className='radio-buttons'/>
+                                    All Categories
+                                </label>
+                            </div>
+                            {categories.map((category) => (
+                                <div className="radio mb-3">
+                                    <label>
+                                        <input key="categoryId" type="radio" value={category.categoryName} name="category" className='radio-buttons'/>
+                                        {category.categoryName}
+                                    </label>
+                                </div>
+                            ))}
                         </div>
 
                         <div className='filter-charities'>
                             <h5>Charities</h5>
-                            <Form>
-                                {['radio'].map((type) => (
-                                    <div key={`default-${type}`} className="mb-3">
-                                        <Form.Check
-                                            type={type}
-                                            id={`default-${type}`}
-                                            label={`All Charities`}
-                                        />
-                                        <Form.Check
-                                            type={type}
-                                            id={`default-${type}`}
-                                            label={`Red Cross America`}
-                                        />
-                                        <Form.Check
-                                            type={type}
-                                            id={`default-${type}`}
-                                            label={`Habitat for Humanity`}
-                                        />
-                                        <Form.Check
-                                            type={type}
-                                            id={`default-${type}`}
-                                            label={`Jane Goodall Institute`}
-                                        />
-                                        <Form.Check
-                                            type={type}
-                                            id={`default-${type}`}
-                                            label={`Feeding America`}
-                                        />
-                                        <Form.Check
-                                            type={type}
-                                            id={`default-${type}`}
-                                            label={`Save the Children`}
-                                        />
-                                        <Form.Check
-                                            type={type}
-                                            id={`default-${type}`}
-                                            label={`UNICEF`}
-                                        />
-                                    </div>
-                                ))}
-                            </Form>
+                            <div className="radio mb-3">
+                                <label>
+                                    <input key="charityAll" type="radio" value="all-charities" name="charity" className='radio-buttons'/>
+                                    All Charities
+                                </label>
+                            </div>
+                            {charities.map((charity) => (
+                                <div className="radio mb-3">
+                                    <label>
+                                        <input key="charityId" type="radio" value={charity.charityName} name="charity" className='radio-buttons'/>
+                                        {charity.charityName}
+                                    </label>
+                                </div>
+                            ))}
                         </div>
                     </div>
                     <div className='services-page-cards'>
-                        <div><ServiceCard /></div>
-                        <div><ServiceCard /></div>
-                        <div><ServiceCard /></div>
-                        <div><ServiceCard /></div>
-                        <div><ServiceCard /></div>
-                        <div><ServiceCard /></div>
-
+                        {services.map((service) => (
+                            <div><ServiceCard /></div>
+                        ))}
                     </div>
                 </div>
 
