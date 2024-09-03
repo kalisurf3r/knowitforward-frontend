@@ -43,8 +43,7 @@ function App() {
         },
         {
           path: "/volunteer",
-          element: <Volunteer token={token} />,
-          loader: loadCategoriesAndCharities
+          element: <Volunteer isLoggedIn={isLoggedIn} token={token} user={user} />,
         },
         {
           path: "/charities",

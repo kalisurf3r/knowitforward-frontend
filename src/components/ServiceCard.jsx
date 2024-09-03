@@ -5,7 +5,8 @@ import './ServiceCard.css';
 import redCrossLogo from '../../public/logos/red-cross-logo.png';
 import tempPic from '../../public/hands.png';
 
-export default function ServiceCard() {
+export default function ServiceCard(props) {
+    console.log('props: ', props);
 
     return (
         <div className="card cardStyle"  >
@@ -28,9 +29,9 @@ export default function ServiceCard() {
                     </ListGroup.Item>
                 </ListGroup>
                 <Card.Text className='svc-card-container'>
-                        <p className='svc-card-text'>
-                            We will cover key topics such as fractions, decimals, multiplication, division, and basic geometry. The session will include problem-solving exercises and tips to improve math skills. The goal is to help your child strengthen their understanding of these concepts and build confidence in their math abilities.
-                        </p>
+                    <p className='svc-card-text'>
+                        We will cover key topics such as fractions, decimals, multiplication, division, and basic geometry. The session will include problem-solving exercises and tips to improve math skills. The goal is to help your child strengthen their understanding of these concepts and build confidence in their math abilities.
+                    </p>
                 </Card.Text>
                 <Card.Link href="#" className='svc-card-container'>
                     <Button className='svc-card-button' >Book</Button>

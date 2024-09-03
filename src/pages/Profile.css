@@ -1,0 +1,60 @@
+.profilePageContainer {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+
+#profileHeader {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.userDetailsSection {
+    border: 2px solid red;
+    padding: 0;
+}
+
+.userSvcsDetailsSection {
+    border: 2px solid darkblue;
+}
+
+/* .userDetails {
+    background-color: var(--primary);
+} */
+
+.userPicAndPersonalDetails {
+    display: flex;
+    background-color: var(--primary);
+}
+
+.userPic {
+    margin-right: 2rem;
+}
+
+#aboutMeHeading {
+    text-align: center;
+}
+
+#aboutMeHeading {
+    padding-bottom: 2rem;
+
+}
+
+.aboutMe {
+    background-color: var(--light_gray);
+    margin-bottom: 0px;
+}
+
+.userCharities {
+    background-color: var(--primary);
+}
+
+#svcsOffered {
+    margin-top: 25px;
+}
+
+.list-group-item {
+    font-weight: 500;
+}

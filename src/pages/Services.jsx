@@ -11,6 +11,10 @@ export default function Services() {
     console.log("Services.jsx services data: ", services);
     console.log("Services.jsx charities data: ", charities);
     console.log("Services.jsx categories data: ", categories);
+    services.map((svc) => {
+        <ServiceCard key={svc.id} titile={svc.title} />
+    });
+
     return (
         <>
             <div className='services-page'>
