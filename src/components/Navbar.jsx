@@ -13,18 +13,18 @@ export default function Navbar(props) {
         backgroundColor: '#9DBC98',
         fontFamily: 'Montserrat, sans-serif',
         fontOpticalSizing: 'auto',
-        fontWeight: '300',
-        fontStyle: 'normal',
     }
 
     const navitemStyle = {
-        color: 'black',
-        textDecoration: 'none'
+        color: 'var(--dark_gray)',
+        textDecoration: 'none',
+        fontWeight: '400'
     }
 
     const usernameStyle = {
-        color: 'black',
-        opacity: 0.7, // Set the desired opacity value here
+        color: 'var(--dark_gray)',
+        fontWeight: '400',
+        // opacity: 0.7, // Set the desired opacity value here
         marginLeft: '100px'
     };
 

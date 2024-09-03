@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './components/Layout';
 import { verifyTokenValidity } from "./utils/util";
 import { useEffect, useState } from 'react';
+import { getServices, loadHomePageData } from './utils/apiUtil';
 
 
 function App() {
@@ -16,11 +17,13 @@ function App() {
     username: "",
   });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [token, setToken] = useState("");
 
   const setUserData = (userData) => {
     console.log("userData in setUser: ", userData);
     setUser({ ...userData });
     setIsLoggedIn(true);
+    setToken(userData.token);
     localStorage.setItem("token", userData.token);
   };
 
@@ -31,7 +34,8 @@ function App() {
       children: [
         {
           index: true,
-          element: <Home setUserData={setUserData} />
+          element: <Home setUserData={setUserData} />,
+          loader: loadHomePageData
         },
         {
           path: "/profile",
@@ -66,7 +70,7 @@ function App() {
       }
       setUser({ ...uData });
       setIsLoggedIn(true);
-    } 
+    }
   }, []);
 
   return (

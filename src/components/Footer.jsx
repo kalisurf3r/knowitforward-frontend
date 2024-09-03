@@ -2,40 +2,31 @@ import { Link, useLocation } from "react-router-dom";
 import './Footer.css'
 
 export default function Footer() {
-  // const footerStyle = {
-  //   backgroundColor: "var(--light_gray)",
-  //   color: "var(--dark_gray)",
-  //   padding: "1rem",
-  //   // position: "absolute",
-  //   width: "100%",
-  //   textAlign: "center",
-  //   fontFamily: 'Montserrat, sans-serif',
-  //   // fontOpticalSizing: 'auto',
-  //   fontStyle: 'normal',
-  //   fontSize: '1vw',
-  // };
-
   const linkStyle = {
     color: "var(--dark_gray)",
+    fontWeight: 400,
     textDecoration: "underline",
   };
 
   return (
-    <footer className="footer-style">
-      <p>
+    <footer >
+      <p className="footer-style">
         © KnowItForward / All Rights Reserved /
-        <Link
-          to="https://github.com/kalisurf3r/knowitforward-frontend"
+        <a
+          href="https://github.com/kalisurf3r/knowitforward-frontend"
           style={linkStyle}
+          target="_blank"
         >
           {" "}
           About Us{" "}
-        </Link>
+        </a>
         /
-        <Link to="https://developer.mozilla.org/en-US/" style={linkStyle}>
+        <a href="https://developer.mozilla.org/en-US/"
+          style={linkStyle}
+          target="_blank">
           {" "}
           Support
-        </Link>
+        </a>
       </p>
     </footer>
   );

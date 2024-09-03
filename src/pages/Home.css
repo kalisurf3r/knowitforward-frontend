@@ -101,12 +101,12 @@
     border: outset 3px solid var(--accent);
     border-radius: 10px;
     box-shadow: 5px 5px 5px gray;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-top: 25px;
 }
 
 .signup-button {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: var(--dark_gray);
     padding: 10px;
     /* margin: 19vh 5vw; */
@@ -121,11 +121,18 @@
 }
 
 .services-section {
-    background-color: var(--dark_gray);
-    height: 45vh;
-    display: flex;
+    background-color: var(--original_dark_gray);
+    padding-bottom: 25px;
+    text-align: center;
+    /* min-height: 45vh; */
+    /* display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    gap: 10px; */
+}
+
+.services-section Link {
+    text-align: center;
 }
 
 .services-categories {
@@ -134,6 +141,16 @@
     width: 56vw;
     margin: 5vh 1vw;
     /* justify-content: space-between; */
+}
+
+#linkToServices {
+    font-weight: 500;
+    text-align: right;
+    padding-bottom: 2px;
+    margin-top: 25px;
+    border-bottom: 1px solid var(--light_gray);
+    text-decoration: none;
+    color: var(--light_gray);
 }
 
 .services-category {
@@ -161,17 +178,23 @@
 }
 
 .services-title {
-    font-size: 7vh;
+    font-size: 1.5rem;
     font-weight: 100;
+    /* padding-top: 25px; */
+    /* padding-left: 25px; */
+    /* padding: 25px; */
+    padding-top: 25px;
+    margin-bottom: 30px;
     color: var(--light_gray);
-    text-align: right;
-    margin: 18vh 0 18vh 2vw;
+    font-weight: bold;
+    /* text-align: right; */
+    /* margin: 18vh 0 18vh 2vw; */
 }
 
 .charities-section {
     background-color: var(--primary);
     color: var(--dark_gray);
-    height: 60vh;
+    min-height: 60vh;
     display: flex;
 }
 
@@ -209,16 +232,20 @@
     margin: 2vh 4vw;
 }
 
-
-
 @media (max-width: 900px) {
 
+    .heart-img {
+        display: none;
+    }
+
     .mission-section {
-        flex-direction: column;
+        /* flex-direction: column; */
+        padding: 15px;
     }
 
     .mission-stmt {
         font-size: 1.4rem;
+
     }
 
     .login-section {
@@ -243,5 +270,12 @@
 
     .signup-button {
         margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 900px) {
+    .mission-stmt {
+        font-size: 1rem;
+
     }
 }

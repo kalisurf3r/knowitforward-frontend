@@ -19,7 +19,7 @@ export default function Login(props) {
                 setlabeltext("Error: " + response.error + " while trying to login. Try agian!");
                 return;
             }
-        
+
             props.setUserData({ id: response.data.UserId, username: response.data.username, token: response.data.token })
             setlabeltext("Login successful!");
             setlblcolor("blue");
@@ -64,7 +64,7 @@ export default function Login(props) {
                     required
                 ></input>
                 <label id="loginmsg" style={{ color: lblcolor, textWrap: 'wrap', maxWidth: '400px', textAlign: 'left' }}>{labeltext}</label>
-                <button type="submit" id="loginBtn" className="btn text-center">Login</button>
+                <button type="submit" id="loginBtn" className="text-center">Login</button>
             </form>
         </div>
     );

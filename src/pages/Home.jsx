@@ -8,9 +8,15 @@ import habitatLogo from '../../public/logos/Habitat-for-Humanity-Logo.png'
 import jgLogo from '../../public/logos/Jane-Goodall-logo.png'
 import stcLogo from '../../public/logos/save-the-children-logo.png'
 import redCrossLogo from '../../public/logos/red-cross-logo.png'
+import { Link, useLoaderData } from 'react-router-dom'
+import HomePageServiceCard from '../components/HomePageServiceCard'
 
 
 export default function Home(props) {
+    const homePageData = useLoaderData();
+    const services = homePageData.services.data;
+    const charities = homePageData.charities.data;
+    console.log("Active services fetched in home page: ", services);
 
     return (
         <div className='home-page'>
@@ -24,22 +30,13 @@ export default function Home(props) {
             </div>
             <div id="login" className='login-section'>
                 <Login setUserData={props.setUserData} />
-                {/* <h3 className='login-form'>login form</h3> */}
                 <p className='or'>- OR -</p>
                 <button className='signup-button'>Sign Up</button>
             </div>
-            <div className='services-section'>
-                <div className='services-categories'>
-                    <h5 className='services-category'>Education</h5>
-                    <h5 className='services-category'>Career</h5>
-                    <h5 className='services-category'>Therapy</h5>
-                    <h5 className='services-category'>Music</h5>
-                    <h5 className='services-category'>Wellness</h5>
-                    <h5 className='services-category'>Photography</h5>
-                </div>
-                <button className='services-button'>more...</button>
-                <h3 className='services-title'>Services</h3>
-
+            <div className='services-section' style={{ justifyContent: 'center' }}>
+                <h3 className='services-title'>SERVICES</h3>
+                <HomePageServiceCard entries={services} />
+                <Link to="/services" id="linkToServices" style={{}}>See all services &rarr; </Link>
             </div>
             <div className='charities-section'>
                 <h3 className='charities-title'>Charities</h3>
@@ -54,7 +51,7 @@ export default function Home(props) {
 
                 </div>
             </div>
-        </div>
+        </div >
     )
 
 }

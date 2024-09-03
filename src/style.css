@@ -4,7 +4,8 @@
     box-sizing: border-box;
     --primary: #9DBC98;
     --accent: #FFBC2C;
-    --dark_gray: #4D4D4D;
+    --dark_gray: #030303;
+    --original_dark_gray: #4D4D4D;
     --light_gray: #F0F0F0;
     --medium_gray: #E2E2E2;
 }
