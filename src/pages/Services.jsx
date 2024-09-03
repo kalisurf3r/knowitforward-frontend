@@ -8,6 +8,9 @@ export default function Services() {
     const services = servicesPageData.services.data;
     const charities = servicesPageData.charities.data;
     const categories = servicesPageData.categories.data;
+    console.log("Services.jsx services data: ", services);
+    console.log("Services.jsx charities data: ", charities);
+    console.log("Services.jsx categories data: ", categories);
     return (
         <>
             <div className='services-page'>

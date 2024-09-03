@@ -19,6 +19,8 @@ export default function Home(props) {
     const homePageData = useLoaderData();
     const services = homePageData.services.data;
     const charities = homePageData.charities.data;
+    console.log("home.jsx services data: ", services);
+    console.log("home.jsx charities data: ", charities);
 
     const handleClose = () => setShow(false);
 
