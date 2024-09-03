@@ -41,6 +41,19 @@ export default function Services() {
                         <div className='filter-categories'>
                             <h5>Categories</h5>
                             <Form>
+
+                            {/* {categories.map((data) => (
+                                {['radio'].map((type) => (
+                                    <div key={`default-${type}`} className="mb-3">
+                                        <Form.Check
+                                            type={type}
+                                            id={`default-${type}`}
+                                            label={}
+                                        />
+                                    </div>
+                                ))}
+                            ))} */}
+                            
                                 {['radio'].map((type) => (
                                     <div key={`default-${type}`} className="mb-3">
                                         <Form.Check

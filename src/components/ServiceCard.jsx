@@ -4,6 +4,9 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import './ServiceCard.css';
 import redCrossLogo from '../../public/logos/red-cross-logo.png';
 import tempPic from '../../public/hands.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCalendar, faDollarSign, faHandHoldingHeart, faHourglassEnd, faList } from "@fortawesome/free-solid-svg-icons";
+
 
 export default function ServiceCard() {
 
@@ -23,9 +26,9 @@ export default function ServiceCard() {
                     </div>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
-                    <ListGroup.Item className='list-group-item'>Cost: $50</ListGroup.Item>
-                    <ListGroup.Item className='list-group-item'>Date of Service: 09/12/24</ListGroup.Item>
-                    <ListGroup.Item className='list-group-item'>Time Left: 12h</ListGroup.Item>
+                    <ListGroup.Item className='list-group-item'><FontAwesomeIcon icon={faDollarSign} /> $50</ListGroup.Item>
+                    <ListGroup.Item className='list-group-item'><FontAwesomeIcon icon={faCalendar} /> 09/12/24</ListGroup.Item>
+                    <ListGroup.Item className='list-group-item'><FontAwesomeIcon icon={faHourglassEnd} /> 12h</ListGroup.Item>
                     <ListGroup.Item className='svc-card-container'>
                         <img className='svc-card-logo' src={redCrossLogo} alt="" />
                     </ListGroup.Item>
@@ -36,6 +39,7 @@ export default function ServiceCard() {
                     </p>
                 </Card.Text>
                 <Card.Link href="#" className='svc-card-container'>
+                    {/* CONDITIONAL RENDERING: only show 'Book' button when use is logged in */}
                     <button className='svc-card-button' >Book</button>
                 </Card.Link>
             </Card>
