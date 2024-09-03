@@ -116,6 +116,23 @@ export const getCategories = async () => {
     return response.json();
 };
 
+// api GET /api/user/:id
+export const getUserProfileDetails = async (userId, token) => {
+    console.log("Quering for all user details with id: " + userId);
+    const url = API_PREFIX + `api/user/:${userId}`;
+    console.log("user profile url: ", url);
+    const response = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`,
+        }
+    });
+
+    console.log("got back response from getUserProfileDetails api call as: ", response);
+    return response.json();
+};
+
 
 //--------------- Loader functions --------------
 
