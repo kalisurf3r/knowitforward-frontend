@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './components/Layout';
 import { verifyTokenValidity } from "./utils/util";
 import { useEffect, useState } from 'react';
+import { getCharities, loadAllData, loadCategoriesAndCharities, loadServicesAndCharities } from "./utils/apiUtil";
 
 
 function App() {
@@ -31,7 +32,8 @@ function App() {
       children: [
         {
           index: true,
-          element: <Home setUserData={setUserData} />
+          element: <Home setUserData={setUserData} />,
+          loader: loadServicesAndCharities
         },
         {
           path: "/profile",
@@ -39,15 +41,18 @@ function App() {
         },
         {
           path: "/volunteer",
-          element: <Volunteer />
+          element: <Volunteer />,
+          loader: loadCategoriesAndCharities
         },
         {
           path: "/charities",
-          element: <Charities />
+          element: <Charities />,
+          loader: getCharities
         },
         {
           path: "/services",
-          element: <Services />
+          element: <Services />,
+          loader: loadAllData
         },
       ],
     },
@@ -66,7 +71,7 @@ function App() {
       }
       setUser({ ...uData });
       setIsLoggedIn(true);
-    } 
+    }
   }, []);
 
   return (

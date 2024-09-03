@@ -1,5 +1,5 @@
 import "./volunteer.css";
-import { postService } from "../utils/apiUtil";
+import { getCategories, getCharities, postService } from "../utils/apiUtil";
 import { useState, useEffect } from "react";
 
 export default function Volunteer() {
@@ -47,36 +47,32 @@ export default function Volunteer() {
     }
 
     try {
-      const response = await fetch("http://localhost:3004/api/categories", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+        
+        const response = await getCategories();
+        
+        if (response.status === 200) {
+            // const data = await response.json();
+            console.log("Fetched data:", response);
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log("Fetched data:", data);
-
-        if (data) {
-          const mappedData = data.data.map((category) => {
-            return {
-              id: category.id,
-              categoryName: category.categoryName,
-            };
-          });
-          setCategories(mappedData);
+            if (response) {
+                const mappedData = response.data.map((category) => {
+                    return {
+                        id: category.id,
+                        categoryName: category.categoryName,
+                    };
+                });
+                setCategories(mappedData);
+            } else {
+                console.error("Expected an array but got:", data);
+            }
         } else {
-          console.error("Expected an array but got:", data);
+            console.error("Failed to fetch categories");
         }
-      } else {
-        console.error("Failed to fetch categories");
-      }
     } catch (error) {
-      console.error("Error fetching categories:", error);
+        console.error("Error fetching categories:", error);
     }
   };
+
 
   const charityFetch = async () => {
     const token = localStorage.getItem("token");
@@ -86,35 +82,29 @@ export default function Volunteer() {
     }
 
     try {
-      const response = await fetch("http://localhost:3004/api/charities", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+        
+        const response = await getCharities();
+        
+        if (response.status === 200) {
+            // const data = await response.json();
+            console.log("Fetched data:", response);
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log("Fetched data:", data);
-
-        if (data) {
-          const mappedData = data.data.map((charity) => {
-            return {
-              id: charity.id,
-              charityName: charity.charityName,
-              
-            };
-          });
-          setCharities(mappedData);
+            if (response) {
+                const mappedData = response.data.map((charity) => {
+                    return {
+                        id: charity.id,
+                        charityName: charity.charityName,
+                    };
+                });
+                setCharities(mappedData);
+            } else {
+                console.error("Expected an array but got:", data);
+            }
         } else {
-          console.error("Expected an array but got:", data);
+            console.error("Failed to fetch charities");
         }
-      } else {
-        console.error("Failed to fetch charities");
-      }
     } catch (error) {
-      console.error("Error fetching charities:", error);
+        console.error("Error fetching charities:", error);
     }
   };
 
@@ -154,11 +144,10 @@ export default function Volunteer() {
       const response = await postService(data, token);
   
       console.log('after');
-      if (response.ok) {
-        const data = await response.json();
-        console.log("Volunteering successful:", data);
+      if (response.status === 200) {
+          console.log("Volunteering successful:", data);
       } else {
-        console.error("Failed to volunteer");
+          console.error("Failed to volunteer");
       }
     } catch (error) {
       console.error("Error volunteering:", error);
@@ -199,6 +188,7 @@ export default function Volunteer() {
     alignItems: "center",
     justifyContent: "center",
     gap: "10px",
+    margin: "0",
   };
 
   const labelStyle = {
