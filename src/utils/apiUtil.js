@@ -33,84 +33,19 @@ export const register = async (dataObj) => {
     return response.json();
 };
 
-const categoryFetch = async () => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      console.error("No JWT token found");
-      return;
-    }
 
-    try {
-      const response = await fetch("http://localhost:3004/api/categories", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log("Fetched data:", data);
-
-        if (data) {
-          const mappedData = data.data.map((category) => {
-            return {
-              id: category.id,
-              categoryName: category.categoryName,
-            };
-          });
-          setCategories(mappedData);
-        } else {
-          console.error("Expected an array but got:", data);
-        }
-      } else {
-        console.error("Failed to fetch categories");
-      }
-    } catch (error) {
-      console.error("Error fetching categories:", error);
-    }
-  };
+export const postService = async (dataObj, token) => {
+  const url = API_PREFIX + "api/services";
+ const response = await fetch(url, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  },
+  body: JSON.stringify(dataObj),
+});
+return response.json();
+};
 
 
-  const charityFetch = async () => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      console.error("No JWT token found");
-      return;
-    }
 
-    try {
-      const response = await fetch("http://localhost:3004/api/charities", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log("Fetched data:", data);
-
-        if (data) {
-          const mappedData = data.data.map((charity) => {
-            return {
-              id: charity.id,
-              charityName: charity.charityName,
-              
-            };
-          });
-          setCharities(mappedData);
-        } else {
-          console.error("Expected an array but got:", data);
-        }
-      } else {
-        console.error("Failed to fetch charities");
-      }
-    } catch (error) {
-      console.error("Error fetching charities:", error);
-    }
-  };
-
-  

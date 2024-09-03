@@ -1,4 +1,5 @@
 import "./volunteer.css";
+import { postService } from "../utils/apiUtil";
 import { useState, useEffect } from "react";
 
 export default function Volunteer() {
@@ -128,14 +129,14 @@ export default function Volunteer() {
     initialize();
   }, []);
 
-  const handleSubmit = async (event) => {
+  const handleVolunteerSubmit = async (event) => {
     event.preventDefault();
     const token = localStorage.getItem("token");
     if (!token) {
       console.error("No JWT token found");
       return;
     }
-
+  
     const data = {
       title,
       description,
@@ -147,18 +148,11 @@ export default function Volunteer() {
       charity: selectedCharity.charityName,
       CharityId: selectedCharity.id,
     };
-
+  
     try {
         console.log(data);
-      const response = await fetch("http://localhost:3004/api/services", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(data),
-      });
-
+      const response = await postService(data, token);
+  
       console.log('after');
       if (response.ok) {
         const data = await response.json();
@@ -170,7 +164,9 @@ export default function Volunteer() {
       console.error("Error volunteering:", error);
     }
   }
+  
 
+  
   const imgStyle = {
     width: "850px",
     height: "250px",
@@ -266,7 +262,7 @@ export default function Volunteer() {
       </div>
 
       <div className="volunteer-form">
-        <form style={formStyle} onSubmit={handleSubmit}>
+        <form style={formStyle} onSubmit={handleVolunteerSubmit}>
           <div style={formGroupStyle}>
             <label style={labelStyle} htmlFor="title">
               Title:
