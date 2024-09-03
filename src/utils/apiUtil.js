@@ -33,6 +33,23 @@ export const register = async (dataObj) => {
     return response.json();
 };
 
+export const postService = async (serviceObj, token) => {
+    console.log("In postService got service obj as: ", serviceObj);
+    const url = API_PREFIX + "api/services";
+    console.log("Post service url: ", url);
+    const response = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify(serviceObj),
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        }
+    });
+
+    console.log("got back response from postService api call as: ", response);
+    return response.json();
+}
+
 // api GET /api/services
 export const getServicesWithTokn = async (token) => {
     console.log("Quering for all services");
