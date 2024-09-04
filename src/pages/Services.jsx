@@ -15,10 +15,10 @@ export default function Services() {
     const [categorySelection, setCategorySelection] = useState('all-categories')
     const [charitySelection, setCharitySelection] = useState('all-charities')
 
-    const onOptionChangeCat = e => {
+    const filterValueCat = e => {
         setCategorySelection(e.target.value)
     }
-    const onOptionChangeChar = e => {
+    const filterValueChar = e => {
         setCharitySelection(e.target.value)
     }
 
@@ -33,24 +33,24 @@ export default function Services() {
                         <h2 className='filter-title'>Filters</h2>
                         <div className='filter-categories'>
                             <h5>Categories</h5>
-                            <div className="radio mb-3">
+                            <div className="radio">
                                 <label>
                                     <input key="categoryAll" type="radio" value="all-categories" name="category"
-                                        onChange={onOptionChangeCat}
+                                        onChange={filterValueCat}
                                         className='radio-buttons'
                                     />
                                     All Categories
                                 </label>
                             </div>
                             {categories.map((category) => (
-                                <div className="radio mb-3">
+                                <div className="radio">
                                     <label>
                                         <input
                                             key="categoryId" type="radio"
                                             value={category.categoryName}
                                             name="category"
                                             checked={category === category.categoryName}
-                                            onChange={onOptionChangeCat}
+                                            onChange={filterValueCat}
                                             className='radio-buttons'
                                         />
                                         {category.categoryName}
@@ -61,28 +61,28 @@ export default function Services() {
 
                         <div className='filter-charities'>
                             <h5>Charities</h5>
-                            <div className="radio mb-3">
+                            <div className="radio">
                                 <label>
                                     <input
                                         key="charityAll"
                                         type="radio"
                                         value="all-charities"
                                         name="charity"
-                                        onChange={onOptionChangeChar}
+                                        onChange={filterValueChar}
                                         className='radio-buttons'
                                     />
                                     All Charities
                                 </label>
                             </div>
                             {charities.map((charity) => (
-                                <div className="radio mb-3">
+                                <div className="radio">
                                     <label>
                                         <input
                                             key="charityId" type="radio"
                                             value={charity.charityName}
                                             name="charity"
                                             checked={charity === charity.charityName}
-                                            onChange={onOptionChangeChar}
+                                            onChange={filterValueChar}
                                             className='radio-buttons'
                                         />
                                         {charity.charityName}
@@ -92,7 +92,9 @@ export default function Services() {
                         </div>
                     </div>
                     <div className='services-page-cards'>
-                        {services.map((service) => (
+                        {services
+                        // .filter(services.Category.categoryName => services.Category.categoryName.match((filterValueCat, "i")))
+                        .map((service) => (
                             <div>
                                 <ServiceCard
                                     key={service.id}
@@ -103,7 +105,7 @@ export default function Services() {
                                     serviceRating={service.ServiceProvider.ratings}
                                     serviceCost={service.basePrice}
                                     serviceDate={service.serviceDate}
-                                    serviceEndDate={service.ServiceProvider.offerEndDate}
+                                    serviceTimeLeft={service.timeLeft}
                                     charityLogo={service.Charity.logoImgUrl}
                                     serviceDesc={service.description}
                                 />
@@ -117,5 +119,3 @@ export default function Services() {
         </>
     );
 }
-
-// serviceProvider={fullNamesArray}

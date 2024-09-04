@@ -1,7 +1,11 @@
+* {
+    font-weight: 300;
+}
+
 .home-page {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 200;
+    font-weight: 300;
     font-style: normal;
 }
 
@@ -16,7 +20,7 @@
 
 .tagline {
     font-size: 6vw;
-    font-weight: 200;
+    font-weight: 300;
     width: 45%;
     position: relative;
     left: -85vw;
@@ -44,6 +48,8 @@
     color: var(--dark_gray);
     font-size: 2vw;
     margin-right: 1vw;
+    font-weight: 300;
+
     /* 
     text-align: left;
     position: relative;
@@ -106,7 +112,7 @@
 
 .signup-button {
     font-size: 1.5rem;
-    font-weight: 200;
+    font-weight: 300;
     color: var(--dark_gray);
     /* margin: 19vh 5vw; */
     background-color: var(--accent);
@@ -116,6 +122,11 @@
 }
 
 /* .signup-button:hover { */
+
+.button {
+    font-weight: 300;
+}
+
 button:hover {
     background-color: #ffc956;
     border: outset 3px solid rgba(255, 188, 44, 0.85);
@@ -152,7 +163,7 @@ button:hover {
 
 .services-button {
     font-size: 16pt;
-    font-weight: 200;
+    font-weight: 400;
     color: var(--dark_gray);
     padding: 10px 20px;
     margin: 20vh 0vw;
@@ -164,7 +175,7 @@ button:hover {
 
 .services-title {
     font-size: 7vh;
-    font-weight: 100;
+    font-weight: 200;
     color: var(--light_gray);
     text-align: right;
     margin: 18vh 0 18vh 2vw;
@@ -189,7 +200,7 @@ button:hover {
 
 .charities-button {
     font-size: 16pt;
-    font-weight: 200;
+    font-weight: 400;
     color: var(--dark_gray);
     padding: 10px 20px;
     margin: 26.5vh 0vw;

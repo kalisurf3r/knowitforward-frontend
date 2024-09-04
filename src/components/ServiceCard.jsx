@@ -45,7 +45,7 @@ export default function ServiceCard(props) {
                             <span className='service-date'>{"   "}{new Date(props.serviceDate).toDateString()}</span>
                         </ListGroup.Item>
                         <ListGroup.Item className='list-group-item'><FontAwesomeIcon icon={faHourglassEnd} />
-                        {"   "}12h
+                        {"   "}{props.serviceTimeLeft}
                         </ListGroup.Item>
                     </div>
                     <ListGroup.Item className='svc-card-container'>

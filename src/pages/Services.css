@@ -17,8 +17,10 @@
     height: 100px;
     padding: 30px;
 }
+
 .services-content {
     display: flex;
+    font-weight: 300;
 }
 
 .services-filters {
@@ -27,6 +29,7 @@
     border: 0.5px solid #B8B8B8;
     border-radius: 5px;
     margin: 0 5px 0 5px;
+    font-weight: 300;
 
 }
 
@@ -46,8 +49,10 @@ h5 {
     margin: 10px;
 }
 
-.mb-3 {
+.radio {
     margin: 0 20px;
+    font-weight: 300;
+    margin-bottom: 5px;
 }
 
 .radio-buttons {
