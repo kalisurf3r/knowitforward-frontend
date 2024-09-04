@@ -18,8 +18,6 @@ function App() {
   });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [token, setToken] = useState("");
-  const [currentPage, setCurrentPage] = useState("/");
-  const handlePageChange = (page) => setCurrentPage(page);
 
   const setUserData = (userData) => {
     console.log("userData in setUser: ", userData);
@@ -33,7 +31,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Layout isLoggedIn={isLoggedIn} userData={user} setCurrentPage={handlePageChange} />,
+      element: <Layout isLoggedIn={isLoggedIn} userData={user} />,
       children: [
         {
           index: true,
@@ -42,11 +40,11 @@ function App() {
         },
         {
           path: "/profile",
-          element: <Profile isLoggedIn={isLoggedIn} token={token} user={user} currentPage={currentPage} />
+          element: <Profile />
         },
         {
           path: "/volunteer",
-          element: <Volunteer isLoggedIn={isLoggedIn} token={token} user={user} />,
+          element: <Volunteer />,
         },
         {
           path: "/charities",
