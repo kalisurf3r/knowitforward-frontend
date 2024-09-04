@@ -9,11 +9,21 @@
 .footer-style {
     background-color: var(--light_gray);
     color: var(--dark_gray);
-    padding: 1rem;
-    position: absolute;
     width: 100%;
-    font-size: 0.9rem;
+    /* font-size: 1.5vw; */
     display: flex;
     justify-content: center;
+    align-items: center;
+    font-weight: bolder;
     padding: 20px;
+    font-weight: 400;
+    margin-bottom: 0;
+
+}
+
+@media (max-width: 650px) {
+    .footer-style {
+        flex-direction: column;
+        justify-content: center;
+    }
 }

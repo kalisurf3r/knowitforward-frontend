@@ -1,5 +1,5 @@
 import { useEffect, useState, } from 'react';
-import { getCharities, getSvcsAsServiceProvider, getUserProfileDetails } from '../utils/apiUtil';
+import { getCharities, getSvcsAsCustomer, getSvcsAsServiceProvider, getUserProfileDetails } from '../utils/apiUtil';
 import './Profile.css';
 import { useLocation } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
@@ -25,7 +25,7 @@ export default function Profile(props) {
     const [pastSvc, setPastSvc] = useState([]);
 
 
-    // helpers 
+    // -------- helpers --------
     async function getSvcsOffrdAndPruneThem() {
         let active = [];
         let past = [];
@@ -36,20 +36,49 @@ export default function Profile(props) {
         svcsOffrd.data.forEach((svc) => {
             console.log(svc.status);
             svc.isServiceProvider = true;
-            if (svc.status !== 'Closed') {
-                console.log('is active');
-
+            svc.isCustomer = false;
+            if (svc.status === 'Booked') {
+                svc.isBooked = true;
                 active.push(svc);
-            } else {
-                console.log('is past');
+            } else if (svc.status === 'Ready for payment') {
+                svc.isReadyForPayment = true;
+                active.push(svc);
+            }
+            else if (svc.status === 'Closed') {
                 past.push(svc)
             }
         });
         setActiveSvc(active);
         setPastSvc(past);
-
     }
 
+    async function getSvcsBookedAndPruneThem() {
+        let active = [];
+        let past = [];
+
+        const svcsOffrd = await getSvcsAsCustomer(userId, token);
+        console.log("Services that were booked by this user are: ", svcsOffrd.data);
+
+        svcsOffrd.data.forEach((svc) => {
+            console.log(svc.status);
+            svc.isServiceProvider = false;
+            svc.isCustomer = true;
+            if (svc.status === 'Booked') {
+                svc.isBooked = true;
+                active.push(svc);
+            } else if (svc.status === 'Ready for payment') {
+                svc.isReadyForPayment = true;
+                active.push(svc);
+            }
+            else if (svc.status === 'Closed') {
+                past.push(svc)
+            }
+        });
+        setActiveSvc(active);
+        setPastSvc(past);
+    }
+
+    // -------- React hooks --------
     useEffect(() => {
 
         const fetchProfileData = async () => {
@@ -59,19 +88,23 @@ export default function Profile(props) {
             console.log("User response received: ", userDetResponse);
             setUserDetails(userDetResponse.data);
             setCharities(userDetResponse.data.Charities)
+
+            console.log("Get services provided by the user: ");
+            await getSvcsOffrdAndPruneThem();
         };
 
         fetchProfileData();
     }, []);
 
 
-    // btn click handlers
+    // -------- btn click handlers --------
     const handleSvcOffrdClick = async (e) => {
         console.log("li clicked");
         await getSvcsOffrdAndPruneThem();
     }
 
     const handleSvcBookedClick = async (e) => {
+        await getSvcsBookedAndPruneThem();
         console.log(e);
 
     }
@@ -129,12 +162,15 @@ export default function Profile(props) {
                                         title={svc.title}
                                         isCustomer={svc.isCustomer}
                                         isServiceProvider={svc.isServiceProvider}
+                                        isBooked={svc.isBooked}
+                                        isReadyForPayment={svc.isReadyForPayment}
                                         firstName={svc.ServiceProvider.firstName}
                                         lastName={svc.ServiceProvider.lastName}
                                         basePrice={svc.basePrice}
                                         serviceDate={svc.serviceDate}
                                         timeLeft={svc.timeLeft}
                                         charityName={svc.Charity.charityName}
+                                        paymentLink={svc.paymentLink}
                                     />
                                 ))
                             }
@@ -147,6 +183,8 @@ export default function Profile(props) {
                                     title={svc.title}
                                     isCustomer={svc.isCustomer}
                                     isServiceProvider={svc.isServiceProvider}
+                                    isBooked={svc.isBooked}
+                                    isReadyForPayment={svc.isReadyForPayment}
                                     firstName={svc.ServiceProvider.firstName}
                                     lastName={svc.ServiceProvider.lastName}
                                     basePrice={svc.basePrice}
