@@ -1,6 +1,7 @@
 import "./volunteer.css";
 import { getCategories, getCharities, postService } from "../utils/apiUtil";
 import { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 
 export default function Volunteer() {
   const [title, setTitle] = useState("");
@@ -13,6 +14,10 @@ export default function Volunteer() {
   const [charities, setCharities] = useState([]);
   const [selectedCharity, setSelectedCharity] = useState("");
   const [isVerified, setIsVerified] = useState(false);
+  const [isMessageVisible, setIsMessageVisible] = useState(false);
+  const [message, setMessage] = useState("");
+  const [isError, setIsError] = useState(false);
+  const navigate = useNavigate();
 
   const verifyJWT = async () => {
     const token = localStorage.getItem("token");
@@ -146,12 +151,23 @@ export default function Volunteer() {
       console.log('after');
       if (response.status === 200) {
           console.log("Volunteering successful:", data);
+          setMessage("Submission Successful");
+          setIsError(false);
+          setTimeout(() => {
+            navigate('/services'); 
+          }, 2000);
       } else {
           console.error("Failed to volunteer");
+          setMessage("Submission Failed");
+          setIsError(true);
       }
     } catch (error) {
       console.error("Error volunteering:", error);
+      setMessage("Submission Failed");
+      setIsError(true);
     }
+
+    setIsMessageVisible(true);
   }
   
 
@@ -360,6 +376,11 @@ export default function Volunteer() {
             </button>
           </div>
         </form>
+        {isMessageVisible && (
+          <div style={{ color: isError ? 'red' : 'green', textAlign: 'center', marginTop: '20px' }}>
+            {message}
+          </div>
+        )}
       </div>
     </>
   );
