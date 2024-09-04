@@ -135,7 +135,7 @@ export const getUserProfileDetails = async (userId, token) => {
 
 export const getSvcsAsServiceProvider = async (userId, token) => {
     console.log("Quering for all services with service provider id as: " + userId);
-    const url = API_PREFIX + `/api/services/serviceprovider/${userId}`;
+    const url = API_PREFIX + `api/services/serviceprovider/${userId}`;
     console.log("get services as service provider  url: ", url);
     const response = await fetch(url, {
         method: "GET",
