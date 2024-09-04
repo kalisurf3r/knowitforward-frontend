@@ -8,7 +8,7 @@ import ServiceCard from '../components/ServiceCard'
 export default function Layout(props) {
     return (
         <>
-            <Navbar isLoggedIn={props.isLoggedIn} userData={props.userData} />
+            <Navbar isLoggedIn={props.isLoggedIn} userData={props.userData} setCurrentPage={props.setCurrentPage} />
             <main>
                 <Outlet />
             </main>
