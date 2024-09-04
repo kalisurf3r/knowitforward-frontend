@@ -11,14 +11,6 @@ import { faCalendar, faDollarSign, faHandHoldingHeart, faHourglassEnd, faList } 
 export default function ServiceCard(props) {
 
 
-    // CALCULATE TIME LEFT:
-    // for (let i = 0; i < {props.serviceEndDate}.length; i++) {
-    //     const offerEndDate = props.serviceEndDate[i];
-    //     const now = Date();
-    //     const hoursLeft = Math.floor(((props.serviceEndDate[i]-now) % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    //     console.log(hoursLeft)
-    // }
-
 
     return (
         <div className="card cardStyle"  >

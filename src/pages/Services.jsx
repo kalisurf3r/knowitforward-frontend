@@ -31,6 +31,7 @@ export default function Services() {
                 <div className='services-content'>
                     <div className='services-filters'>
                         <h2 className='filter-title'>Filters</h2>
+                        <div className='filter-sections'>
                         <div className='filter-categories'>
                             <h5>Categories</h5>
                             <div className="radio">
@@ -89,6 +90,7 @@ export default function Services() {
                                     </label>
                                 </div>
                             ))}
+                        </div>
                         </div>
                     </div>
                     <div className='services-page-cards'>
