@@ -149,6 +149,21 @@ export const getSvcsAsServiceProvider = async (userId, token) => {
     return response.json();
 };
 
+export const getSvcsAsCustomer = async (userId, token) => {
+    console.log("Quering for all services with customer id as: " + userId);
+    const url = API_PREFIX + `api/services/customer/${userId}`;
+    console.log("get services as custoemr url: ", url);
+    const response = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`,
+        }
+    });
+
+    console.log("got back response from getSvcsAsCustomer api call as: ", response);
+    return response.json();
+};
 
 
 //--------------- Loader functions --------------

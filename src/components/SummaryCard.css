@@ -8,19 +8,12 @@
     /* font-optical-sizing: auto; */
     /* font-weight: 200; */
     font-style: normal;
-    flex: 0 0 300px;
+    flex: 0 1 300px;
+    min-width: 250px;
     /* margin-top: 25px;
     margin-bottom: 25px; */
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.075);
 
-}
-
-.servicesContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 400px));
-    gap: 1%;
-    justify-content: center;
-    margin-bottom: 25px;
 }
 
 .card-content {
@@ -64,8 +57,46 @@
     gap: 1rem;
 }
 
+#doneBtn,
+#payBtn,
+#cancelBtn {
+    /* font-size: 14pt; */
+    color: var(--dark_gray);
+    padding: 5px 15px;
 
-/* .profilePicImg {
-    width: 50%;
-    margin-top: 25px;
+    border: outset 3px solid var(--accent);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px gray;
+    text-decoration: under;
+    font-weight: 300;
+    margin-top: 7px;
+}
+
+#doneBtn,
+#payBtn {
+    background-color: var(--accent);
+}
+
+#cancelBtn {
+    background-color: #ff6666;
+}
+
+
+
+.spbtnHolders,
+.custbtnHolders {
+    justify-content: center;
+}
+
+.spbtnHolders {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+
+}
+
+/* @media (max-width: 650px) {
+    .svcCard {
+        flex: 0 0 275px;
+    }
 } */
