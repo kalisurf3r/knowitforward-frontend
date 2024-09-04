@@ -1,0 +1,71 @@
+.svcCard {
+    box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #fff;
+    /* flex: 1; */
+    font-family: "Montserrat", sans-serif;
+    /* font-optical-sizing: auto; */
+    /* font-weight: 200; */
+    font-style: normal;
+    flex: 0 0 300px;
+    /* margin-top: 25px;
+    margin-bottom: 25px; */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.075);
+
+}
+
+.servicesContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 400px));
+    gap: 1%;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.card-content {
+    padding: 1rem 1rem 1rem 1rem;
+    text-align: center;
+}
+
+.card-title {
+    color: #333;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.name-tags {
+    margin-bottom: 0.5rem;
+}
+
+.name {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    /* text-transform: uppercase; */
+    background-color: var(--primary);
+    color: var(--dark_gray);
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.card-attributes {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.card-attribute {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+/* .profilePicImg {
+    width: 50%;
+    margin-top: 25px;
+} */

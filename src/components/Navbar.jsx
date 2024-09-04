@@ -51,16 +51,16 @@ export default function Navbar(props) {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ms-auto">
                         <li className="nav-item ms-4">
-                            <Link to="/profile" className="nav-link" style={navitemStyle} onClick={() => props.setCurrentPage("profile")}>Profile</Link>
+                            <Link to="/profile" className="nav-link" style={navitemStyle}>Profile</Link>
                         </li>
                         <li className="nav-item ms-4">
-                            <Link to="/volunteer" className="nav-link" style={navitemStyle} onClick={() => props.setCurrentPage("volnteer")}>Volunteer</Link>
+                            <Link to="/volunteer" className="nav-link" style={navitemStyle}>Volunteer</Link>
                         </li>
                         <li className="nav-item ms-4">
-                            <Link to="/services" className="nav-link" style={navitemStyle} onClick={() => props.setCurrentPage("services")}>Services</Link>
+                            <Link to="/services" className="nav-link" style={navitemStyle}>Services</Link>
                         </li>
                         <li className="nav-item ms-4">
-                            <Link to="/charities" className="nav-link" style={navitemStyle} onClick={() => props.setCurrentPage("charities")}>Charities</Link>
+                            <Link to="/charities" className="nav-link" style={navitemStyle}>Charities</Link>
                         </li>
                     </ul>
                 </div>
