@@ -10,8 +10,15 @@ import { faCalendar, faDollarSign, faHandHoldingHeart, faHourglassEnd, faList } 
 
 export default function ServiceCard(props) {
 
-    // const services = props.servicesData;
-    console.log(props.service);
+
+    // CALCULATE TIME LEFT:
+    // for (let i = 0; i < {props.serviceEndDate}.length; i++) {
+    //     const offerEndDate = props.serviceEndDate[i];
+    //     const now = Date();
+    //     const hoursLeft = Math.floor(((props.serviceEndDate[i]-now) % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    //     console.log(hoursLeft)
+    // }
+
 
     return (
         <div className="card cardStyle"  >
@@ -19,32 +26,40 @@ export default function ServiceCard(props) {
 
                 <Card.Title className='svc-card-title'>{props.serviceTitle}</Card.Title>
                 <Card.Body className='svc-card-top-container'>
-                    <img className='svc-card-img' src={tempPic} alt="" />
+                    <img className='svc-card-img' src={props.serviceImg} alt="" />
                     <div>
                         <Card.Text className='svc-card-provider'>
-                            John Doe
+                            {props.serviceProviderFirstName}{" "}{props.serviceProviderLastName}
                         </Card.Text>
                         <Card.Text className='svc-card-provider'>
-                            ⭐️⭐️⭐️⭐️⭐️
+                            {props.serviceRating}⭐️
                         </Card.Text>
                     </div>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
                     <div>
-                        <ListGroup.Item className='list-group-item'><FontAwesomeIcon icon={faDollarSign} /> 50</ListGroup.Item>
-                        <ListGroup.Item className='list-group-item'><FontAwesomeIcon icon={faCalendar} /> 09/12/24</ListGroup.Item>
-                        <ListGroup.Item className='list-group-item'><FontAwesomeIcon icon={faHourglassEnd} /> 12h</ListGroup.Item>
+                        <ListGroup.Item className='list-group-item'><FontAwesomeIcon icon={faDollarSign} />
+                        {"   "}{props.serviceCost}
+                        </ListGroup.Item>
+                        <ListGroup.Item className='list-group-item'><FontAwesomeIcon icon={faCalendar} /> 
+                            <span className='service-date'>{"   "}{new Date(props.serviceDate).toDateString()}</span>
+                        </ListGroup.Item>
+                        <ListGroup.Item className='list-group-item'><FontAwesomeIcon icon={faHourglassEnd} />
+                        {"   "}12h
+                        </ListGroup.Item>
                     </div>
                     <ListGroup.Item className='svc-card-container'>
-                        <img className='svc-card-logo' src={redCrossLogo} alt="" />
+                        <img className='svc-card-logo' src={props.charityLogo} alt="" />
                     </ListGroup.Item>
                 </ListGroup>
                 <Card.Text className='svc-card-text'>
-                        We will cover key topics such as fractions, decimals, multiplication, division, and basic geometry. The session will include problem-solving exercises and tips to improve math skills. The goal is to help your child strengthen their understanding of these concepts and build confidence in their math abilities.
+                        {props.serviceDesc}
                 </Card.Text>
                 <Card.Link href="#" className='svc-card-container'>
                     {/* CONDITIONAL RENDERING: only show 'Book' button when use is logged in */}
-                    <button className='svc-card-button' >Book</button>
+                    <button className='svc-card-button'>
+                        Book
+                    </button>
                 </Card.Link>
             </Card>
         </div>

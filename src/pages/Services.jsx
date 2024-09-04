@@ -1,7 +1,7 @@
 import './Services.css'
 import ServiceCard from '../components/ServiceCard'
-import Form from 'react-bootstrap/Form';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom'
+import { useState } from 'react'
 
 export default function Services() {
     const servicesPageData = useLoaderData();
@@ -12,13 +12,15 @@ export default function Services() {
     console.log("Services.jsx charities data: ", charities);
     console.log("Services.jsx categories data: ", categories);
 
-services.map((service) => (
-    <ServiceCard 
-    key={service.id} serviceTitle={service.title}
-    />
+    const [categorySelection, setCategorySelection] = useState('all-categories')
+    const [charitySelection, setCharitySelection] = useState('all-charities')
 
-))
-
+    const onOptionChangeCat = e => {
+        setCategorySelection(e.target.value)
+    }
+    const onOptionChangeChar = e => {
+        setCharitySelection(e.target.value)
+    }
 
     return (
         <>
@@ -33,14 +35,24 @@ services.map((service) => (
                             <h5>Categories</h5>
                             <div className="radio mb-3">
                                 <label>
-                                    <input key="categoryAll" type="radio" value="all-categories" name="category" className='radio-buttons'/>
+                                    <input key="categoryAll" type="radio" value="all-categories" name="category"
+                                        onChange={onOptionChangeCat}
+                                        className='radio-buttons'
+                                    />
                                     All Categories
                                 </label>
                             </div>
                             {categories.map((category) => (
                                 <div className="radio mb-3">
                                     <label>
-                                        <input key="categoryId" type="radio" value={category.categoryName} name="category" className='radio-buttons'/>
+                                        <input
+                                            key="categoryId" type="radio"
+                                            value={category.categoryName}
+                                            name="category"
+                                            checked={category === category.categoryName}
+                                            onChange={onOptionChangeCat}
+                                            className='radio-buttons'
+                                        />
                                         {category.categoryName}
                                     </label>
                                 </div>
@@ -51,14 +63,28 @@ services.map((service) => (
                             <h5>Charities</h5>
                             <div className="radio mb-3">
                                 <label>
-                                    <input key="charityAll" type="radio" value="all-charities" name="charity" className='radio-buttons'/>
+                                    <input
+                                        key="charityAll"
+                                        type="radio"
+                                        value="all-charities"
+                                        name="charity"
+                                        onChange={onOptionChangeChar}
+                                        className='radio-buttons'
+                                    />
                                     All Charities
                                 </label>
                             </div>
                             {charities.map((charity) => (
                                 <div className="radio mb-3">
                                     <label>
-                                        <input key="charityId" type="radio" value={charity.charityName} name="charity" className='radio-buttons'/>
+                                        <input
+                                            key="charityId" type="radio"
+                                            value={charity.charityName}
+                                            name="charity"
+                                            checked={charity === charity.charityName}
+                                            onChange={onOptionChangeChar}
+                                            className='radio-buttons'
+                                        />
                                         {charity.charityName}
                                     </label>
                                 </div>
@@ -67,7 +93,21 @@ services.map((service) => (
                     </div>
                     <div className='services-page-cards'>
                         {services.map((service) => (
-                            <div><ServiceCard /></div>
+                            <div>
+                                <ServiceCard
+                                    key={service.id}
+                                    serviceTitle={service.title}
+                                    serviceImg={service.ServiceProvider.profileImgUrl}
+                                    serviceProviderFirstName={service.ServiceProvider.firstName}
+                                    serviceProviderLastName={service.ServiceProvider.lastName}
+                                    serviceRating={service.ServiceProvider.ratings}
+                                    serviceCost={service.basePrice}
+                                    serviceDate={service.serviceDate}
+                                    serviceEndDate={service.ServiceProvider.offerEndDate}
+                                    charityLogo={service.Charity.logoImgUrl}
+                                    serviceDesc={service.description}
+                                />
+                            </div>
                         ))}
                     </div>
                 </div>
@@ -77,3 +117,5 @@ services.map((service) => (
         </>
     );
 }
+
+// serviceProvider={fullNamesArray}
