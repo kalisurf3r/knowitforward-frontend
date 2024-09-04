@@ -1,12 +1,14 @@
 import { useEffect, useState, } from 'react';
 import { getUserProfileDetails } from '../utils/apiUtil';
 import './Profile.css';
+import { useLocation } from 'react-router-dom';
 
 export default function Profile(props) {
     const token = props.token;
     const userData = props.user;
     const isLoggedIn = props.isLoggedIn;
     const userId = userData.id;
+    const location = useLocation();
     console.log(`got back user id as: ${userId} and token as: ${token}`);
 
     console.log("Get user profile");
@@ -19,6 +21,7 @@ export default function Profile(props) {
 
     useEffect(() => {
         const fetchProfileData = async () => {
+            console.log("path name: ", location.pathname);
             try {
                 console.log(`Fetching profile data for user ID: ${userId}`);
 
@@ -31,9 +34,11 @@ export default function Profile(props) {
         };
 
         fetchProfileData();
-    }, [userId, token]);
+    }, [location.pathname]);
+    // }, [props.currentPage]);
     console.log("udetails");
     console.log(userDetails);
+    console.log("curernt pagE: ", props.currentPage);
 
 
     return (
@@ -42,7 +47,7 @@ export default function Profile(props) {
             <h1 id='profileHeader'>My Profile</h1>
             <div className="container-fluid profilePageContainer">
                 <div className='row'>
-                    <div className='col col-md-4 userDetailsSection'>
+                    <div className='col col-md-4 col-sm-6 col-12 userDetailsSection'>
                         <div className='userPicAndPersonalDetails'>
 
                             <img className="profilePicImg" src={userDetails.data.profileImgUrl} alt="profile pic" />
@@ -65,7 +70,7 @@ export default function Profile(props) {
 
 
                     {/* Services display card */}
-                    <div className='col col-md-8 userSvcsDetailsSection'>
+                    <div className='col col-md-8 col-sm-6 col-12 userSvcsDetailsSection'>
 
                     </div>
 
