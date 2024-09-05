@@ -1,4 +1,4 @@
-import "./volunteer.css";
+import "./Volunteer.css";
 import { getCategories, getCharities, postService } from "../utils/apiUtil";
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
