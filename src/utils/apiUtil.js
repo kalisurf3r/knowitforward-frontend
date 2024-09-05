@@ -150,13 +150,18 @@ export const getSvcsAsCustomer = async (userId, token) => {
     return response.json();
 };
 
-export const updateSvcRecord = async (svcId, action, token) => {
+export const updateSvcRecord = async (svcId, action, token, userId) => {
     console.log("Updating service with id as: " + svcId);
     const url = API_PREFIX + `api/services/${svcId}`;
     console.log("put services as: ", url);
     const body = {
         action: action
     }
+    if (userId) {
+        body['userid'] = userId
+    }
+
+    console.log("Making a put call with request body as: ", body);
     const response = await fetch(url, {
         method: "PUT",
         body: JSON.stringify(body),

@@ -6,11 +6,13 @@ import { jwtDecode } from 'jwt-decode';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import SummaryCard from '../components/SummaryCard';
+import { useNavigate } from "react-router-dom";
 
 export default function Profile(props) {
     const token = localStorage.getItem('token');
     const decodedToken = jwtDecode(token);
     const expirationTime = decodedToken.exp * 1000;
+    const navigate = useNavigate();
     let userId;
 
     if (Date.now() >= expirationTime) {
@@ -31,6 +33,7 @@ export default function Profile(props) {
     async function getSvcsOffrdAndPruneThem() {
         let active = [];
         let past = [];
+
 
         const svcsOffrd = await getSvcsAsServiceProvider(userId, token);
         console.log("Services that were offered by this user are: ", svcsOffrd.data);
@@ -118,12 +121,14 @@ export default function Profile(props) {
         console.log("Action received: ", action);
         const response = await updateSvcRecord(svcId, action, token);
         console.log('response from PUT call');
+        //TODO: Feedback to the user that the update was successful and refresh the page.
         if (response.status === 200) {
-            setLblText("Service status updated successfully");
-            setlblcolor('blue');
+            // setLblText("Service status updated successfully");
+            // setlblcolor('blue');
+            navigate('/profile')
         } else {
-            setLblText("Failed to update service status");
-            setlblcolor('red');
+            // setLblText("Failed to update service status");
+            // setlblcolor('red');
         }
     };
 
