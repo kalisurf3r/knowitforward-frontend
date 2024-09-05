@@ -28,16 +28,16 @@ export default function ServiceCard(props) {
                         </Card.Text>
                     </div>
                 </Card.Body>
-                <ListGroup className="list-group-flush">
+                <ListGroup className="list-group-flush svcCardListGroup">
                     <div>
-                        <ListGroup.Item className='list-group-item'><FontAwesomeIcon icon={faDollarSign} />
-                        {"   "}{props.serviceCost}
+                        <ListGroup.Item className='list-group-item  svcCardListGroupItem'><FontAwesomeIcon icon={faDollarSign} />
+                            {"   "}{props.serviceCost}
                         </ListGroup.Item>
-                        <ListGroup.Item className='list-group-item'><FontAwesomeIcon icon={faCalendar} /> 
+                        <ListGroup.Item className='list-group-item svcCardListGroupItem'><FontAwesomeIcon icon={faCalendar} />
                             <span className='service-date'>{"   "}{new Date(props.serviceDate).toDateString()}</span>
                         </ListGroup.Item>
-                        <ListGroup.Item className='list-group-item'><FontAwesomeIcon icon={faHourglassEnd} />
-                        {"   "}{props.serviceTimeLeft}
+                        <ListGroup.Item className='list-group-item svcCardListGroupItem' svcCardListGroupItem><FontAwesomeIcon icon={faHourglassEnd} />
+                            {"   "}{props.serviceTimeLeft}
                         </ListGroup.Item>
                     </div>
                     <ListGroup.Item className='svc-card-container'>
@@ -45,7 +45,7 @@ export default function ServiceCard(props) {
                     </ListGroup.Item>
                 </ListGroup>
                 <Card.Text className='svc-card-text'>
-                        {props.serviceDesc}
+                    {props.serviceDesc}
                 </Card.Text>
                 <Card.Link href="#" className='svc-card-container'>
                     {/* CONDITIONAL RENDERING: only show 'Book' button when use is logged in */}
