@@ -153,6 +153,16 @@ export default function Volunteer() {
           console.log("Volunteering successful:", data);
           setMessage("Submission Successful");
           setIsError(false);
+
+          setTitle("");
+          setDescription("");
+          setPrice("");
+          setOfferEndDate("");
+          setScheduledDate("");
+          setSelectedCategory("");
+          setSelectedCharity("");
+
+          
           setTimeout(() => {
             navigate('/services'); 
           }, 2000);
