@@ -1,4 +1,4 @@
-import "./Charities.css";
+import "./charities.css";
 import CharityCard from "../components/CharityCard";
 import { getCharities } from "../utils/apiUtil";
 import { useEffect, useState } from "react";
@@ -52,11 +52,11 @@ export default function Charities(props) {
 
   return (
     <>
-      <div className="container-style">
+      <div className="charities-container">
         <div className="img-scale">
-          <img className="img-style" src="/hands.png" alt="hands" />
+          <img className="charity-img" src="/hands.png" alt="hands" />
         </div>
-        <div className="text-center">
+        <div className="charity-header">
           <h1>Charities</h1>
           <p className="header-text" style={{ marginRight: "10px" }}>
             With <span className="fw-semibold">KnowItForward</span> you can support the charities that are important
@@ -65,9 +65,9 @@ export default function Charities(props) {
         </div>
       </div>
 
-        <div className="row" style={{ marginTop: "85px" }}>
+        <div className="row charity-cards" style={{ marginTop: "2vh" }}>
         {charities.map((charity) => (
-          <div className="col-12 col-md-6 col-lg-4  col-sm-4 mb-4" key={charity.id}>
+          <div className="col-12 col-xxl-3 col-md-6 col-lg-4  col-sm-12 mb-4" key={charity.id}>
             <CharityCard charity={charity}/>
           </div>
         ))}

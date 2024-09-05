@@ -10,6 +10,7 @@
 .card {
     height: 340px;
     border-radius: 10px;
+
 }
 
 .svc-card-title {
@@ -42,8 +43,7 @@
     font-size: 11pt;
 }
 
-.svccardcistgroup {
-    border: 0 5px solid blue;
+.svccardlistgroup {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -55,6 +55,7 @@
     padding: 2px 10px;
     border: none;
     font-weight: 300;
+    background-color: white;
 }
 
 .service-date {
@@ -70,6 +71,7 @@
 
 .svc-card-logo {
     height: 30px;
+    background-color: white;
 }
 
 .svc-card-text {

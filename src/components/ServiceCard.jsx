@@ -28,7 +28,7 @@ export default function ServiceCard(props) {
                         </Card.Text>
                     </div>
                 </Card.Body>
-                <ListGroup className="list-group-flush svccardcistgroup">
+                <ListGroup className="list-group-flush svccardlistgroup">
                     <div>
                         <ListGroup.Item className='list-group-item  svccardlistgroupitem'><FontAwesomeIcon icon={faDollarSign} />
                             {"   "}{props.serviceCost}
@@ -57,5 +57,3 @@ export default function ServiceCard(props) {
         </div>
     )
 }
-
-//* remember to set props for: logo, description, and total donated

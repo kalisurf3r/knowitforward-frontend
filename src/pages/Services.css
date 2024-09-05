@@ -1,27 +1,19 @@
-/* * {
-    font-family: Arial, Helvetica, sans-serif;
-
-    color: var(--dark_gray);
-} */
-
 .services-page {
     background-color: var(--light_gray);
     margin: 0;
-    /* font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal; */
 }
 
 .services-header {
     display: flex;
     justify-content: center;
-<<<<<<< HEAD
     flex-direction: column;
+    flex-wrap: wrap;
     height: 100px;
-=======
->>>>>>> dev
     padding: 30px;
+}
+
+.services-header h1 {
+    text-align: center;
 }
 
 .services-content {
@@ -36,7 +28,6 @@
     border-radius: 5px;
     margin: 0 5px 0 5px;
     font-weight: 300;
-
 }
 
 .filter-title {
@@ -70,8 +61,6 @@ h5 {
     display: flex;
     flex-wrap: wrap;
 }
-<<<<<<< HEAD
-=======
 
 @media screen and (max-width: 775px) {
     .services-header {
@@ -84,7 +73,6 @@ h5 {
     .services-content {
         display: flex;
         flex-direction: column;
-        /* justify-content: space-around; */
     }
 
     .filter-title {
@@ -117,4 +105,3 @@ h5 {
 
 
 }
->>>>>>> dev

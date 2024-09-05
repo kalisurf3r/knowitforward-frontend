@@ -37,6 +37,7 @@
     margin: 10px 0;
     font-size: 14px;
     text-align: center;
+    font-weight: 300;
 }
 
 .donated-style {
@@ -47,6 +48,22 @@
     text-align: center;
 }
 
+@media screen and (max-width: 515px) {
 
+    .charity-card {
+        width: 250px;
+        height: 360px;
+    }
 
+    .charity-card-text {
+        font-size: 12px;
+        font-weight: 300;
+    }
 
+    .donated-style {
+        padding: 3px;
+        font-size: 10pt;
+        padding-bottom: 0;
+    }
+
+}
