@@ -156,6 +156,7 @@ export default function Services() {
                                         serviceTimeLeft={service.timeLeft}
                                         charityLogo={service.Charity.logoImgUrl}
                                         serviceDesc={service.description}
+                                        serviceProvideremail={service.ServiceProvider.email}
                                         btnSubmit={handleBtnSubmit}
                                     />
                                 </div>
