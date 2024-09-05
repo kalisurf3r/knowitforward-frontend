@@ -98,8 +98,8 @@ export default function SummaryCard(props) {
                         props.isCustomer && props.isReadyForPayment ? (
                             <div className="custbtnHolders">
                                 <a href={props.paymentLink} target='_blank'>
-                                    <Tooltip id="my-tooltip1" />
-                                    <button data-tooltip-id="my-tooltip1" data-tooltip-content="Click to pay" data-svc-id={props.id} onClick={(e) => handlePayBtnClick(e)} id='payBtn'>Pay</button>
+                                    {/* <Tooltip id="my-tooltip1" />  data-tooltip-id="my-tooltip1" data-tooltip-content="Click to pay"*/}
+                                    <button data-svc-id={props.id} onClick={(e) => handlePayBtnClick(e)} id='payBtn'>Pay</button>
                                 </a>
                             </div>
 
