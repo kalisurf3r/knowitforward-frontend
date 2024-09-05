@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./SummaryCard.css";
 import { Card } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -14,6 +14,7 @@ import 'react-tooltip/dist/react-tooltip.css';
 
 export default function SummaryCard(props) {
     console.log("Got back props: ", props);
+
 
 
 
@@ -46,22 +47,7 @@ export default function SummaryCard(props) {
                     <div>
                         <p className='card-title'>{props.title}</p>
                         <div className="card-content">
-                            {/* <div className='name-tags'>
-        {props.isCustomer ? (
-            <span className='name'>
-                {props.firstName} {" "} {props.lastName}
-            </span>
-        ) : (
-            <></>
-        )}
-
-    </div> */}
-
                             <ul className="card-attributes">
-                                {/* <li className="card-attribute">
-            <span style={{ color: 'red' }}><FontAwesomeIcon icon={faDollarSign} /></span>
-            <span>{props.basePrice}</span>
-        </li> */}
                                 <li className='card-attribute'>
                                     <FontAwesomeIcon icon={faCircle} />
                                     <span style={{ fontWeight: '300' }}>{props.status}</span>
@@ -75,20 +61,6 @@ export default function SummaryCard(props) {
                                     <span style={{ fontWeight: '300' }}>More Info</span>
                                     {/* TODO: required info */}
                                 </li>
-                                {/* {
-            props.timeLeft ? (
-                <li className='card-attribute'>
-                    <FontAwesomeIcon icon={faHourglassEnd} />
-                    <span>{props.timeLeft}</span>
-                </li>
-            ) : (<></>)
-        }
-
-        <li className="card-attribute">
-            <FontAwesomeIcon icon={faHandHoldingHeart} />
-            <span>{props.charityName}</span>
-        </li>  */}
-
                             </ul>
                         </div>
                     </div>
@@ -118,9 +90,6 @@ export default function SummaryCard(props) {
                                     />
 
                                 </span>
-                                {/* <button data-svc-id={props.id} onClick={(e) => handleDoneBtnClick(e)} id='doneBtn'>Done</button> */}
-                                {/* <button data-svc-id={props.id} onClick={(e) => handleCancelBtnClick(e)} id='cancelBtn'>Cancel</button> */}
-                                {/* <FontAwesomeIcon icon={faCircleCheck} />                     title={ }*/}
                             </div>
 
                         ) : (<></>)
@@ -128,8 +97,10 @@ export default function SummaryCard(props) {
                     {
                         props.isCustomer && props.isReadyForPayment ? (
                             <div className="custbtnHolders">
-                                <Tooltip id="my-tooltip1" />
-                                <button data-tooltip-id="my-tooltip1" data-tooltip-content="Click to pay" data-svc-id={props.id} onClick={(e) => handlePayBtnClick(e)} id='payBtn'>Pay</button>
+                                <a href={props.paymentLink} target='_blank'>
+                                    <Tooltip id="my-tooltip1" />
+                                    <button data-tooltip-id="my-tooltip1" data-tooltip-content="Click to pay" data-svc-id={props.id} onClick={(e) => handlePayBtnClick(e)} id='payBtn'>Pay</button>
+                                </a>
                             </div>
 
                         ) : (<></>)
