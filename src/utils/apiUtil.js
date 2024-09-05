@@ -193,7 +193,6 @@ export const updateSvcRecord = async (svcId, action, token, userId) => {
     return response.json();
 };
 
-
 //--------------- Loader functions --------------
 
 export const loadAllData = async () => {

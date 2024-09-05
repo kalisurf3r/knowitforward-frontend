@@ -8,7 +8,11 @@
 
 .container-style {
   display: flex;
+<<<<<<< HEAD
+  align-items: center;
+=======
   align-Items: center;
+>>>>>>> dev
   gap: 70px;
 }
 
