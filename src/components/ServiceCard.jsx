@@ -14,7 +14,6 @@ export default function ServiceCard(props) {
     const [showModal, setShowModal] = useState(false);
     const handleShowModal = () => setShowModal(true);
     const handleCloseModal = () => setShowModal(false);
-    
     return (
         <div className="card cardStyle" key={props.id} >
             <Card key={props.id} style={{ width: '250px' }}>

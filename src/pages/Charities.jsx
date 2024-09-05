@@ -8,12 +8,8 @@ export default function Charities(props) {
   const [charities, setCharities] = useState([]);
   
   const charityFetch = async () => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      console.error("No JWT token found");
-      return;
-    }
-
+   
+   
     try {
         
         const response = await getCharities();
@@ -31,6 +27,7 @@ export default function Charities(props) {
                         wallet: charity.wallet,
                         logoImgUrl: charity.logoImgUrl,
                         websiteUrl: charity.websiteUrl,
+                       
                     };
                 });
                 setCharities(mappedData);
