@@ -24,19 +24,24 @@ export default function Footer() {
     <footer className="footer-style">
       <p>
         © KnowItForward / All Rights Reserved /
-        <Link
-          to="https://github.com/kalisurf3r/knowitforward-frontend"
+        <a
+          href="https://github.com/kalisurf3r/knowitforward-frontend"
+          target="_blank"
           style={linkStyle}
         >
           {" "}
           About Us{" "}
-        </Link>
+        </a>
         /
-        <Link to="https://developer.mozilla.org/en-US/" style={linkStyle}>
+        <a
+          href="https://developer.mozilla.org/en-US/"
+          target='_blank'
+          style={linkStyle}>
           {" "}
           Support
-        </Link>
+        </a>
       </p>
     </footer>
   );
 }
+

@@ -13,7 +13,6 @@ import { useState } from 'react'
 import { useLoaderData, useNavigate } from 'react-router-dom'
 
 
-
 export default function Home(props) {
 
     const [show, setShow] = useState(false);
@@ -55,6 +54,7 @@ export default function Home(props) {
                 !props.isLoggedIn ? (
                     <div id="login" className='login-section'>
                         <Login setUserData={handleLoginSuccess} />
+
                         {/* <h3 className='login-form'>login form</h3> */}
                         <p className='or'>- OR -</p>
                         <button className='signup-button' onClick={handleShow}>Sign Up</button>
@@ -66,7 +66,7 @@ export default function Home(props) {
                     <></>
                 )
             }
-           
+
             <div className='services-section'>
                 <div className='services-categories'>
                     <h5 className='services-category'>Education</h5>

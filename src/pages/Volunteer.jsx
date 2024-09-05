@@ -26,7 +26,10 @@ export default function Volunteer() {
       return false;
     }
 
-    const response = await fetch("http://localhost:3004/api/verifyToken", {
+    const url_prefix = "https://knowitforward.onrender.com/";
+    // const url_prefix = "http://localhost:3004/"
+
+    const response = await fetch(url_prefix + "/api/verifyToken", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,29 +55,29 @@ export default function Volunteer() {
     }
 
     try {
-        
-        const response = await getCategories();
-        
-        if (response.status === 200) {
-            // const data = await response.json();
-            console.log("Fetched data:", response);
 
-            if (response) {
-                const mappedData = response.data.map((category) => {
-                    return {
-                        id: category.id,
-                        categoryName: category.categoryName,
-                    };
-                });
-                setCategories(mappedData);
-            } else {
-                console.error("Expected an array but got:", data);
-            }
+      const response = await getCategories();
+
+      if (response.status === 200) {
+        // const data = await response.json();
+        console.log("Fetched data:", response);
+
+        if (response) {
+          const mappedData = response.data.map((category) => {
+            return {
+              id: category.id,
+              categoryName: category.categoryName,
+            };
+          });
+          setCategories(mappedData);
         } else {
-            console.error("Failed to fetch categories");
+          console.error("Expected an array but got:", data);
         }
+      } else {
+        console.error("Failed to fetch categories");
+      }
     } catch (error) {
-        console.error("Error fetching categories:", error);
+      console.error("Error fetching categories:", error);
     }
   };
 
@@ -87,29 +90,29 @@ export default function Volunteer() {
     }
 
     try {
-        
-        const response = await getCharities();
-        
-        if (response.status === 200) {
-            // const data = await response.json();
-            console.log("Fetched data:", response);
 
-            if (response) {
-                const mappedData = response.data.map((charity) => {
-                    return {
-                        id: charity.id,
-                        charityName: charity.charityName,
-                    };
-                });
-                setCharities(mappedData);
-            } else {
-                console.error("Expected an array but got:", data);
-            }
+      const response = await getCharities();
+
+      if (response.status === 200) {
+        // const data = await response.json();
+        console.log("Fetched data:", response);
+
+        if (response) {
+          const mappedData = response.data.map((charity) => {
+            return {
+              id: charity.id,
+              charityName: charity.charityName,
+            };
+          });
+          setCharities(mappedData);
         } else {
-            console.error("Failed to fetch charities");
+          console.error("Expected an array but got:", data);
         }
+      } else {
+        console.error("Failed to fetch charities");
+      }
     } catch (error) {
-        console.error("Error fetching charities:", error);
+      console.error("Error fetching charities:", error);
     }
   };
 
@@ -131,7 +134,7 @@ export default function Volunteer() {
       console.error("No JWT token found");
       return;
     }
-  
+
     const data = {
       title,
       description,
@@ -143,13 +146,14 @@ export default function Volunteer() {
       charity: selectedCharity.charityName,
       CharityId: selectedCharity.id,
     };
-  
+
     try {
-        console.log(data);
+      console.log(data);
       const response = await postService(data, token);
-  
+
       console.log('after');
       if (response.status === 200) {
+
           console.log("Volunteering successful:", data);
           setMessage("Submission Successful");
           setIsError(false);
@@ -166,10 +170,23 @@ export default function Volunteer() {
           setTimeout(() => {
             navigate('/services'); 
           }, 2000);
+
+        console.log("Volunteering successful:", data);
+        setMessage("Submission Successful");
+        setIsError(false);
+
+        setTitle("");
+        setDescription("");
+        setPrice("");
+        setOfferEndDate("");
+        setScheduledDate("");
+        setSelectedCategory("");
+        setSelectedCharity("");
+
       } else {
-          console.error("Failed to volunteer");
-          setMessage("Submission Failed");
-          setIsError(true);
+        console.error("Failed to volunteer");
+        setMessage("Submission Failed");
+        setIsError(true);
       }
     } catch (error) {
       console.error("Error volunteering:", error);
@@ -179,9 +196,9 @@ export default function Volunteer() {
 
     setIsMessageVisible(true);
   }
-  
 
-  
+
+
   const imgStyle = {
     width: "850px",
     height: "250px",
@@ -198,7 +215,7 @@ export default function Volunteer() {
   const textContainerStyle = {
     display: "flex",
     flexDirection: "column",
-    fontFamily: "Rubik, sans-serif",
+    // fontFamily: "Rubik, sans-serif",
   };
 
   const formStyle = {
@@ -313,8 +330,8 @@ export default function Volunteer() {
             </label>
             <input
               style={input2Style}
-                value={price}
-                onChange={(e) => setPrice(e.target.value)}
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
               type="number"
               id="price"
               name="price"
@@ -327,8 +344,8 @@ export default function Volunteer() {
             </label>
             <input
               style={input2Style}
-                value={offerEndDate}
-                onChange={(e) => setOfferEndDate(e.target.value)}
+              value={offerEndDate}
+              onChange={(e) => setOfferEndDate(e.target.value)}
               type="date"
               id="offer-end-date"
               name="offer-end-date"
@@ -341,8 +358,8 @@ export default function Volunteer() {
             </label>
             <input
               style={input2Style}
-                value={scheduledDate}
-                onChange={(e) => setScheduledDate(e.target.value)}
+              value={scheduledDate}
+              onChange={(e) => setScheduledDate(e.target.value)}
               type="date"
               id="scheduled-date"
               name="scheduled-date"

@@ -1,10 +1,10 @@
-* {
+/* * {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
     color: var(--dark_gray);
-}
+} */
 
 
 .card {
@@ -42,7 +42,7 @@
     font-size: 11pt;
 }
 
-.list-group-flush {
+.svccardcistgroup {
     border: 0 5px solid blue;
     display: flex;
     flex-direction: row;
@@ -50,7 +50,7 @@
     align-items: center;
 }
 
-.list-group-item {
+.svccardlistgroupitem {
     font-size: 10pt;
     padding: 2px 10px;
     border: none;
@@ -96,9 +96,10 @@
     border: outset 3px solid var(--accent);
     border-radius: 10px;
     box-shadow: 5px 5px 5px gray;
-    text-decoration: underline solid var(--accent);  
-    margin: 5px 0;  
+    text-decoration: underline solid var(--accent);
+    margin: 5px 0;
 }
+
 .svc-card-button:hover {
     color: var(--dark_gray);
     background-color: rgba(255, 188, 44, 0.85);
