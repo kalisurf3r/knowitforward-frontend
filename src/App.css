@@ -3,9 +3,8 @@
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
-}
 
-* {
+
     --primary: #9DBC98;
     --accent: #FFBC2C;
     --dark_gray: #4D4D4D;

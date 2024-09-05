@@ -1,0 +1,103 @@
+.svcCard {
+    box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #fff;
+    /* flex: 1; */
+    font-family: "Montserrat", sans-serif;
+    /* font-optical-sizing: auto; */
+    /* font-weight: 200; */
+    /* font-style: normal; */
+    flex: 0 1 270px;
+    min-width: 250px;
+    /* margin-top: 25px;
+    margin-bottom: 25px; */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.075);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-content {
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    text-align: center;
+}
+
+.card-title {
+    color: #333;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.3rem;
+    /* background-color: var(--primary); */
+    text-align: center;
+    ;
+}
+
+.name-tags {
+    margin-bottom: 0.5rem;
+}
+
+.name {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    /* text-transform: uppercase; */
+    background-color: var(--primary);
+    color: var(--dark_gray);
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.card-attributes {
+    /* list-style: none; */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.card-attribute {
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: bold;
+}
+
+#doneBtn,
+#payBtn,
+#cancelBtn {
+    /* font-size: 14pt; */
+    color: var(--dark_gray);
+    padding: 5px 15px;
+    background-color: var(--accent);
+    border: outset 3px solid var(--accent);
+    border-radius: 10px;
+    /* box-shadow: 5px 5px 5px gray; */
+    text-decoration: under;
+    font-weight: 400;
+    margin-top: 7px;
+}
+
+
+
+.spbtnHolders,
+.custbtnHolders {
+    justify-content: center;
+    /* margin-bottom: 1rem; */
+}
+
+.spbtnHolders,
+.custbtnHolders {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+/* @media (max-width: 650px) {
+    .svcCard {
+        flex: 0 0 275px;
+    }
+} */

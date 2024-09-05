@@ -17,13 +17,16 @@ function App() {
     username: "",
   });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [token, setToken] = useState("");
 
   const setUserData = (userData) => {
     console.log("userData in setUser: ", userData);
     setUser({ ...userData });
     setIsLoggedIn(true);
+    setToken(userData.token);
     localStorage.setItem("token", userData.token);
   };
+  console.log("token: ", token);
 
   const router = createBrowserRouter([
     {
@@ -32,7 +35,7 @@ function App() {
       children: [
         {
           index: true,
-          element: <Home setUserData={setUserData} />,
+          element: <Home setUserData={setUserData} isLoggedIn={isLoggedIn} />,
           loader: loadServicesAndCharities
         },
         {
@@ -42,7 +45,6 @@ function App() {
         {
           path: "/volunteer",
           element: <Volunteer />,
-          loader: loadCategoriesAndCharities
         },
         {
           path: "/charities",
@@ -71,6 +73,7 @@ function App() {
       }
       setUser({ ...uData });
       setIsLoggedIn(true);
+      setToken(token);
     }
   }, []);
 

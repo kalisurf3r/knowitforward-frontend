@@ -1,8 +1,8 @@
-* {
+/* * {
     font-family: Arial, Helvetica, sans-serif;
 
     color: var(--dark_gray);
-}
+} */
 
 .services-page {
     background-color: var(--light_gray);
@@ -73,7 +73,7 @@ h5 {
         height: auto;
         padding: 10px;
     }
-    
+
     .services-content {
         display: flex;
         flex-direction: column;
@@ -91,7 +91,7 @@ h5 {
         justify-content: center;
         font-size: 10pt;
         color: #2c2c2c;
-    }  
+    }
 
     .filter-categories,
     .filter-charities {
