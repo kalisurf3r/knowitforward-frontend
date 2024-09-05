@@ -32,7 +32,7 @@ function App() {
       children: [
         {
           index: true,
-          element: <Home setUserData={setUserData} />,
+          element: <Home setUserData={setUserData} isLoggedIn={isLoggedIn} />,
           loader: loadServicesAndCharities
         },
         {
