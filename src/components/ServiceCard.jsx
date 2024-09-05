@@ -6,12 +6,15 @@ import redCrossLogo from '../../public/logos/red-cross-logo.png';
 import tempPic from '../../public/hands.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendar, faDollarSign, faHandHoldingHeart, faHourglassEnd, faList } from "@fortawesome/free-solid-svg-icons";
-
+import { useState } from 'react';
+import { Modal } from 'react-bootstrap';
+import ServiceModal from './ServiceModal';
 
 export default function ServiceCard(props) {
-
-
-
+    const [showModal, setShowModal] = useState(false);
+    const handleShowModal = () => setShowModal(true);
+    const handleCloseModal = () => setShowModal(false);
+    
     return (
         <div className="card cardStyle" key={props.id} >
             <Card key={props.id} style={{ width: '250px' }}>
@@ -46,6 +49,11 @@ export default function ServiceCard(props) {
                 </ListGroup>
                 <Card.Text className='svc-card-text'>
                     {props.serviceDesc}
+                   
+                    <div>
+                    <ServiceModal show={showModal} handleClose={handleCloseModal} serviceDesc={props.serviceDesc} serviceProvideremail={props.serviceProvideremail} />
+                    </div>
+                  
                 </Card.Text>
                 <Card.Link href="#" className='svc-card-container'>
                     {/* CONDITIONAL RENDERING: only show 'Book' button when use is logged in */}
@@ -54,6 +62,8 @@ export default function ServiceCard(props) {
                     </button>
                 </Card.Link>
             </Card>
+
+            
         </div>
     )
 }
