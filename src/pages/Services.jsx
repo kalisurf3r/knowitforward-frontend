@@ -2,6 +2,10 @@ import './Services.css'
 import ServiceCard from '../components/ServiceCard'
 import { useLoaderData } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { jwtDecode } from "jwt-decode";
+import { useNavigate } from "react-router-dom";
+import { updateSvcRecord } from '../utils/apiUtil';
+
 
 export default function Services() {
     const servicesPageData = useLoaderData();
@@ -26,6 +30,7 @@ export default function Services() {
     const decodedToken = jwtDecode(token);
     const expirationTime = decodedToken.exp * 1000;
     const navigate = useNavigate();
+    const [labeltext, setlabeltext] = useState('');
     let userId;
 
     if (Date.now() >= expirationTime) {
@@ -46,10 +51,13 @@ export default function Services() {
         if (response.status === 200) {
             // setLblText("Service status updated successfully");
             // setlblcolor('blue');
-            navigate('/profile')
+            console.log('service booked');
+            setlabeltext("Booking successful!");
+            setTimeout(() => {
+                navigate('/profile')
+              }, 2000);
+                        
         } else {
-            // setLblText("Failed to update service status");
-            // setlblcolor('red');
         }
     };
     
@@ -59,6 +67,7 @@ export default function Services() {
             <div className='services-page'>
                 <div className='services-header'>
                     <h1>Book a Service</h1>
+                    <p id="signUpErrMsg" style={{ color: 'blue', textWrap: 'wrap', maxWidth: '400px', textAlign: 'left', marginTop: '10px', fontSize: '14pt', fontWeight: '500' }}>{labeltext}</p>
                 </div>
                 <div className='services-content'>
                     <div className='services-filters'>
@@ -134,6 +143,7 @@ export default function Services() {
                             <div key={service.id}>
                                 <ServiceCard
                                     key={service.id}
+                                    serviceId={service.id}
                                     serviceTitle={service.title}
                                     serviceImg={service.ServiceProvider.profileImgUrl}
                                     serviceProviderFirstName={service.ServiceProvider.firstName}
