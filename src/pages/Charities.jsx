@@ -1,4 +1,4 @@
-import "./charities.css";
+import "./Charities.css";
 import CharityCard from "../components/CharityCard";
 import { getCharities } from "../utils/apiUtil";
 import { useEffect, useState } from "react";
