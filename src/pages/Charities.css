@@ -8,7 +8,7 @@
 
 .container-style{
   display: flex;
-  alignItems: center;
+  align-items: center;
   gap: 70px;
 }
 

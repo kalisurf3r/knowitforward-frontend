@@ -1,7 +1,7 @@
 import './Services.css'
 import ServiceCard from '../components/ServiceCard'
 import { useLoaderData } from 'react-router-dom'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Services() {
     const servicesPageData = useLoaderData();
@@ -22,6 +22,38 @@ export default function Services() {
         setCharitySelection(e.target.value)
     }
 
+    const token = localStorage.getItem('token');
+    const decodedToken = jwtDecode(token);
+    const expirationTime = decodedToken.exp * 1000;
+    const navigate = useNavigate();
+    let userId;
+
+    if (Date.now() >= expirationTime) {
+        console.log("Invalid token");
+        throw new Error("Invalid token cannot fetch data")
+        //TODO: 
+    }
+    userId = decodedToken.id;
+    
+    const handleBtnSubmit = async (e, action) => {
+        const svcId = e.currentTarget.dataset.svcId;
+        console.log("Done btn clicked for", e);
+        console.log("Updating status for svc with id: ", svcId);
+        console.log("Action received: ", action);
+        const response = await updateSvcRecord(svcId, action, token);
+        console.log('response from PUT call');
+        //TODO: Feedback to the user that the update was successful and refresh the page.
+        if (response.status === 200) {
+            // setLblText("Service status updated successfully");
+            // setlblcolor('blue');
+            navigate('/profile')
+        } else {
+            // setLblText("Failed to update service status");
+            // setlblcolor('red');
+        }
+    };
+    
+
     return (
         <>
             <div className='services-page'>
@@ -35,7 +67,11 @@ export default function Services() {
                             <h5>Categories</h5>
                             <div className="radio">
                                 <label>
-                                    <input key="categoryAll" type="radio" value="all-categories" name="category"
+                                    <input 
+                                    key="categoryAll" 
+                                    type="radio" 
+                                    value="all-categories" 
+                                    name="category"
                                         onChange={filterValueCat}
                                         className='radio-buttons'
                                     />
@@ -43,13 +79,13 @@ export default function Services() {
                                 </label>
                             </div>
                             {categories.map((category) => (
-                                <div className="radio">
+                                <div key={category.id} className="radio">
                                     <label>
                                         <input
                                             key="categoryId" type="radio"
                                             value={category.categoryName}
                                             name="category"
-                                            checked={category === category.categoryName}
+                                            checked={categorySelection === category.categoryName}
                                             onChange={filterValueCat}
                                             className='radio-buttons'
                                         />
@@ -75,13 +111,13 @@ export default function Services() {
                                 </label>
                             </div>
                             {charities.map((charity) => (
-                                <div className="radio">
+                                <div key={charity.id} className="radio">
                                     <label>
                                         <input
                                             key="charityId" type="radio"
                                             value={charity.charityName}
                                             name="charity"
-                                            checked={charity === charity.charityName}
+                                            checked={charitySelection === charity.charityName}
                                             onChange={filterValueChar}
                                             className='radio-buttons'
                                         />
@@ -93,9 +129,9 @@ export default function Services() {
                     </div>
                     <div className='services-page-cards'>
                         {services
-                        // .filter(services.Category.categoryName => services.Category.categoryName.match((filterValueCat, "i")))
+                        .filter((element) => (element?.Category?.categoryName === categorySelection || categorySelection === "all-categories") && (element?.Charity?.charityName === charitySelection || charitySelection === "all-charities"))
                         .map((service) => (
-                            <div>
+                            <div key={service.id}>
                                 <ServiceCard
                                     key={service.id}
                                     serviceTitle={service.title}
@@ -108,6 +144,7 @@ export default function Services() {
                                     serviceTimeLeft={service.timeLeft}
                                     charityLogo={service.Charity.logoImgUrl}
                                     serviceDesc={service.description}
+                                    btnSubmit={handleBtnSubmit}
                                 />
                             </div>
                         ))}
