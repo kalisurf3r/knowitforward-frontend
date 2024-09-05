@@ -1,4 +1,6 @@
-const API_PREFIX = "http://localhost:3004/";
+// const API_PREFIX = "https://knowitforward.onrender.com/";
+const API_PREFIX = "http://localhost:3004/"
+
 
 export const login = async (userObj) => {
     console.log("In login got user obj as: ", userObj);
@@ -162,6 +164,27 @@ export const getSvcsAsCustomer = async (userId, token) => {
     });
 
     console.log("got back response from getSvcsAsCustomer api call as: ", response);
+    return response.json();
+};
+
+export const updateSvcRecord = async (svcId, action, token) => {
+    console.log("Updating service with id as: " + svcId);
+    const url = API_PREFIX + `api/services/${svcId}`;
+    console.log("put services as: ", url);
+    const body = {
+        action: action
+    }
+    const response = await fetch(url, {
+        method: "PUT",
+        body: JSON.stringify(body),
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`,
+        },
+
+    });
+
+    console.log("got back response from updateSvcRecord api call as: ", response);
     return response.json();
 };
 

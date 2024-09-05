@@ -1,5 +1,5 @@
 import { useEffect, useState, } from 'react';
-import { getCharities, getSvcsAsCustomer, getSvcsAsServiceProvider, getUserProfileDetails } from '../utils/apiUtil';
+import { getCharities, getSvcsAsCustomer, getSvcsAsServiceProvider, getUserProfileDetails, updateSvcRecord } from '../utils/apiUtil';
 import './Profile.css';
 import { useLocation } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
@@ -23,6 +23,8 @@ export default function Profile(props) {
     const [charities, setCharities] = useState([]);
     const [activeSvc, setActiveSvc] = useState([]);
     const [pastSvc, setPastSvc] = useState([]);
+    const [lblText, setLblText] = useState("");
+    const [lblcolor, setlblcolor] = useState("");
 
 
     // -------- helpers --------
@@ -97,7 +99,7 @@ export default function Profile(props) {
     }, []);
 
 
-    // -------- btn click handlers --------
+    // --------  click handlers --------
     const handleSvcOffrdClick = async (e) => {
         console.log("li clicked");
         await getSvcsOffrdAndPruneThem();
@@ -109,6 +111,22 @@ export default function Profile(props) {
 
     }
 
+    const handleBtnSubmit = async (e, action) => {
+        const svcId = e.currentTarget.dataset.svcId;
+        console.log("Done btn clicked for", e);
+        console.log("Updating status for svc with id: ", svcId);
+        console.log("Action received: ", action);
+        const response = await updateSvcRecord(svcId, action, token);
+        console.log('response from PUT call');
+        if (response.status === 200) {
+            setLblText("Service status updated successfully");
+            setlblcolor('blue');
+        } else {
+            setLblText("Failed to update service status");
+            setlblcolor('red');
+        }
+    };
+
     console.log("User Details fetched and that will be processed");
     console.log(userDetails);
     console.log("charities");
@@ -117,7 +135,6 @@ export default function Profile(props) {
     console.log(activeSvc);
     console.log('svc offrd past');
     console.log(pastSvc);
-
 
     return (
 
@@ -153,47 +170,65 @@ export default function Profile(props) {
 
                     {/* Services display card */}
                     <div className='col col-md-8 col-sm-6 col-12 userSvcsDetailsSection'>
-                        <div id="upcommingSvcs">
-                            {
-                                activeSvc.map((svc) => (
-                                    <SummaryCard
-                                        key={svc.id}
-                                        id={svc.id}
-                                        title={svc.title}
-                                        isCustomer={svc.isCustomer}
-                                        isServiceProvider={svc.isServiceProvider}
-                                        isBooked={svc.isBooked}
-                                        isReadyForPayment={svc.isReadyForPayment}
-                                        firstName={svc.ServiceProvider.firstName}
-                                        lastName={svc.ServiceProvider.lastName}
-                                        basePrice={svc.basePrice}
-                                        serviceDate={svc.serviceDate}
-                                        timeLeft={svc.timeLeft}
-                                        charityName={svc.Charity.charityName}
-                                        paymentLink={svc.paymentLink}
-                                    />
-                                ))
-                            }
+                        <div id='upcommingSvcscontainer'>
+
+                            <label id="errMsg1" style={{ color: lblcolor, textWrap: 'wrap', maxWidth: '400px', textAlign: 'left' }}>{lblText}</label>
+                            <div id="upcommingSvcs">
+                                <h5 className='svcsSectionHeading'>Upcoming</h5>
+
+                                {
+                                    activeSvc.map((svc) => (
+                                        <SummaryCard
+                                            key={svc.id}
+                                            id={svc.id}
+                                            title={svc.title}
+                                            isCustomer={svc.isCustomer}
+                                            isServiceProvider={svc.isServiceProvider}
+                                            isBooked={svc.isBooked}
+                                            isReadyForPayment={svc.isReadyForPayment}
+                                            firstName={svc.ServiceProvider.firstName}
+                                            lastName={svc.ServiceProvider.lastName}
+                                            basePrice={svc.basePrice}
+                                            serviceDate={svc.serviceDate}
+                                            timeLeft={svc.timeLeft}
+                                            charityName={svc.Charity.charityName}
+                                            paymentLink={svc.paymentLink}
+                                            token={token}
+                                            btnSubmit={handleBtnSubmit}
+                                            status={svc.status}
+                                        />
+                                    ))
+                                }
+                            </div>
                         </div>
-                        <div id="pastSvcs">{
-                            pastSvc.map((svc) => (
-                                <SummaryCard
-                                    key={svc.id}
-                                    id={svc.id}
-                                    title={svc.title}
-                                    isCustomer={svc.isCustomer}
-                                    isServiceProvider={svc.isServiceProvider}
-                                    isBooked={svc.isBooked}
-                                    isReadyForPayment={svc.isReadyForPayment}
-                                    firstName={svc.ServiceProvider.firstName}
-                                    lastName={svc.ServiceProvider.lastName}
-                                    basePrice={svc.basePrice}
-                                    serviceDate={svc.serviceDate}
-                                    timeLeft={svc.timeLeft}
-                                    charityName={svc.Charity.charityName}
-                                />
-                            ))
-                        }</div>
+
+                        <div id='pastSvcscontainer'>
+                            <label id="errMsg2" style={{ color: lblcolor, textWrap: 'wrap', maxWidth: '400px', textAlign: 'left' }}>{lblText}</label>
+                            <div id="pastSvcs">
+                                <h5 className='svcsSectionHeading'>History</h5>
+                                {
+                                    pastSvc.map((svc) => (
+                                        <SummaryCard
+                                            key={svc.id}
+                                            id={svc.id}
+                                            title={svc.title}
+                                            isCustomer={svc.isCustomer}
+                                            isServiceProvider={svc.isServiceProvider}
+                                            isBooked={svc.isBooked}
+                                            isReadyForPayment={svc.isReadyForPayment}
+                                            firstName={svc.ServiceProvider.firstName}
+                                            lastName={svc.ServiceProvider.lastName}
+                                            basePrice={svc.basePrice}
+                                            serviceDate={svc.serviceDate}
+                                            timeLeft={svc.timeLeft}
+                                            charityName={svc.Charity.charityName}
+                                            token={token}
+                                            status={svc.status}
+                                        />
+                                    ))
+                                }</div>
+                        </div>
+
                     </div>
 
                 </div>
