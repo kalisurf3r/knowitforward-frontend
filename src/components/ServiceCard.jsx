@@ -13,8 +13,8 @@ export default function ServiceCard(props) {
 
 
     return (
-        <div className="card cardStyle"  >
-            <Card style={{ width: '250px' }}>
+        <div className="card cardStyle" key={props.id} >
+            <Card key={props.id} style={{ width: '250px' }}>
 
                 <Card.Title className='svc-card-title'>{props.serviceTitle}</Card.Title>
                 <Card.Body className='svc-card-top-container'>
@@ -28,15 +28,15 @@ export default function ServiceCard(props) {
                         </Card.Text>
                     </div>
                 </Card.Body>
-                <ListGroup className="list-group-flush svcCardListGroup">
+                <ListGroup className="list-group-flush svccardcistgroup">
                     <div>
-                        <ListGroup.Item className='list-group-item  svcCardListGroupItem'><FontAwesomeIcon icon={faDollarSign} />
+                        <ListGroup.Item className='list-group-item  svccardlistgroupitem'><FontAwesomeIcon icon={faDollarSign} />
                             {"   "}{props.serviceCost}
                         </ListGroup.Item>
-                        <ListGroup.Item className='list-group-item svcCardListGroupItem'><FontAwesomeIcon icon={faCalendar} />
+                        <ListGroup.Item className='list-group-item svccardlistgroupitem'><FontAwesomeIcon icon={faCalendar} />
                             <span className='service-date'>{"   "}{new Date(props.serviceDate).toDateString()}</span>
                         </ListGroup.Item>
-                        <ListGroup.Item className='list-group-item svcCardListGroupItem' svcCardListGroupItem><FontAwesomeIcon icon={faHourglassEnd} />
+                        <ListGroup.Item className='list-group-item svccardlistgroupitem'><FontAwesomeIcon icon={faHourglassEnd} />
                             {"   "}{props.serviceTimeLeft}
                         </ListGroup.Item>
                     </div>
