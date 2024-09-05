@@ -1,7 +1,8 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
     --primary: #9DBC98;
     --accent: #FFBC2C;
     --dark_gray: #4D4D4D;
@@ -9,12 +10,22 @@
     --medium_gray: #E2E2E2;
 }
 
-:root {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
+    color: var(--dark_gray);
 }
+
+
 
 button {
     padding: 10px;
@@ -22,5 +33,5 @@ button {
 
 button:hover {
     background-color: #ffc956;
-    border: outset 3px solid rgba(255, 188, 44, 0.85);  
+    border: outset 3px solid rgba(255, 188, 44, 0.85);
 }

@@ -1,14 +1,18 @@
-* {
+/* * {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
   color: var(--dark_gray);
-}
+} */
 
-.container-style{
+.container-style {
   display: flex;
+<<<<<<< HEAD
   align-items: center;
+=======
+  align-Items: center;
+>>>>>>> dev
   gap: 70px;
 }
 

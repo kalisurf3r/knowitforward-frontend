@@ -1,4 +1,6 @@
-const API_PREFIX = "http://localhost:3004/";
+const API_PREFIX = "https://knowitforward.onrender.com/";
+// const API_PREFIX = "http://localhost:3004/"
+
 
 export const login = async (userObj) => {
     console.log("In login got user obj as: ", userObj);
@@ -32,6 +34,23 @@ export const register = async (dataObj) => {
     console.log("got back response from register api call as: ", response);
     return response.json();
 };
+
+export const postService = async (serviceObj, token) => {
+    console.log("In postService got service obj as: ", serviceObj);
+    const url = API_PREFIX + "api/services";
+    console.log("Post service url: ", url);
+    const response = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify(serviceObj),
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        }
+    });
+
+    console.log("got back response from postService api call as: ", response);
+    return response.json();
+}
 
 // api GET /api/services
 export const getServicesWithTokn = async (token) => {
@@ -99,6 +118,55 @@ export const getCategories = async () => {
     return response.json();
 };
 
+// api GET /api/user/:id
+export const getUserProfileDetails = async (userId, token) => {
+    console.log("Quering for  user details with id: " + userId);
+    const url = API_PREFIX + `api/user/${userId}`;
+    console.log("user profile url: ", url);
+    const response = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`,
+        }
+    });
+
+    console.log("got back response from getUserProfileDetails api call as: ", response);
+    return response.json();
+};
+
+export const getSvcsAsServiceProvider = async (userId, token) => {
+    console.log("Quering for all services with service provider id as: " + userId);
+    const url = API_PREFIX + `api/services/serviceprovider/${userId}`;
+    console.log("get services as service provider  url: ", url);
+    const response = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`,
+        }
+    });
+
+    console.log("got back response from getSvcsAsServiceProvider api call as: ", response);
+    return response.json();
+};
+
+export const getSvcsAsCustomer = async (userId, token) => {
+    console.log("Quering for all services with customer id as: " + userId);
+    const url = API_PREFIX + `api/services/customer/${userId}`;
+    console.log("get services as custoemr url: ", url);
+    const response = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`,
+        }
+    });
+
+    console.log("got back response from getSvcsAsCustomer api call as: ", response);
+    return response.json();
+};
+
 export const updateSvcRecord = async (svcId, action, token, userId) => {
     console.log("Updating service with id as: " + svcId);
     const url = API_PREFIX + `api/services/${svcId}`;
@@ -156,6 +224,16 @@ export const loadCategoriesAndCharities = async () => {
     const categoriesData = await getCategories();
     response["categories"] = categoriesData;
     response["charities"] = charitiesData;
+    console.log("Response data: ", response);
+    return response;
+}
+
+export const profilePageLoader = async (userId, token) => {
+    let response = {};
+    const userprofiledata = await getUserProfileDetails(userId, token);
+    const svcAsSvcProviderData = await getSvcsAsServiceProvider(userId, token);
+    response["userprofile"] = userprofiledata;
+    response["svcprovidersvcs"] = svcAsSvcProviderData;
     console.log("Response data: ", response);
     return response;
 }

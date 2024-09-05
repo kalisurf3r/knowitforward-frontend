@@ -1,0 +1,145 @@
+.profilePageContainer {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    /* font-weight: 200; */
+    font-style: normal;
+    background-color: var(--light_gray);
+    min-height: 100vh;
+}
+
+.list-group-item {
+    background-color: var(--light_gray);
+}
+
+#profileHeader {
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin-bottom: 0px;
+    background-color: var(--light_gray);
+}
+
+.userDetailsSection {
+    /* border: 2px solid red; */
+    padding: 0;
+}
+
+/* #upcommingSvcs {
+    border: 2px solid orange;
+}
+
+#pastSvcs {
+    border: 2px solid purple;
+} */
+/* 
+.userSvcsDetailsSection {
+    border: 2px solid darkblue;
+} */
+
+/* .userDetails {
+    background-color: var(--primary);
+} */
+
+.userPicAndPersonalDetails {
+    display: flex;
+    background-color: var(--primary);
+}
+
+.userPersonalDetails {
+    margin-left: 1rem;
+}
+
+.userDet {
+    margin-bottom: 0;
+    font-weight: 300;
+}
+
+.userPic {
+    margin-right: 2rem;
+}
+
+#aboutMeHeading {
+    text-align: center;
+}
+
+#aboutMeHeading {
+    padding-bottom: 2rem;
+
+}
+
+.aboutMe,
+#aboutMeHeading {
+    background-color: var(--light_gray);
+    padding-top: 10px;
+    margin-bottom: 0px;
+    padding-left: 5px;
+    padding-bottom: 10px;
+
+}
+
+.aboutMe {
+    font-weight: 300;
+}
+
+.userCharities {
+    background-color: var(--primary);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+#svcsOffered {
+    margin-top: 25px;
+}
+
+.list-group-item {
+    font-weight: 500;
+}
+
+.profilePicImg {
+    width: 30%;
+}
+
+.chLogo {
+    height: 5rem;
+}
+
+.svcsSectionHeading {
+    position: absolute;
+    top: -34px;
+    left: -10px;
+    background-color: var(--accent);
+    padding: 0.4rem 0.8em;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#upcommingSvcs {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+#pastSvcs {
+    position: relative;
+}
+
+#upcommingSvcs,
+#pastSvcs {
+    padding: 4.2rem 3.4rem 3.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.6rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.075)
+}
+
+@media (max-width: 1100px) {
+
+    #upcommingSvcs,
+    #pastSvcs {
+
+        justify-content: center;
+    }
+}

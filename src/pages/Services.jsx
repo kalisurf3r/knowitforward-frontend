@@ -103,7 +103,6 @@ export default function Services() {
                                 </div>
                             ))}
                         </div>
-
                         <div className='filter-charities'>
                             <h5>Charities</h5>
                             <div className="radio">
@@ -135,6 +134,8 @@ export default function Services() {
                                 </div>
                             ))}
                         </div>
+
+                        {/* </div> */}
                     </div>
                     <div className='services-page-cards'>
                         {services
