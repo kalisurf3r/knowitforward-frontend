@@ -34,6 +34,11 @@ export default function Home(props) {
         navigate('/charities')
     }
 
+    const handleLoginSuccess = (userData) => {
+        props.setUserData(userData);
+        window.scrollTo({ top: 0, behavior: 'smooth' }); 
+    }
+
     return (
         <div className='home-page'>
             <div className='heroSection'>
@@ -44,10 +49,12 @@ export default function Home(props) {
                 <img className="heart-img" src={heartImg} alt="image of two hands creating a heart" />
                 <p className='mission-stmt'><strong className='bold'>KnowItForward</strong> connects skilled professionals with charitable causes. Experts in fields like music, tutoring, and resume reviewing volunteer their time to support meaningful initiatives. Join us in donating the gift of time to make a difference.</p>
             </div>
+
             {
                 !props.isLoggedIn ? (
                     <div id="login" className='login-section'>
-                        <Login setUserData={props.setUserData} />
+                        <Login setUserData={handleLoginSuccess} />
+
                         {/* <h3 className='login-form'>login form</h3> */}
                         <p className='or'>- OR -</p>
                         <button className='signup-button' onClick={handleShow}>Sign Up</button>

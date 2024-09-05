@@ -1,4 +1,3 @@
-
 import { Link, useLocation } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import { useState, useEffect } from "react";

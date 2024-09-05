@@ -153,6 +153,24 @@ export default function Volunteer() {
 
       console.log('after');
       if (response.status === 200) {
+
+          console.log("Volunteering successful:", data);
+          setMessage("Submission Successful");
+          setIsError(false);
+
+          setTitle("");
+          setDescription("");
+          setPrice("");
+          setOfferEndDate("");
+          setScheduledDate("");
+          setSelectedCategory("");
+          setSelectedCharity("");
+
+          
+          setTimeout(() => {
+            navigate('/services'); 
+          }, 2000);
+
         console.log("Volunteering successful:", data);
         setMessage("Submission Successful");
         setIsError(false);
@@ -165,10 +183,6 @@ export default function Volunteer() {
         setSelectedCategory("");
         setSelectedCharity("");
 
-
-        setTimeout(() => {
-          navigate('/services');
-        }, 2000);
       } else {
         console.error("Failed to volunteer");
         setMessage("Submission Failed");
