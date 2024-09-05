@@ -198,7 +198,7 @@ export default function Volunteer() {
   const textContainerStyle = {
     display: "flex",
     flexDirection: "column",
-    fontFamily: "Rubik, sans-serif",
+    // fontFamily: "Rubik, sans-serif",
   };
 
   const formStyle = {
