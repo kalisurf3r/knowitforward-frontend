@@ -3,7 +3,7 @@
     font-optical-sizing: auto;
     font-weight: 100;
     font-style: normal;
-    color: var(--dark_gray);
+    /* color: var(--dark_gray); */
 }
 
 .services-page {
@@ -17,6 +17,7 @@
     height: 100px;
     padding: 30px;
 }
+
 .services-content {
     display: flex;
 }

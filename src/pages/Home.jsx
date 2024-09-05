@@ -36,15 +36,22 @@ export default function Home(props) {
                 <img className="heart-img" src={heartImg} alt="image of two hands creating a heart" />
                 <p className='mission-stmt'><strong className='bold'>KnowItForward</strong> connects skilled professionals with charitable causes. Experts in fields like music, tutoring, and resume reviewing volunteer their time to support meaningful initiatives. Join us in donating the gift of time to make a difference.</p>
             </div>
-            <div id="login" className='login-section'>
-                <Login setUserData={props.setUserData} />
-                {/* <h3 className='login-form'>login form</h3> */}
-                <p className='or'>- OR -</p>
-                <button className='signup-button' onClick={handleShow}>Sign Up</button>
-                {/* <Button type="button" className='signup-button' onClick={handleShow}>
+            {
+                !props.isLoggedIn ? (
+                    <div id="login" className='login-section'>
+                        <Login setUserData={props.setUserData} />
+                        {/* <h3 className='login-form'>login form</h3> */}
+                        <p className='or'>- OR -</p>
+                        <button className='signup-button' onClick={handleShow}>Sign Up</button>
+                        {/* <Button type="button" className='signup-button' onClick={handleShow}>
                     Sign Up
                 </Button> */}
-            </div>
+                    </div>
+                ) : (
+                    <></>
+                )
+            }
+
             <div className='services-section'>
                 <div className='services-categories'>
                     <h5 className='services-category'>Education</h5>

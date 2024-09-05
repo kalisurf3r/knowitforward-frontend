@@ -6,9 +6,9 @@
   color: var(--dark_gray);
 }
 
-.container-style{
+.container-style {
   display: flex;
-  alignItems: center;
+  align-Items: center;
   gap: 70px;
 }
 
