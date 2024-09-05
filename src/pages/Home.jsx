@@ -10,13 +10,14 @@ import stcLogo from '../../public/logos/save-the-children-logo.png'
 import redCrossLogo from '../../public/logos/red-cross-logo.png'
 import Signup from '../components/Signup'
 import { useState } from 'react'
-import { useLoaderData } from 'react-router-dom'
+import { useLoaderData, useNavigate } from 'react-router-dom'
 
 
 export default function Home(props) {
 
     const [show, setShow] = useState(false);
     const homePageData = useLoaderData();
+    const navigate = useNavigate();
     const services = homePageData.services.data;
     const charities = homePageData.charities.data;
     console.log("home.jsx services data: ", services);
@@ -25,6 +26,13 @@ export default function Home(props) {
     const handleClose = () => setShow(false);
 
     const handleShow = () => setShow(true);
+
+    const goServices = () => {
+        navigate('/services')
+    }
+    const goCharities = () => {
+        navigate('/charities')
+    }
 
     return (
         <div className='home-page'>
@@ -61,13 +69,13 @@ export default function Home(props) {
                     <h5 className='services-category'>Wellness</h5>
                     <h5 className='services-category'>Photography</h5>
                 </div>
-                <button className='services-button'>more...</button>
+                <button className='services-button' onClick={goServices}>more...</button>
                 <h3 className='services-title'>Services</h3>
 
             </div>
             <div className='charities-section'>
                 <h3 className='charities-title'>Charities</h3>
-                <button className='charities-button'>more...</button>
+                <button className='charities-button' onClick={goCharities}>more...</button>
                 <div className='charities-logos'>
                     <img className='logo' src={faLogo} alt="" />
                     <img className='logo' src={stcLogo} alt="" />
