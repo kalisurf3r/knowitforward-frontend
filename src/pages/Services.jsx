@@ -25,27 +25,28 @@ export default function Services() {
     const filterValueChar = e => {
         setCharitySelection(e.target.value)
     }
-
-    const token = localStorage.getItem('token');
-    const decodedToken = jwtDecode(token);
-    const expirationTime = decodedToken.exp * 1000;
     const navigate = useNavigate();
     const [labeltext, setlabeltext] = useState('');
-    let userId;
 
-    if (Date.now() >= expirationTime) {
-        console.log("Invalid token");
-        throw new Error("Invalid token cannot fetch data")
-        //TODO: 
-    }
-    userId = decodedToken.id;
-    
+
     const handleBtnSubmit = async (e, action) => {
+        const token = localStorage.getItem('token');
+        const decodedToken = jwtDecode(token);
+        const expirationTime = decodedToken.exp * 1000;
+
+
+
+        if (Date.now() >= expirationTime) {
+            console.log("Invalid token");
+            throw new Error("Invalid token cannot fetch data")
+            //TODO: 
+        }
+        const userId = decodedToken.id;
         const svcId = e.currentTarget.dataset.svcId;
         console.log("Done btn clicked for", e);
         console.log("Updating status for svc with id: ", svcId);
         console.log("Action received: ", action);
-        const response = await updateSvcRecord(svcId, action, token);
+        const response = await updateSvcRecord(svcId, action, token, userId);
         console.log('response from PUT call');
         //TODO: Feedback to the user that the update was successful and refresh the page.
         if (response.status === 200) {
@@ -55,12 +56,12 @@ export default function Services() {
             setlabeltext("Booking successful!");
             setTimeout(() => {
                 navigate('/profile')
-              }, 2000);
-                        
+            }, 2000);
+
         } else {
         }
     };
-    
+
 
     return (
         <>
@@ -76,11 +77,11 @@ export default function Services() {
                             <h5>Categories</h5>
                             <div className="radio">
                                 <label>
-                                    <input 
-                                    key="categoryAll" 
-                                    type="radio" 
-                                    value="all-categories" 
-                                    name="category"
+                                    <input
+                                        key="categoryAll"
+                                        type="radio"
+                                        value="all-categories"
+                                        name="category"
                                         onChange={filterValueCat}
                                         className='radio-buttons'
                                     />
@@ -139,26 +140,26 @@ export default function Services() {
                     </div>
                     <div className='services-page-cards'>
                         {services
-                        .filter((element) => (element?.Category?.categoryName === categorySelection || categorySelection === "all-categories") && (element?.Charity?.charityName === charitySelection || charitySelection === "all-charities"))
-                        .map((service) => (
-                            <div key={service.id}>
-                                <ServiceCard
-                                    key={service.id}
-                                    serviceId={service.id}
-                                    serviceTitle={service.title}
-                                    serviceImg={service.ServiceProvider.profileImgUrl}
-                                    serviceProviderFirstName={service.ServiceProvider.firstName}
-                                    serviceProviderLastName={service.ServiceProvider.lastName}
-                                    serviceRating={service.ServiceProvider.ratings}
-                                    serviceCost={service.basePrice}
-                                    serviceDate={service.serviceDate}
-                                    serviceTimeLeft={service.timeLeft}
-                                    charityLogo={service.Charity.logoImgUrl}
-                                    serviceDesc={service.description}
-                                    btnSubmit={handleBtnSubmit}
-                                />
-                            </div>
-                        ))}
+                            .filter((element) => (element?.Category?.categoryName === categorySelection || categorySelection === "all-categories") && (element?.Charity?.charityName === charitySelection || charitySelection === "all-charities"))
+                            .map((service) => (
+                                <div key={service.id}>
+                                    <ServiceCard
+                                        key={service.id}
+                                        serviceId={service.id}
+                                        serviceTitle={service.title}
+                                        serviceImg={service.ServiceProvider.profileImgUrl}
+                                        serviceProviderFirstName={service.ServiceProvider.firstName}
+                                        serviceProviderLastName={service.ServiceProvider.lastName}
+                                        serviceRating={service.ServiceProvider.ratings}
+                                        serviceCost={service.basePrice}
+                                        serviceDate={service.serviceDate}
+                                        serviceTimeLeft={service.timeLeft}
+                                        charityLogo={service.Charity.logoImgUrl}
+                                        serviceDesc={service.description}
+                                        btnSubmit={handleBtnSubmit}
+                                    />
+                                </div>
+                            ))}
                     </div>
                 </div>
 
