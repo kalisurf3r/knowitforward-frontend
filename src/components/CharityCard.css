@@ -1,0 +1,52 @@
+.card-url-style {
+    text-decoration: none;
+    font-weight: 300;
+    color: var(--dark_gray);
+}
+
+.charity-card {
+    width: 310px;
+    height: 400px;
+    margin: 2vh auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.2);
+    display: flex;
+    padding: 10px;
+}
+
+.charity-card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: space-between;
+}
+
+.logo-container-style {
+    display: flex;
+    justify-content: center;
+}
+
+.charity-logo-style {
+    max-height: 110px;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.charity-card-text {
+    margin: 10px 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+.donated-style {
+    background-color: #FFBC2C;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 6px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+
+
