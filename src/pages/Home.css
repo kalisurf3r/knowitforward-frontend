@@ -12,6 +12,7 @@
 .heroSection {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .home-img {
@@ -21,13 +22,11 @@
 .tagline {
     font-size: 6vw;
     font-weight: 300;
-    width: 45%;
+    min-width: 300px;
     position: relative;
-    left: -85vw;
-    top: 18vh;
-    text-align: center;
+    left: -90vw;
     color: var(--dark_gray);
-    z-index: 10;
+    text-align: center;
 }
 
 .mission-section {
@@ -49,11 +48,6 @@
     font-size: 2vw;
     margin-right: 1vw;
     font-weight: 300;
-
-    /* 
-    text-align: left;
-    position: relative;
-    top: 8vw; */
 }
 
 .bold {
@@ -223,16 +217,36 @@ button:hover {
     margin: 2vh 4vw;
 }
 
+@media (min-width: 1190px) {
+
+    .tagline {
+        min-width: 550px;
+    }
+}
+
+@media (max-width: 1190px) {
+
+    .tagline {
+        min-width: 400px;
+    }
+}
 
 
 @media (max-width: 900px) {
 
-    .mission-section {
-        flex-direction: column;
+    .tagline {
+        min-width: 300px;
     }
 
     .mission-stmt {
-        font-size: 1.4rem;
+        font-size: 2.5vw;
+        padding: 0;
+    }
+
+    .heart-img {
+        height: 20vh;
+        padding: 0;
+        margin: 5vh;
     }
 
     .login-section {
@@ -257,5 +271,45 @@ button:hover {
 
     .signup-button {
         margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 665px) {
+
+    .tagline {
+        min-width: 225px;
+    }
+
+    .mission-section {
+        flex-direction: column-reverse;
+    }
+
+    .mission-stmt {
+        font-size: 3vw;
+        text-align: center;
+        padding-top: 4vw;
+        padding-bottom: 0;
+    }
+
+    .mission-stmt {
+        font-size: 3.5vw;
+    }
+
+    .heart-img {
+        height: 12vh;
+        padding: 0;
+        margin: 2vh;
+        width: auto;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .tagline {
+        min-width: 150px;
+    }
+
+    .mission-stmt {
+        font-size: 5vw;
     }
 }
