@@ -132,6 +132,7 @@ export default function Profile(props) {
         }
     };
 
+
     console.log("User Details fetched and that will be processed");
     console.log(userDetails);
     console.log("charities");
@@ -169,7 +170,7 @@ export default function Profile(props) {
                         </div>
                         <ul className="list-group list-group-flush">
                             <li className="list-group-item" id='svcsOffered' onClick={(e) => handleSvcOffrdClick(e)}><h4>Services I Offered</h4></li>
-                            <li className="list-group-item" id='svcsBooked' onClick={(e) => handleSvcBookedClick(e)}><h4>Services I've Booked</h4></li>
+                            <li className="list-group-item" id='svcsBooked'  onClick={(e) => handleSvcBookedClick(e)}><h4>Services I've Booked</h4></li>
                         </ul>
                     </div>
 
