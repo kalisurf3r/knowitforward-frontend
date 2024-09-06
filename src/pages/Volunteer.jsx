@@ -129,7 +129,7 @@ export default function Volunteer() {
        
     try {
       const decodedToken = jwtDecode(token);
-      userId = decodedToken.userId; 
+      userId = decodedToken.id; 
     } catch (error) {
       console.error("Failed to decode JWT token", error);
       return false;
