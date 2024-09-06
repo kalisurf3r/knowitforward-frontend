@@ -17,11 +17,17 @@
   text-align: center;
 }
 
+.charity-header h2{
+  font-size: 36pt;
+}
+
 .header-text {
-  font-size: 1.5vw;
+  font-size: 2vw;
   padding: 20px;
   font-weight: 300;
 }
+
+
 
 .charity-card-container {
   display: flex;

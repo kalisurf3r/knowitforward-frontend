@@ -57,8 +57,8 @@ export default function Charities(props) {
           <img className="charity-img" src="/hands.png" alt="hands" />
         </div>
         <div className="charity-header">
-          <h1>Charities</h1>
-          <p className="header-text" style={{ marginRight: "10px" }}>
+          <h2>Charities</h2>
+          <p className="header-text">
             With <span className="fw-semibold">KnowItForward</span> you can support the charities that are important
             to you, simply by donating your time doing the things you do best.
           </p>
