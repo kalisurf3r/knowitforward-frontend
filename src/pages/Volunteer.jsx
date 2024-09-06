@@ -2,6 +2,7 @@ import "./Volunteer.css";
 import { getCategories, getCharities, postService } from "../utils/apiUtil";
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
+import { jwtDecode } from "jwt-decode";
 
 export default function Volunteer() {
   const [title, setTitle] = useState("");
@@ -18,9 +19,11 @@ export default function Volunteer() {
   const [message, setMessage] = useState("");
   const [isError, setIsError] = useState(false);
   const navigate = useNavigate();
+  
+  let userId;
+  const token = localStorage.getItem("token");
 
   const verifyJWT = async () => {
-    const token = localStorage.getItem("token");
     if (!token) {
       console.error("No JWT token found");
       return false;
@@ -29,7 +32,7 @@ export default function Volunteer() {
     const url_prefix = "https://knowitforward.onrender.com/";
     // const url_prefix = "http://localhost:3004/"
 
-    const response = await fetch(url_prefix + "/api/verifyToken", {
+    const response = await fetch(url_prefix + "api/verifyToken", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,6 +49,8 @@ export default function Volunteer() {
       return false;
     }
   };
+
+
 
   const categoryFetch = async () => {
     const token = localStorage.getItem("token");
@@ -116,10 +121,19 @@ export default function Volunteer() {
     }
   };
 
+
   useEffect(() => {
     const initialize = async () => {
       const isTokenValid = await verifyJWT();
       if (isTokenValid) {
+       
+    try {
+      const decodedToken = jwtDecode(token);
+      userId = decodedToken.id; 
+    } catch (error) {
+      console.error("Failed to decode JWT token", error);
+      return false;
+    }
         await categoryFetch();
         await charityFetch();
       }
@@ -145,8 +159,9 @@ export default function Volunteer() {
       CategoryId: selectedCategory.id,
       charity: selectedCharity.charityName,
       CharityId: selectedCharity.id,
+      ServiceProviderId: userId
     };
-
+console.log('req.body', data);
     try {
       console.log(data);
       const response = await postService(data, token);

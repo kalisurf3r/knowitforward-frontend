@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import { useState, useEffect } from "react";
 import './Navbar.css'
@@ -11,6 +11,21 @@ export default function Navbar(props) {
     window.location.href = "/";
   };
 
+  const navigate = useNavigate();
+
+  const handleScrollLinkClick = (login) => {
+    if (window.location.pathname !== "/") {
+      navigate("/", { replace: true });
+    }
+  
+    setTimeout(() => {
+      const element = document.getElementById(login);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 1300); 
+  };
+  
   return (
     <nav className="navbar navbar-expand-lg navbar-style">
       <div className="container-fluid">
@@ -67,6 +82,7 @@ export default function Navbar(props) {
                     smooth={true}
                     duration={500}
                     className="nav-link nav-item-style"
+                    onClick={() => handleScrollLinkClick("login")}
                   >
                     Login
                   </ScrollLink>
@@ -74,6 +90,7 @@ export default function Navbar(props) {
                
               </>
             )}
+
              <li className="nav-item ms-4">
                   <Link
                     to="/services"
