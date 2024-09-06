@@ -81,8 +81,8 @@ export default function Home(props) {
 
             </div>
             <div className='charities-section'>
-                <h3 className='charities-title'>Charities</h3>
-                <button className='charities-button' onClick={goCharities}>more...</button>
+                {/* <h3 className='charities-title'>Charities</h3>
+                <button className='charities-button' onClick={goCharities}>more...</button> */}
                 <div className='charities-logos'>
                     <img className='logo' src={faLogo} alt="" />
                     <img className='logo' src={stcLogo} alt="" />

@@ -178,8 +178,10 @@ button:hover {
 .charities-section {
     background-color: var(--primary);
     color: var(--dark_gray);
-    height: 60vh;
+    min-height: 20vh;
     display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .charities-title {
@@ -208,13 +210,12 @@ button:hover {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    /* justify-content: space-between; */
-    align-items: center;
+    justify-content: space-around;
 }
 
 .logo {
     height: 7vh;
-    margin: 2vh 4vw;
+    margin: 2vh 2vw;
 }
 
 @media (min-width: 1190px) {
