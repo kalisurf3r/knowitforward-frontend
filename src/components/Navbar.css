@@ -2,6 +2,89 @@
     font-weight: 300;
 } */
 
+.container-fluid {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: none;
+}
+
+.navbar-style {
+    background-color: #9DBC98;
+    font-family: Montserrat, sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.logo-style {
+    height: 40px;
+}
+
+.navbar-toggler:hover {
+    background-color: #ffc956;
+}
+
+.navbar-toggler:click {
+    border: 1px solid var(--dark-gray);
+}
+
+.nav-item-style {
+    color: black;
+    text-decoration: none;
+}
+
+.username-style {
+    color: var(--dark-gray);
+    opacity: 0.8;
+    position: absolute;
+    padding: 0 37vw;
+    text-align: center;
+}
+
 .nav-link {
     font-weight: 300;
+}
+
+.nav-link:hover {
+    background-color: #ffc956;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 1100px) {
+
+    .username-style {
+        position: absolute;
+        padding: 0 30vw;
+    }
+}
+
+@media screen and (max-width: 991px) {
+
+    .username-style {
+        position: absolute;
+        padding: 0 45vw;
+    }
+}
+
+@media screen and (max-width: 775px) {
+
+    .username-style {
+        position: absolute;
+        padding: 0 60vw;
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+
+    .logo-style {
+        height: 32px;
+    }
+
+    .username-style {
+        position: absolute;
+        padding: 0 52vw;
+        font-size: 11pt;
+    }
 }
