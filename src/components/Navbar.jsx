@@ -5,30 +5,6 @@ import './Navbar.css'
 
 
 export default function Navbar(props) {
-  const logoStyle = {
-    height: "40px",
-    width: "auto",
-    marginRight: "10px",
-  };
-
-  const navbarStyle = {
-    backgroundColor: "#9DBC98",
-    fontFamily: "Montserrat, sans-serif",
-    fontOpticalSizing: "auto",
-    fontWeight: "300",
-    fontStyle: "normal",
-  };
-
-  const navitemStyle = {
-    color: "black",
-    textDecoration: "none",
-  };
-
-  const usernameStyle = {
-    color: "black",
-    opacity: 0.7, // Set the desired opacity value here
-    marginLeft: "100px",
-  };
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -51,17 +27,17 @@ export default function Navbar(props) {
   };
   
   return (
-    <nav className="navbar navbar-expand-lg" style={navbarStyle}>
+    <nav className="navbar navbar-expand-lg navbar-style">
       <div className="container-fluid">
         <div className="navbar-brand">
           <a href="/">
-            <img src="logo.jpg" alt="logo" style={logoStyle} />
+            <img src="logo.jpg" alt="logo" className="logo-style"/>
           </a>
         </div>
         {props.isLoggedIn ? (
           <>
-            <span className="nav-link" style={usernameStyle}>
-              Hi, {props.userData.username}
+            <span className="username-style">
+              Welcome, {props.userData.username}
             </span>
           </>
         ) : (
@@ -84,15 +60,14 @@ export default function Navbar(props) {
             {props.isLoggedIn ? (
               <>
                 <li className="nav-item ms-4">
-                  <Link to="/profile" className="nav-link" style={navitemStyle}>
+                  <Link to="/profile" className="nav-link nav-item-style">
                     Profile
                   </Link>
                 </li>
                 <li className="nav-item ms-4">
                   <Link
                     to="/volunteer"
-                    className="nav-link"
-                    style={navitemStyle}
+                    className="nav-link nav-item-style"
                   >
                     Volunteer
                   </Link>
@@ -106,8 +81,7 @@ export default function Navbar(props) {
                     to="login-section"
                     smooth={true}
                     duration={500}
-                    className="nav-link"
-                    style={navitemStyle}
+                    className="nav-link nav-item-style"
                     onClick={() => handleScrollLinkClick("login")}
                   >
                     Login
@@ -120,8 +94,7 @@ export default function Navbar(props) {
              <li className="nav-item ms-4">
                   <Link
                     to="/services"
-                    className="nav-link"
-                    style={navitemStyle}
+                    className="nav-link nav-item-style"
                   >
                     Services
                   </Link>
@@ -129,8 +102,7 @@ export default function Navbar(props) {
                 <li className="nav-item ms-4">
                   <Link
                     to="/charities"
-                    className="nav-link"
-                    style={navitemStyle}
+                    className="nav-link nav-item-style"
                   >
                     Charities
                   </Link>
@@ -141,8 +113,7 @@ export default function Navbar(props) {
                      <li className="nav-item ms-4">
                   <button
                     onClick={handleLogout}
-                    className="nav-link"
-                    style={navitemStyle}
+                    className="nav-link nav-item-style"
                   >
                     Logout
                   </button>
