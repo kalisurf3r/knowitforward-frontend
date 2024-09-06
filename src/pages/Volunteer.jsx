@@ -197,90 +197,13 @@ export default function Volunteer() {
     setIsMessageVisible(true);
   }
 
-
-
-  const imgStyle = {
-    width: "850px",
-    height: "250px",
-  };
-
-  const containerStyle = {
-    display: "flex",
-    alignItems: "center",
-    gap: "40px",
-    marginTop: "80px",
-    marginLeft: "60px",
-  };
-
-  const textContainerStyle = {
-    display: "flex",
-    flexDirection: "column",
-    // fontFamily: "Rubik, sans-serif",
-  };
-
-  const formStyle = {
-    display: "flex",
-    flexDirection: "column",
-    gap: "20px",
-    marginTop: "20px",
-    justifyContent: "center",
-  };
-
-  const formGroupStyle = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: "10px",
-    margin: "0",
-  };
-
-  const labelStyle = {
-    width: "100px",
-    textAlign: "center",
-    paddingRight: "10px",
-    paddingLeft: "10px",
-  };
-
-  const inputStyle = {
-    flex: "1",
-    borderRadius: "10px",
-    border: "none",
-    maxWidth: "600px",
-  };
-
-  const input2Style = {
-    flex: "1",
-    borderRadius: "10px",
-    border: "none",
-    maxWidth: "400px",
-  };
-
-  const textAreaStyle = {
-    flex: "1",
-    height: "100px",
-    borderRadius: "10px",
-    border: "none",
-    maxWidth: "600px",
-  };
-
-  const buttonStyle = {
-    flex: "1",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#FFBC2C",
-    borderRadius: "10px",
-    border: "none",
-    maxWidth: "300px",
-    padding: "10px",
-  };
-
   return (
     <>
-      <div style={containerStyle}>
-        <img style={imgStyle} src="volunteer.png" alt="Volunteer" />
-        <div style={textContainerStyle}>
-          <h1 className="text-center">Volunteer</h1>
-          <p className="text-center" style={{ marginTop: "4vh" }}>
+      <div className='volunteer-container'>
+        <img className='volunteer-img' src="volunteer.png" alt="Volunteer" />
+        <div className="volunteer-header">
+          <h2>Volunteer</h2>
+          <p className="volunteer-text">
             With <span className="fw-semibold">KnowItForward</span> you can
             donate your time by offering a service that you love and support
             your favorite charities at the same time.
@@ -294,14 +217,14 @@ export default function Volunteer() {
         </h3>
       </div>
 
-      <div className="volunteer-form">
-        <form style={formStyle} onSubmit={handleVolunteerSubmit}>
-          <div style={formGroupStyle}>
-            <label style={labelStyle} htmlFor="title">
+      <div className="volunteer-form-container">
+        <form className="form-style" onSubmit={handleVolunteerSubmit}>
+          <div className="form-group-style">
+            <label className="label-style" htmlFor="title">
               Title:
             </label>
             <input
-              style={inputStyle}
+              className="input-style"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               type="text"
@@ -310,12 +233,12 @@ export default function Volunteer() {
               placeholder="title"
             />
           </div>
-          <div style={formGroupStyle}>
-            <label style={labelStyle} htmlFor="description">
+          <div className="form-group-style">
+            <label className="label-style" htmlFor="description">
               Description:
             </label>
             <textarea
-              style={textAreaStyle}
+              className="text-area-style"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               type="description"
@@ -324,12 +247,12 @@ export default function Volunteer() {
               placeholder="description"
             />
           </div>
-          <div style={formGroupStyle}>
-            <label style={labelStyle} htmlFor="price">
+          <div className="form-group-style">
+            <label className="label-style" htmlFor="price">
               Price:
             </label>
             <input
-              style={input2Style}
+              className="input2-style"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
               type="number"
@@ -338,12 +261,12 @@ export default function Volunteer() {
               placeholder="price"
             />
           </div>
-          <div style={formGroupStyle}>
-            <label style={labelStyle} htmlFor="offer-end-date">
+          <div className="form-group-style">
+            <label className="label-style" htmlFor="offer-end-date">
               Offer End Date:
             </label>
             <input
-              style={input2Style}
+              className="input2-style"
               value={offerEndDate}
               onChange={(e) => setOfferEndDate(e.target.value)}
               type="date"
@@ -352,12 +275,12 @@ export default function Volunteer() {
               placeholder="end_date"
             />
           </div>
-          <div style={formGroupStyle}>
-            <label style={labelStyle} htmlFor="scheduled-date">
+          <div className="form-group-style">
+            <label className="label-style" htmlFor="scheduled-date">
               Scheduled Date:
             </label>
             <input
-              style={input2Style}
+              className="input2-style"
               value={scheduledDate}
               onChange={(e) => setScheduledDate(e.target.value)}
               type="date"
@@ -366,8 +289,8 @@ export default function Volunteer() {
               placeholder="end_date"
             />
           </div>
-          <div style={formGroupStyle}>
-            <label style={labelStyle} htmlFor="charity">
+          <div className="form-group-style">
+            <label className="label-style" htmlFor="charity">
               Charity:
             </label>
             <select id="charity" name="charity" onChange={(e) => setSelectedCharity(charities[e.target.value])}>
@@ -377,8 +300,8 @@ export default function Volunteer() {
               ))}
             </select>
           </div>
-          <div style={formGroupStyle}>
-            <label style={labelStyle} htmlFor="category">
+          <div className="form-group-style">
+            <label className="label-style" htmlFor="category">
               Category:
             </label>
             <select id="category" name="category" onChange={(e) => setSelectedCategory(categories[e.target.value])}>
@@ -390,15 +313,8 @@ export default function Volunteer() {
               ))}
             </select>
           </div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              marginTop: "20px",
-              marginBottom: "30px",
-            }}
-          >
-            <button type="submit" style={buttonStyle}>
+          <div className="button-container">
+            <button type="submit" className="button-style">
               <span className="fw-semibold">Volunteer</span>
             </button>
           </div>
