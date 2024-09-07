@@ -31,13 +31,13 @@ export default function Navbar(props) {
       <div className="container-fluid">
         <div className="navbar-brand">
           <a href="/">
-            <img src="logo.jpg" alt="logo" className="logo-style"/>
+            <img src="logo.jpg" alt="logo" className="logo-style" />
           </a>
         </div>
         {props.isLoggedIn ? (
           <>
             <span className="username-style">
-              Welcome, {props.userData.username}
+              Hi, {props.userData.username}
             </span>
           </>
         ) : (
@@ -55,8 +55,8 @@ export default function Navbar(props) {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto">
-            
+          <ul className="navbar-nav ">
+
             {props.isLoggedIn ? (
               <>
                 <li className="nav-item ms-4">
@@ -72,7 +72,7 @@ export default function Navbar(props) {
                     Volunteer
                   </Link>
                 </li>
-               
+
               </>
             ) : (
               <>
@@ -87,30 +87,29 @@ export default function Navbar(props) {
                     Login
                   </ScrollLink>
                 </li>
-               
+
               </>
             )}
+            <li className="nav-item ms-4">
+              <Link
+                to="/services"
+                className="nav-link nav-item-style"
+              >
+                Services
+              </Link>
+            </li>
+            <li className="nav-item ms-4">
+              <Link
+                to="/charities"
+                className="nav-link nav-item-style"
+              >
+                Charities
+              </Link>
+            </li>
 
-             <li className="nav-item ms-4">
-                  <Link
-                    to="/services"
-                    className="nav-link nav-item-style"
-                  >
-                    Services
-                  </Link>
-                </li>
+            {props.isLoggedIn ? (
+              <>
                 <li className="nav-item ms-4">
-                  <Link
-                    to="/charities"
-                    className="nav-link nav-item-style"
-                  >
-                    Charities
-                  </Link>
-                </li>
-              
-                {props.isLoggedIn ? (
-                    <>
-                     <li className="nav-item ms-4">
                   <button
                     onClick={handleLogout}
                     className="nav-link nav-item-style"
@@ -118,10 +117,10 @@ export default function Navbar(props) {
                     Logout
                   </button>
                 </li>
-                </>)
-                    : (
-                        <></>
-                    )}
+              </>)
+              : (
+                <></>
+              )}
 
           </ul>
         </div>
