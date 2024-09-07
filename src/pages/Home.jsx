@@ -68,16 +68,10 @@ export default function Home(props) {
             }
 
             <div className='services-section'>
-                <div className='services-categories'>
-                    <h5 className='services-category'>Education</h5>
-                    <h5 className='services-category'>Career</h5>
-                    <h5 className='services-category'>Therapy</h5>
-                    <h5 className='services-category'>Music</h5>
-                    <h5 className='services-category'>Wellness</h5>
-                    <h5 className='services-category'>Photography</h5>
-                </div>
+                <h3 className='services-title'>Services We Offer</h3>
+                <div className='services-cards'></div>
                 <button className='services-button' onClick={goServices}>more...</button>
-                <h3 className='services-title'>Services</h3>
+
 
             </div>
             <div className='charities-section'>

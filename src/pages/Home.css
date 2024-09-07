@@ -1,7 +1,3 @@
-/* * {
-    font-weight: 300;
-} */
-
 .home-page {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
@@ -115,8 +111,6 @@
     box-shadow: 5px 5px 5px gray;
 }
 
-/* .signup-button:hover { */
-
 .button {
     font-weight: 300;
 }
@@ -128,21 +122,30 @@ button:hover {
 
 .services-section {
     background-color: var(--dark_gray);
-    height: 45vh;
+    height: fit-content;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.services-categories {
+.services-cards {
     display: flex;
-    flex-wrap: wrap;
-    width: 56vw;
-    margin: 5vh 1vw;
-    /* justify-content: space-between; */
+    justify-content: space-between;
 }
 
-.services-category {
+.services-title {
+    font-size: 4.5vw;
+    font-weight: 200;
+    color: var(--light_gray);
+    padding: 10px;
+}
+
+/* .services-cards {
+
+} */
+
+/* .services-category {
     font-size: 3vh;
     color: var(--dark_gray);
     background-color: var(--light_gray);
@@ -153,26 +156,18 @@ button:hover {
     text-align: center;
     padding-top: 4vh;
     margin: 2vh 1vw;
-}
+} */
 
 .services-button {
-    font-size: 16pt;
+    font-size: 14pt;
     font-weight: 400;
     color: var(--dark_gray);
-    padding: 10px 20px;
-    margin: 20vh 0vw;
     background-color: var(--accent);
     border: outset 3px solid var(--accent);
     border-radius: 10px;
     box-shadow: 5px 5px 5px gray;
-}
-
-.services-title {
-    font-size: 7vh;
-    font-weight: 200;
-    color: var(--light_gray);
-    text-align: right;
-    margin: 18vh 0 18vh 2vw;
+    width: fit-content;
+    margin: 10px;
 }
 
 .charities-section {
@@ -184,15 +179,14 @@ button:hover {
     justify-content: space-around;
 }
 
-.charities-title {
+/* .charities-title {
     font-size: 7vh;
     font-weight: 200;
     text-align: left;
     position: relative;
-    /* top: 25vh; */
     margin: 0 2vw 0 2vw;
     padding-top: 25vh;
-}
+} */
 
 .charities-button {
     font-size: 16pt;
