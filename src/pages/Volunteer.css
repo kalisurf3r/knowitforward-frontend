@@ -37,6 +37,7 @@ body {
 
 .volunteer-form-container {
     border: 5px solid var(--dark-gray);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.075); 
     /* width: 50vw; */
     /* display: flex; */
     /* justify-content: center; */

@@ -63,16 +63,14 @@
 }
 
 #login-form {
-    /* font-size: 5vh; */
     color: var(--dark_gray);
     min-width: 500px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    border: .5px solid #B8B8B8;
+    margin: 25px 20px;
+    /* border: .5px solid #B8B8B8; */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.075);    
     padding: 10px 40px;
     border-radius: 10px;
     text-align: center;
-    /* margin: 19vh 5vw; */
 }
 
 .form-control {
@@ -82,7 +80,7 @@
 
 .or {
     font-size: 2rem;
-    margin: 0 7vw;
+    margin: 10px 20px;
 }
 
 #loginLink {
@@ -104,11 +102,11 @@
     font-size: 1.5rem;
     font-weight: 300;
     color: var(--dark_gray);
-    /* margin: 19vh 5vw; */
     background-color: var(--accent);
     border: outset 3px solid var(--accent);
     border-radius: 10px;
     box-shadow: 5px 5px 5px gray;
+    margin: 10px 20px;
 }
 
 .button {
@@ -296,6 +294,16 @@ button:hover {
         margin: 2vh;
         width: auto;
     }
+
+    .services-title {
+        font-size: 5vw;
+    }
+
+    .services-button {
+        font-size: 12pt;
+        width: fit-content;
+        margin: 10px;
+    }
 }
 
 @media (max-width: 450px) {
@@ -306,5 +314,15 @@ button:hover {
 
     .mission-stmt {
         font-size: 5vw;
+    }
+
+    #login-form {
+        min-width: auto;
+        width: 400;
+        padding: 10px 40px;
+    }
+
+    .services-title {
+        font-size: 6vw;
     }
 }
