@@ -253,13 +253,13 @@ export default function Profile(props) {
                     <div className='col col-md-8 col-sm-6 col-12 userSvcsDetailsSection' style={{ justifyContent: 'center' }}>
                         <Nav fill variant="tabs" activeKey={activeTab}>
                             <Nav.Item>
-                                <Nav.Link className="usrSvcCat" eventKey="open" onClick={(e) => handleActiveSvcClick(e)}><h6>Active</h6></Nav.Link>
+                                <Nav.Link className="usrSvcCat" eventKey="open" onClick={(e) => handleActiveSvcClick(e)}><h6>Active Posts</h6></Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link className="usrSvcCat" eventKey="Offered" onClick={(e) => handleSvcOffrdClick(e)}>Services Offered</Nav.Link>
+                                <Nav.Link className="usrSvcCat" eventKey="Offered" onClick={(e) => handleSvcOffrdClick(e)}><h6>Services Offered</h6></Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link className="usrSvcCat" eventKey="Booked" onClick={(e) => handleSvcBookedClick(e)}>Services Booked</Nav.Link>
+                                <Nav.Link className="usrSvcCat" eventKey="Booked" onClick={(e) => handleSvcBookedClick(e)}><h6>Services Booked</h6></Nav.Link>
                             </Nav.Item>
                         </Nav>
 
