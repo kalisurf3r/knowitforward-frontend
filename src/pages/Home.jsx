@@ -11,6 +11,22 @@ import redCrossLogo from '/logos/red-cross-logo.png'
 import Signup from '../components/Signup'
 import { useState } from 'react'
 import { useLoaderData, useNavigate } from 'react-router-dom'
+import ServiceCard from '../components/ServiceCard'
+
+// function getUniqueRandomIndices(arrayLength, count) {
+//     let randomIndices = [];
+
+//     while (randomIndices.length < count) {
+//         let randomIndex = Math.floor(Math.random() * arrayLength);
+
+//         // Add the index to the array only if it's not already present
+//         if (!randomIndices.includes(randomIndex)) {
+//             randomIndices.push(randomIndex);
+//         }
+//     }
+
+//     return randomIndices;
+// }
 
 
 export default function Home(props) {
@@ -20,8 +36,10 @@ export default function Home(props) {
     const navigate = useNavigate();
     const services = homePageData.services.data;
     const charities = homePageData.charities.data;
+    const categories = homePageData.categories.data;
     console.log("home.jsx services data: ", services);
     console.log("home.jsx charities data: ", charities);
+    console.log("Services.jsx categories data: ", categories);
 
     const handleClose = () => setShow(false);
 
@@ -36,8 +54,11 @@ export default function Home(props) {
 
     const handleLoginSuccess = (userData) => {
         props.setUserData(userData);
-        window.scrollTo({ top: 0, behavior: 'smooth' }); 
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    // const cardsToDisplay = getUniqueRandomIndices(props.entries.length, 3);
+    // console.log("got back card indices as: ", cardsToDisplay);
 
     return (
         <div className='home-page'>
@@ -54,13 +75,8 @@ export default function Home(props) {
                 !props.isLoggedIn ? (
                     <div id="login" className='login-section'>
                         <Login setUserData={handleLoginSuccess} />
-
-                        {/* <h3 className='login-form'>login form</h3> */}
                         <p className='or'>- OR -</p>
                         <button className='signup-button' onClick={handleShow}>Sign Up</button>
-                        {/* <Button type="button" className='signup-button' onClick={handleShow}>
-                    Sign Up
-                </Button> */}
                     </div>
                 ) : (
                     <></>
@@ -69,7 +85,32 @@ export default function Home(props) {
 
             <div className='services-section'>
                 <h3 className='services-title'>Services We Offer</h3>
-                <div className='services-cards'></div>
+                {/* TODO: Display only 3 cards, 3 most recent? or random? */}
+                {/* TODO: DO NOT display book button */}
+                {/* {cardsToDisplay
+                .map((index) => ( */}
+                {services.map((service) => (
+                    <div className='services-cards' key={service.id}>
+                        <ServiceCard
+                            // key={service.id}
+                            // serviceId={service.id}
+                            // serviceTitle={service.title}
+                            // serviceImg={service.ServiceProvider.profileImgUrl}
+                            // serviceProviderFirstName={service.ServiceProvider.firstName}
+                            // serviceProviderLastName={service.ServiceProvider.lastName}
+                            // serviceRating={service.ServiceProvider.ratings}
+                            // serviceCost={service.basePrice}
+                            // serviceDate={service.serviceDate}
+                            // serviceTimeLeft={service.timeLeft}
+                            // charityLogo={service.Charity.logoImgUrl}
+                            // serviceDesc={service.description}
+                            // serviceProvideremail={service.ServiceProvider.email}
+                        />
+                    </div>
+                ))}
+
+                {/* ))} */}
+
                 <button className='services-button' onClick={goServices}>more...</button>
 
 

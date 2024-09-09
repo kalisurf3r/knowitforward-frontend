@@ -129,7 +129,9 @@ button:hover {
 
 .services-cards {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    margin: 5px;
 }
 
 .services-title {

@@ -212,8 +212,10 @@ export const loadServicesAndCharities = async () => {
     let response = {};
     const serviceData = await getServices();
     const charitiesData = await getCharities();
+    const categoriesData = await getCategories();
     response["services"] = serviceData;
     response["charities"] = charitiesData;
+    response["categories"] = categoriesData;
     console.log("Response data: ", response);
     return response;
 }
