@@ -56,9 +56,11 @@ export default function ServiceCard(props) {
                 </Card.Text>
                 <Card.Link href="#" className='svc-card-container'>
                     {/* CONDITIONAL RENDERING: only show 'Book' button when use is logged in */}
-                    <button data-svc-id={props.serviceId} className='svc-card-button' onClick={(e) => props.btnSubmit(e, "book")}>
-                        Book
-                    </button>
+                    {props.isLoggedIn ? (
+                        <button data-svc-id={props.serviceId} className='svc-card-button' onClick={(e) => props.btnSubmit(e, "book")}>
+                            Book
+                        </button>
+                    ) : (<></>)}
                 </Card.Link>
             </Card>
 

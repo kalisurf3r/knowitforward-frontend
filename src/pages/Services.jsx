@@ -6,7 +6,7 @@ import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { updateSvcRecord } from "../utils/apiUtil";
 
-export default function Services() {
+export default function Services(props) {
   const servicesPageData = useLoaderData();
   const services = servicesPageData.services.data;
   const charities = servicesPageData.charities.data;
@@ -31,6 +31,7 @@ export default function Services() {
     const token = localStorage.getItem("token");
     const decodedToken = jwtDecode(token);
     const expirationTime = decodedToken.exp * 1000;
+    
 
     if (Date.now() >= expirationTime) {
       console.log("Invalid token");
@@ -57,6 +58,15 @@ export default function Services() {
     }
   };
 
+  // logic for filtering out services created by the logged-in user
+  const token = localStorage.getItem("token");
+  let loggedInUserId = null;
+  if (token) {
+    const decodedToken = jwtDecode(token);
+    loggedInUserId = decodedToken.data ? decodedToken.data.id : null;
+  }
+
+  
   return (
     <>
       <div className="services-page">
@@ -142,7 +152,8 @@ export default function Services() {
                   (element?.Category?.categoryName === categorySelection ||
                     categorySelection === "all-categories") &&
                   (element?.Charity?.charityName === charitySelection ||
-                    charitySelection === "all-charities")
+                    charitySelection === "all-charities") &&
+                    (element?.ServiceProvider?.id !== loggedInUserId) // Filter out services created by the logged-in user
               )
               .map((service) => (
                 <div key={service.id}>
@@ -161,7 +172,9 @@ export default function Services() {
                     serviceDesc={service.description}
                     serviceProvideremail={service.ServiceProvider.email}
                     btnSubmit={handleBtnSubmit}
+                    isLoggedIn={props.isLoggedIn}
                   />
+                    
                 </div>
               ))}
           </div>

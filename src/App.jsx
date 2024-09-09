@@ -53,7 +53,7 @@ function App() {
         },
         {
           path: "/services",
-          element: <Services />,
+          element: <Services  isLoggedIn={isLoggedIn}/>,
           loader: loadAllData
         },
       ],
