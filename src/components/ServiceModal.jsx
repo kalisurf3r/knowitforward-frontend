@@ -49,12 +49,6 @@ export default function ServiceModal(props) {
                         </>) : (<></>)
                     }
                     {
-                        props.customerEmail ? (
-                            <p><b>Contact Customer:</b> <a href={`mailto: ${props.customerEmail}`}>{props.customerEmail}</a></p>
-                        ) : (<></>)
-
-                    }
-                    {
                         props.serviceDate ? (<>
                             <p style={{ fontWeight: '300' }}><b>Service Date:</b>  {new Date(props.serviceDate).toDateString()}</p>
                         </>) : (<></>)
@@ -64,7 +58,12 @@ export default function ServiceModal(props) {
                             <p style={{ fontWeight: '300' }}><b>Offer End Date:</b>  {new Date(props.offerEndDate).toDateString()}</p>
                         </>) : (<></>)
                     }
+                    {
+                        props.customerEmail ? (
+                            <p><b>Contact Customer:</b> <a href={`mailto: ${props.customerEmail}`}>{props.customerEmail}</a></p>
+                        ) : (<></>)
 
+                    }
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleCloseModal}>
