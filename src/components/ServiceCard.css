@@ -3,7 +3,6 @@
     border-radius: 10px;
     --bs-card-border-width: 0;
     box-shadow: 0 8px 12px rgba(128, 128, 128, 0.4);
-    /* margin: 5px; */
 }
 
 .svc-card-title {
@@ -22,16 +21,10 @@
 }
 
 .svc-card-img {
-    height: 100px;
-    max-width: 100px;
-    width: fit-content;
+
+    width: 50%;
+    object-fit: cover;
     margin: 0 0 5px 5px;
-}
-
-.svc-provider {
-    padding-bottom: 0 !important;
-    margin-bottom: 0 !important;
-
 }
 
 .svc-card-provider {
