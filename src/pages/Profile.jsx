@@ -329,7 +329,7 @@ export default function Profile(props) {
                                         id={svc.id}
                                         serviceDesc={svc.description}
                                         serviceProvideremail={svc.ServiceProvider.email}
-                                        customerEmail={svc.Customer.email}
+                                        customerEmail={svc.Customer?.email}
                                         title={svc.title}
                                         isCustomer={svc.isCustomer}
                                         isServiceProvider={svc.isServiceProvider}
@@ -363,7 +363,7 @@ export default function Profile(props) {
                                             title={svc.title}
                                             serviceDesc={svc.description}
                                             serviceProvideremail={svc.ServiceProvider.email}
-                                            customerEmail={svc.Customer.email}
+                                            customerEmail={svc.Customer?.email}
                                             isCustomer={svc.isCustomer}
                                             isServiceProvider={svc.isServiceProvider}
                                             isBooked={svc.isBooked}
