@@ -136,6 +136,21 @@
     margin-top: 31px;
 }
 
+#errMsg1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#upcommingSvcs,
+#pastSvcs {
+    margin-top: 4rem;
+}
+
+#acticeSvcs {
+
+    margin-top: 2rem;
+}
+
 #upcommingSvcs,
 #pastSvcs,
 #acticeSvcs {
@@ -267,7 +282,7 @@
 @media (max-width: 610px) {
     .userDetailsSection {
         margin: 0 auto;
-        width: 60%;
+        min-width: 60%;
     }
 
     #upcommingSvcs,
@@ -298,10 +313,10 @@
     }*/
 }
 
-@media (max-width: 450px) {
+@media (max-width: 500px) {
     .userDetailsSection {
         margin: 0 auto;
-        width: 100%;
+        min-width: 100%;
     }
 
     /* .userDet {
