@@ -1,5 +1,5 @@
-// const API_PREFIX = "https://knowitforward.onrender.com/";
-const API_PREFIX = "http://localhost:3004/"
+const API_PREFIX = "https://knowitforward.onrender.com/";
+// const API_PREFIX = "http://localhost:3004/"
 
 
 export const login = async (userObj) => {
