@@ -60,10 +60,10 @@ export default function Services(props) {
 
   // logic for filtering out services created by the logged-in user
   const token = localStorage.getItem("token");
-  let loggedInUserId = null;
+  let serviceProviderId = null;
   if (token) {
     const decodedToken = jwtDecode(token);
-    loggedInUserId = decodedToken.data ? decodedToken.data.id : null;
+    serviceProviderId = decodedToken ? decodedToken.id : null;
   }
 
   
@@ -153,7 +153,7 @@ export default function Services(props) {
                     categorySelection === "all-categories") &&
                   (element?.Charity?.charityName === charitySelection ||
                     charitySelection === "all-charities") &&
-                    (element?.ServiceProvider?.id !== loggedInUserId) // Filter out services created by the logged-in user
+                    (element?.ServiceProvider?.id !== serviceProviderId) // Filter out services created by the logged-in user
               )
               .map((service) => (
                 <div key={service.id}>
