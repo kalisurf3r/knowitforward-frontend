@@ -54,12 +54,14 @@ export default function ServiceCard(props) {
                     </div>
                   
                 </Card.Text>
+            { (!props.testState) ? '' : ( 
                 <Card.Link href="#" className='svc-card-container'>
                     {/* CONDITIONAL RENDERING: only show 'Book' button when use is logged in */}
                     <button data-svc-id={props.serviceId} className='svc-card-button' onClick={(e) => props.btnSubmit(e, "book")}>
                         Book
                     </button>
                 </Card.Link>
+            )}
             </Card>
 
             

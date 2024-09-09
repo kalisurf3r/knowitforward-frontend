@@ -64,6 +64,10 @@ h5 {
     flex-wrap: wrap;
 }
 
+.svc-cards {
+    margin: 5px;
+}
+
 @media screen and (max-width: 775px) {
     .services-header {
         display: flex;

@@ -127,23 +127,19 @@ button:hover {
     align-items: center;
 }
 
-.services-cards {
-    display: flex;
-    flex-direction: row;
-    /* justify-content: space-between; */
-    margin: 5px;
-}
-
 .services-title {
-    font-size: 4.5vw;
+    font-size: 4vw;
     font-weight: 200;
     color: var(--light_gray);
     padding: 10px;
 }
 
-/* .services-cards {
-
-} */
+.services-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5px;
+}
 
 /* .services-category {
     font-size: 3vh;

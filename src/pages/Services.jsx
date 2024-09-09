@@ -142,7 +142,7 @@ export default function Services() {
                         {services
                             .filter((element) => (element?.Category?.categoryName === categorySelection || categorySelection === "all-categories") && (element?.Charity?.charityName === charitySelection || charitySelection === "all-charities"))
                             .map((service) => (
-                                <div key={service.id}>
+                                <div className="svc-cards" key={service.id}>
                                     <ServiceCard
                                         key={service.id}
                                         serviceId={service.id}

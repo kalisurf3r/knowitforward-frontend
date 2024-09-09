@@ -10,27 +10,37 @@ import stcLogo from '/logos/save-the-children-logo.png'
 import redCrossLogo from '/logos/red-cross-logo.png'
 import Signup from '../components/Signup'
 import { useState } from 'react'
-import { useLoaderData, useNavigate } from 'react-router-dom'
+import { useLoaderData, useLocation, useNavigate } from 'react-router-dom'
 import ServiceCard from '../components/ServiceCard'
 
-// function getUniqueRandomIndices(arrayLength, count) {
-//     let randomIndices = [];
 
-//     while (randomIndices.length < count) {
-//         let randomIndex = Math.floor(Math.random() * arrayLength);
+function getUniqueRandomIndices(arrayLength, count) {
+    let randomIndices = [];
 
-//         // Add the index to the array only if it's not already present
-//         if (!randomIndices.includes(randomIndex)) {
-//             randomIndices.push(randomIndex);
-//         }
-//     }
+    while (randomIndices.length < count) {
+        let randomIndex = Math.floor(Math.random() * arrayLength);
 
-//     return randomIndices;
-// }
+        // Add the index to the array only if it's not already present
+        if (!randomIndices.includes(randomIndex)) {
+            randomIndices.push(randomIndex);
+        }
+    }
+
+    return randomIndices;
+}
 
 
 export default function Home(props) {
 
+    // we create our sample set of Services
+    const [testState, setTestState] = useState(true);
+    const currentRoute = useLocation();
+    console.log("Path: ", currentRoute);
+    if(currentRoute.pathname == '/') {
+        if(testState == true) {
+            setTestState(false);
+        }
+    }
     const [show, setShow] = useState(false);
     const homePageData = useLoaderData();
     const navigate = useNavigate();
@@ -57,8 +67,18 @@ export default function Home(props) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // const cardsToDisplay = getUniqueRandomIndices(props.entries.length, 3);
-    // console.log("got back card indices as: ", cardsToDisplay);
+
+    const cardsToDisplay = getUniqueRandomIndices(services.length, 3);
+    console.log("got back card indices as: ", cardsToDisplay);
+    const selectServices = filterServices(cardsToDisplay);
+    // Filter our Services Dataset(all) and grab our three indexes
+    function filterServices(indicesArr) {
+        const selected = indicesArr.map( elem => {
+            return services[elem];
+        });
+        return selected
+    }
+
 
     return (
         <div className='home-page'>
@@ -85,31 +105,27 @@ export default function Home(props) {
 
             <div className='services-section'>
                 <h3 className='services-title'>Services We Offer</h3>
-                {/* TODO: Display only 3 cards, 3 most recent? or random? */}
-                {/* TODO: DO NOT display book button */}
-                {/* {cardsToDisplay
-                .map((index) => ( */}
-                {services.map((service) => (
+                {/* Display only 3 random cards on the homepage */}
+                {selectServices.map((service) => ( 
                     <div className='services-cards' key={service.id}>
                         <ServiceCard
-                            // key={service.id}
-                            // serviceId={service.id}
-                            // serviceTitle={service.title}
-                            // serviceImg={service.ServiceProvider.profileImgUrl}
-                            // serviceProviderFirstName={service.ServiceProvider.firstName}
-                            // serviceProviderLastName={service.ServiceProvider.lastName}
-                            // serviceRating={service.ServiceProvider.ratings}
-                            // serviceCost={service.basePrice}
-                            // serviceDate={service.serviceDate}
-                            // serviceTimeLeft={service.timeLeft}
-                            // charityLogo={service.Charity.logoImgUrl}
-                            // serviceDesc={service.description}
-                            // serviceProvideremail={service.ServiceProvider.email}
+                            key={service.id}
+                            serviceId={service.id}
+                            serviceTitle={service.title}
+                            serviceImg={service.ServiceProvider.profileImgUrl}
+                            serviceProviderFirstName={service.ServiceProvider.firstName}
+                            serviceProviderLastName={service.ServiceProvider.lastName}
+                            serviceRating={service.ServiceProvider.ratings}
+                            serviceCost={service.basePrice}
+                            serviceDate={service.serviceDate}
+                            serviceTimeLeft={service.timeLeft}
+                            charityLogo={service.Charity.logoImgUrl}
+                            serviceDesc={service.description}
+                            serviceProvideremail={service.ServiceProvider.email}
+                            testState={testState}
                         />
                     </div>
                 ))}
-
-                {/* ))} */}
 
                 <button className='services-button' onClick={goServices}>more...</button>
 
