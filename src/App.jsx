@@ -8,6 +8,7 @@ import Layout from './components/Layout';
 import { verifyTokenValidity } from "./utils/util";
 import { useEffect, useState } from 'react';
 import { getCharities, loadAllData, loadCategoriesAndCharities, loadServicesAndCharities } from "./utils/apiUtil";
+import Payment from './pages/Payment';
 
 
 function App() {
@@ -55,6 +56,10 @@ function App() {
           path: "/services",
           element: <Services  isLoggedIn={isLoggedIn}/>,
           loader: loadAllData
+        },
+        {
+          path: "/payment/:username/charity/:charityname",
+          element: <Payment />
         },
       ],
     },

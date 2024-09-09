@@ -78,7 +78,7 @@ export default function Signup(props) {
           <form onSubmit={handleSignUpFormSubmit}>
             <input
               type="text"
-              className="form-control"
+              className="form-controll signupFormCtrl"
               id="firstName"
               placeholder="First Name"
               value={firstName}
@@ -90,7 +90,7 @@ export default function Signup(props) {
             />
             <input
               type="text"
-              className="form-control"
+              className="form-control signupFormCtrl"
               id="lastName"
               placeholder="Last Name"
               value={lastName}
@@ -102,7 +102,7 @@ export default function Signup(props) {
             />
             <input
               type="email"
-              className="form-control"
+              className="form-contrl signupFormCtrl"
               id="email"
               placeholder="Email"
               value={email}
@@ -114,7 +114,7 @@ export default function Signup(props) {
             />
             <input
               type="text"
-              className="form-control"
+              className="form-control signupFormCtrl"
               id="username"
               placeholder="Username"
               value={username}
@@ -126,7 +126,7 @@ export default function Signup(props) {
             />
             <input
               type="password"
-              className="form-control"
+              className="form-control signupFormCtrl"
               id="password"
               placeholder="Password"
               value={password}
@@ -138,7 +138,7 @@ export default function Signup(props) {
             />
             <input
               type="text"
-              className="form-control"
+              className="form-control signupFormCtrl"
               id="profession"
               placeholder="Profession(s)"
               value={profession}
@@ -150,7 +150,7 @@ export default function Signup(props) {
             />
             <textarea
               type="text"
-              className="form-control"
+              className="form-control signupFormCtrl"
               id="about"
               placeholder="About"
               value={aboutMe}

@@ -24,6 +24,10 @@
     padding: 0;
 }
 
+.userSvcsDetailsSection {
+    margin-right: 3rem;
+}
+
 /* #upcommingSvcs {
     border: 2px solid orange;
 }
@@ -31,10 +35,8 @@
 #pastSvcs {
     border: 2px solid purple;
 } */
-/* 
-.userSvcsDetailsSection {
-    border: 2px solid darkblue;
-} */
+/*
+
 
 /* .userDetails {
     background-color: var(--primary);
@@ -52,6 +54,7 @@
 .userDet {
     margin-bottom: 0;
     font-weight: 300;
+    font-size: 1rem;
 }
 
 .userPic {
@@ -82,13 +85,13 @@
 }
 
 .userCharities {
-    background-color: var(--primary);
+    /* background-color: #cedecc; */
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 2rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    /* padding-top: 1rem;
+    padding-bottom: 1rem; */
 }
 
 #svcsOffered {
@@ -101,20 +104,23 @@
 
 .profilePicImg {
     width: 30%;
+    object-fit: cover;
 }
 
 .chLogo {
-    height: 5rem;
+    height: 2.5rem;
 }
 
 .svcsSectionHeading {
     position: absolute;
     top: -34px;
-    left: -10px;
-    background-color: var(--accent);
+    left: -2px;
+    background-color: #d8e4d6;
+    /* var(--accent); */
     padding: 0.4rem 0.8em;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    font-weight: 500;
 }
 
 #upcommingSvcs {
@@ -126,8 +132,13 @@
     position: relative;
 }
 
+#upcommingSvcscontainer {
+    margin-top: 31px;
+}
+
 #upcommingSvcs,
-#pastSvcs {
+#pastSvcs,
+#acticeSvcs {
     padding: 4.2rem 3.4rem 3.4rem;
     display: flex;
     flex-wrap: wrap;
@@ -135,12 +146,170 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.075)
 }
 
-@media (max-width: 1100px) {
+.nav-tabs .nav-link.active {
+    background-color: var(--accent);
+    /* Change this to your preferred color */
+    color: var(--dark_gray);
+    font-weight: 500;
+    /* Change text color to white */
+}
+
+.usrSvcCat {
+    color: var(--dark_gray);
+    font-weight: 500;
+}
+
+.usrSvcCat {
+    /* Remove Bootstrap's hover effect */
+    transition: none !important;
+    background-color: transparent;
+    /* Optional: remove background color */
+}
+
+.usrSvcCat:hover {
+    /* Ensure that hover effect is completely removed */
+    /* background-color: transparent !important; */
+    color: inherit !important;
+    /* Optional: remove color change on hover */
+}
+
+.userProfileAccordionItem .accordion-button {
+    background-color: #d8e4d6;
+    border-bottom: 1px solid var(--light_gray);
+    font-weight: 500;
+}
+
+/* @media (max-width: 1100px) {
+
+
 
     #upcommingSvcs,
     #pastSvcs {
 
         justify-content: center;
     }
+} */
+
+@media (max-width: 1270px) {
+
+    /* .profilePicImg {
+        width: 10%;
+    } */
+
+    .userDetailsSection {
+        margin: 0 auto;
+        width: 30%;
+    }
+
+    .userSvcsDetailsSection {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-top: 25px;
+    }
+
+    .profilePageContainer {
+        flex-direction: column-reverse;
+    }
+
+    .kitaccitem {
+        display: none;
+    }
+
 }
 
+@media (max-width: 1060px) {
+    .userDetailsSection {
+        margin: 0 auto;
+        width: 40%;
+    }
+
+    .kitaccitem {
+        display: none;
+    }
+
+}
+
+
+
+@media (max-width: 780px) {
+    .userDetailsSection {
+        margin: 0 auto;
+        width: 60%;
+    }
+
+    #upcommingSvcs,
+    #pastSvcs {
+
+        justify-content: center;
+    }
+
+    .kitaccitem {
+        display: none;
+    }
+
+    /* .profilePicImg {
+        width: 30%;
+    } */
+
+    /* .userDet {
+        font-size: 1rem;
+    }
+
+    .personname {
+        font-size: 1.5rem;
+    } */
+
+    /* .userPicAndPersonalDetails {
+        margin-bottom: 0.5rem;
+    }*/
+}
+
+@media (max-width: 610px) {
+    .userDetailsSection {
+        margin: 0 auto;
+        width: 60%;
+    }
+
+    #upcommingSvcs,
+    #pastSvcs {
+
+        justify-content: center;
+    }
+
+    .kitaccitem {
+        display: none;
+    }
+
+    /* .profilePicImg {
+        width: 30%;
+    } */
+
+    /* 
+    .userDet {
+        font-size: 0.7rem;
+    }
+
+    .personname {
+        font-size: 1rem;
+    } */
+
+    /* .userPicAndPersonalDetails {
+        margin-bottom: 0.5rem;
+    }*/
+}
+
+@media (max-width: 450px) {
+    .userDetailsSection {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    /* .userDet {
+        font-size: 0.7rem;
+    }
+
+    .personname {
+        font-size: 1rem;
+    } */
+
+}
