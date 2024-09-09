@@ -49,10 +49,11 @@ export default function ServiceCard(props) {
                 <Card.Text className='svc-card-text'>
                     {props.serviceDesc}
                    
+                    { (!props.testState) ? '' : ( 
                     <div>
                     <ServiceModal show={showModal} handleClose={handleCloseModal} serviceDesc={props.serviceDesc} serviceProvideremail={props.serviceProvideremail} />
                     </div>
-                  
+                    )}
                 </Card.Text>
             { (!props.testState) ? '' : ( 
                 <Card.Link href="#" className='svc-card-container'>
