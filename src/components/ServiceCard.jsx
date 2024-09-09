@@ -5,7 +5,7 @@ import './ServiceCard.css';
 import redCrossLogo from '../../public/logos/red-cross-logo.png';
 import tempPic from '../../public/hands.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCalendar, faDollarSign, faHandHoldingHeart, faHourglassEnd, faList } from "@fortawesome/free-solid-svg-icons";
+import { faCalendar, faDollarSign, faHourglassEnd } from "@fortawesome/free-solid-svg-icons";
 import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import ServiceModal from './ServiceModal';

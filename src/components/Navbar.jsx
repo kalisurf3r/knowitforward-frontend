@@ -1,6 +1,5 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
-import { useState, useEffect } from "react";
 import './Navbar.css'
 
 
@@ -17,21 +16,21 @@ export default function Navbar(props) {
     if (window.location.pathname !== "/") {
       navigate("/", { replace: true });
     }
-  
+
     setTimeout(() => {
       const element = document.getElementById(login);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
-    }, 1300); 
+    }, 1300);
   };
-  
+
   return (
     <nav className="navbar navbar-expand-lg navbar-style">
       <div className="container-fluid">
         <div className="navbar-brand">
           <a href="/">
-            <img src="logo.jpg" alt="logo" className="logo-style" />
+            <img src="https://res.cloudinary.com/dwfvmcziw/image/upload/v1725905878/logo_mm1ppl.jpg" alt="logo" className="logo-style" />
           </a>
         </div>
         {props.isLoggedIn ? (

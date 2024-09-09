@@ -8,34 +8,13 @@ import { useState } from "react";
 import { CheckmarkCircleOutline, BanOutline } from 'react-ionicons';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
+import ServiceModal from "./ServiceModal";
 
 
 
 
 export default function SummaryCard(props) {
     console.log("Got back props: ", props);
-
-
-
-
-    const handleDoneBtnClick = async (e) => {
-        const svcId = e.target.dataset.svcId;
-        console.log("Done btn clicked for", e);
-        console.log("Updating status for svc with id: ", svcId);
-        const response = await updateSvcRecord(svcId, 'Done', props.token);
-        if (response.ok) {
-            setLblText("Service status updated successfully");
-        } else {
-            setLblText("Failed to update service status");
-        }
-    }
-
-    const handlePayBtnClick = async (e) => {
-        const svcId = e.target.dataset.svcId;
-        console.log("Pay btn clicked for", e);
-        console.log("Updating status for svc with id: ", svcId);
-
-    }
 
     return (
         <>
@@ -49,7 +28,7 @@ export default function SummaryCard(props) {
                         <div className="card-content">
                             <ul className="card-attributes">
                                 <li className='card-attribute'>
-                                    <FontAwesomeIcon icon={faCircle} />
+                                    <span style={{ color: props.color }}> <FontAwesomeIcon icon={faCircle} /></span>
                                     <span style={{ fontWeight: '300' }}>{props.status}</span>
                                 </li>
                                 <li className='card-attribute'>
@@ -57,8 +36,15 @@ export default function SummaryCard(props) {
                                     <span style={{ fontWeight: '300' }}>{new Date(props.serviceDate).toDateString()}</span>
                                 </li>
                                 <li className='card-attribute'>
-                                    <FontAwesomeIcon icon={faCircleInfo} />
-                                    <span style={{ fontWeight: '300' }}>More Info</span>
+                                    {/* <FontAwesomeIcon icon={faCircleInfo} />
+                                    <span style={{ fontWeight: '300' }}>More Info</span> */}
+                                    <ServiceModal
+                                        price={props.basePrice}
+                                        offerEndDate={props.offerEndDate}
+                                        serviceDate={props.serviceDate}
+                                        customerEmail={props.customerEmail}
+                                        serviceDesc={props.serviceDesc}
+                                        serviceProvideremail={props.serviceProvideremail} />
                                     {/* TODO: required info */}
                                 </li>
                             </ul>
@@ -99,7 +85,7 @@ export default function SummaryCard(props) {
                             <div className="custbtnHolders">
                                 <a href={props.paymentLink}>
                                     {/* <Tooltip id="my-tooltip1" />  data-tooltip-id="my-tooltip1" data-tooltip-content="Click to pay"*/}
-                                    <button data-svc-id={props.id} onClick={(e) => handlePayBtnClick(e)} id='payBtn'>Pay</button>
+                                    <button data-svc-id={props.id} id='payBtn'>Pay</button>
                                 </a>
                             </div>
 

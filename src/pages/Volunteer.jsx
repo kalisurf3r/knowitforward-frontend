@@ -19,7 +19,7 @@ export default function Volunteer() {
   const [message, setMessage] = useState("");
   const [isError, setIsError] = useState(false);
   const navigate = useNavigate();
-  
+
   let userId;
   const token = localStorage.getItem("token");
 
@@ -126,14 +126,14 @@ export default function Volunteer() {
     const initialize = async () => {
       const isTokenValid = await verifyJWT();
       if (isTokenValid) {
-       
-    try {
-      const decodedToken = jwtDecode(token);
-      userId = decodedToken.id; 
-    } catch (error) {
-      console.error("Failed to decode JWT token", error);
-      return false;
-    }
+
+        try {
+          const decodedToken = jwtDecode(token);
+          userId = decodedToken.id;
+        } catch (error) {
+          console.error("Failed to decode JWT token", error);
+          return false;
+        }
         await categoryFetch();
         await charityFetch();
       }
@@ -166,7 +166,7 @@ export default function Volunteer() {
       CharityId: selectedCharity.id,
       ServiceProviderId: serviceProviderId
     };
-console.log('req.body', data);
+    console.log('req.body', data);
     try {
       console.log(data);
       const response = await postService(data, token);
@@ -174,22 +174,22 @@ console.log('req.body', data);
       console.log('after');
       if (response.status === 200) {
 
-          console.log("Volunteering successful:", data);
-          setMessage("Submission Successful");
-          setIsError(false);
+        console.log("Volunteering successful:", data);
+        setMessage("Submission Successful");
+        setIsError(false);
 
-          setTitle("");
-          setDescription("");
-          setPrice("");
-          setOfferEndDate("");
-          setScheduledDate("");
-          setSelectedCategory("");
-          setSelectedCharity("");
+        setTitle("");
+        setDescription("");
+        setPrice("");
+        setOfferEndDate("");
+        setScheduledDate("");
+        setSelectedCategory("");
+        setSelectedCharity("");
 
-          
-          setTimeout(() => {
-            navigate('/services'); 
-          }, 2000);
+
+        setTimeout(() => {
+          navigate('/profile');
+        }, 2000);
 
         console.log("Volunteering successful:", data);
         setMessage("Submission Successful");
