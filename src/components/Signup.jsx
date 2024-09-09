@@ -78,7 +78,7 @@ export default function Signup(props) {
           <form onSubmit={handleSignUpFormSubmit}>
             <input
               type="text"
-              className="form-controll signupFormCtrl"
+              className="form-control signupFormCtrl"
               id="firstName"
               placeholder="First Name"
               value={firstName}
@@ -102,7 +102,7 @@ export default function Signup(props) {
             />
             <input
               type="email"
-              className="form-contrl signupFormCtrl"
+              className="form-control signupFormCtrl"
               id="email"
               placeholder="Email"
               value={email}
