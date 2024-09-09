@@ -85,8 +85,8 @@ export default function SummaryCard(props) {
                                     <BanOutline
                                         color={'#b11616'}
                                         title="Cancel service"
-                                        height="25px"
-                                        width="25px"
+                                        height="23px"
+                                        width="23px"
                                     />
 
                                 </span>
