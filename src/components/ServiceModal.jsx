@@ -5,6 +5,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendar, faDollarSign, faCircleInfo, faCircleCheck, faBan, faCircle } from "@fortawesome/free-solid-svg-icons";
 import { useState } from 'react';
+import "./ServiceModal.css"
 
 
 export default function ServiceModal(props) {
@@ -18,7 +19,7 @@ export default function ServiceModal(props) {
     }
 
     const showMoreStyle = {
-        // color: 'blue',
+        color: '#415a77',
         cursor: 'pointer',
         listStyle: 'none'
     }
@@ -33,7 +34,7 @@ export default function ServiceModal(props) {
                 </li>
             </ul> */}
             <FontAwesomeIcon icon={faCircleInfo} />{" "}
-            <span onClick={handleShowModal} style={{ fontWeight: '300', marginLeft: '0.7rem', cursor: 'pointer', }}>More Info</span>
+            <span id="showmorelink" onClick={handleShowModal} style={{ fontWeight: '300', marginLeft: '0.7rem', cursor: 'pointer', fontWeight: "bolder" }}>More Info</span>
 
             <Modal show={showModal} onHide={handleCloseModal}>
                 <Modal.Header closeButton style={modalHeaderStyle}>

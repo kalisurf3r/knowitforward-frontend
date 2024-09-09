@@ -1,20 +1,36 @@
 import { useParams } from 'react-router-dom';
 import { HeartOutline, ArrowBackOutline } from 'react-ionicons';
+import { jwtDecode } from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 import './Payment.css';
+import { useEffect } from 'react';
 
-export default function Payment(props) {
-    const token = localStorage.getItem("token");
-    const decodedToken = jwtDecode(token);
-    const expirationTime = decodedToken.exp * 1000;
+export default function Payment() {
     const navigate = useNavigate();
-    let userId;
 
-    if (Date.now() >= expirationTime) {
-        console.error("Invalid token");
-        // throw new Error("Invalid token cannot fetch data")
-        navigate('/');
-    }
-    userId = decodedToken.id;
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        console.log("token: ", token);
+
+        if (!token) {
+            navigate('/');
+            return;
+        }
+
+        try {
+            const decodedToken = jwtDecode(token);
+            const expirationTime = decodedToken.exp * 1000;
+
+            if (Date.now() >= expirationTime) {
+                console.error("Invalid token");
+                navigate('/');
+            }
+        } catch (error) {
+            console.error("Error decoding token:", error);
+            navigate('/');
+        }
+    }, [navigate]); // Add navigate as a dependency
+
     const { username, charityname } = useParams();
     return (<>
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', justifyContent: 'center', alignItems: "center" }}>

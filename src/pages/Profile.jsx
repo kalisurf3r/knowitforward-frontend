@@ -54,7 +54,7 @@ export default function Profile(props) {
             console.log(svc.status);
             svc.isServiceProvider = true;
             svc.isCustomer = false;
-            svc.color = 'blue'
+            svc.color = '#134074'
             if (svc.status === 'Active') {
                 activeOnly.push(svc);
             }
@@ -384,7 +384,6 @@ export default function Profile(props) {
                         </div>
 
                     </div>
-                    <a href="/payment/Amrita Nair/charity/Red Cross"><button>pay</button></a>
                 </div>
 
             </div>
