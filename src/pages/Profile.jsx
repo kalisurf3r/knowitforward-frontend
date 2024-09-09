@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import {
-  getCharities,
-  getSvcsAsCustomer,
-  getSvcsAsServiceProvider,
-  getUserProfileDetails,
-  updateSvcRecord,
+    getCharities,
+    getSvcsAsCustomer,
+    getSvcsAsServiceProvider,
+    getUserProfileDetails,
+    updateSvcRecord,
 } from "../utils/apiUtil";
 import "./Profile.css";
 import { useLocation } from "react-router-dom";
@@ -17,15 +17,16 @@ import { Accordion, Nav } from 'react-bootstrap';
 import { MailOutline, StarOutline } from 'react-ionicons';
 
 export default function Profile(props) {
-  const token = localStorage.getItem("token");
-  const decodedToken = jwtDecode(token);
-  const expirationTime = decodedToken.exp * 1000;
-  const navigate = useNavigate();
-  let userId;
+    const token = localStorage.getItem("token");
+    const decodedToken = jwtDecode(token);
+    const expirationTime = decodedToken.exp * 1000;
+    const navigate = useNavigate();
+    let userId;
 
     if (Date.now() >= expirationTime) {
-        console.log("Invalid token");
-        throw new Error("Invalid token cannot fetch data")
+        console.errpr("Invalid token");
+        // throw new Error("Invalid token cannot fetch data")
+        navigate('/');
         //TODO: 
     }
     userId = decodedToken.id;
@@ -70,23 +71,23 @@ export default function Profile(props) {
         const svcsOffrd = await getSvcsAsServiceProvider(userId, token);
         console.log("Services that were offered by this user are: ", svcsOffrd.data);
 
-    svcsOffrd.data.forEach((svc) => {
-      console.log(svc.status);
-      svc.isServiceProvider = true;
-      svc.isCustomer = false;
-      if (svc.status === "Booked") {
-        svc.isBooked = true;
-        active.push(svc);
-      } else if (svc.status === "Ready for payment") {
-        svc.isReadyForPayment = true;
-        active.push(svc);
-      } else if (svc.status === "Closed") {
-        past.push(svc);
-      }
-    });
-    setActiveSvc(active);
-    setPastSvc(past);
-  }
+        svcsOffrd.data.forEach((svc) => {
+            console.log(svc.status);
+            svc.isServiceProvider = true;
+            svc.isCustomer = false;
+            if (svc.status === "Booked") {
+                svc.isBooked = true;
+                active.push(svc);
+            } else if (svc.status === "Ready for payment") {
+                svc.isReadyForPayment = true;
+                active.push(svc);
+            } else if (svc.status === "Closed") {
+                past.push(svc);
+            }
+        });
+        setActiveSvc(active);
+        setPastSvc(past);
+    }
 
     async function getSvcsBookedAndPruneThem() {
         let active = [];
@@ -95,46 +96,46 @@ export default function Profile(props) {
         document.getElementById('pastSvcscontainer').style.display = 'block';
         document.getElementById('activeOnlySvcscontainer').style.display = 'none';
 
-    const svcsOffrd = await getSvcsAsCustomer(userId, token);
-    console.log("Services that were booked by this user are: ", svcsOffrd.data);
+        const svcsOffrd = await getSvcsAsCustomer(userId, token);
+        console.log("Services that were booked by this user are: ", svcsOffrd.data);
 
-    svcsOffrd.data.forEach((svc) => {
-      console.log(svc.status);
-      svc.isServiceProvider = false;
-      svc.isCustomer = true;
-      if (svc.status === "Booked") {
-        svc.isBooked = true;
-        active.push(svc);
-      } else if (svc.status === "Ready for payment") {
-        svc.isReadyForPayment = true;
-        active.push(svc);
-      } else if (svc.status === "Closed") {
-        past.push(svc);
-      }
-    });
-    setActiveSvc(active);
-    setPastSvc(past);
-  }
+        svcsOffrd.data.forEach((svc) => {
+            console.log(svc.status);
+            svc.isServiceProvider = false;
+            svc.isCustomer = true;
+            if (svc.status === "Booked") {
+                svc.isBooked = true;
+                active.push(svc);
+            } else if (svc.status === "Ready for payment") {
+                svc.isReadyForPayment = true;
+                active.push(svc);
+            } else if (svc.status === "Closed") {
+                past.push(svc);
+            }
+        });
+        setActiveSvc(active);
+        setPastSvc(past);
+    }
 
-  // -------- React hooks --------
-  useEffect(() => {
-    const fetchProfileData = async () => {
-      console.log(
-        `useffect got back user id as: ${userId} and token as: ${token}`
-      );
-      console.log("Getting user profile details");
-      const userDetResponse = await getUserProfileDetails(userId, token);
-      console.log("User response received: ", userDetResponse);
-      setUserDetails(userDetResponse.data);
-      setCharities(userDetResponse.data.Charities);
+    // -------- React hooks --------
+    useEffect(() => {
+        const fetchProfileData = async () => {
+            console.log(
+                `useffect got back user id as: ${userId} and token as: ${token}`
+            );
+            console.log("Getting user profile details");
+            const userDetResponse = await getUserProfileDetails(userId, token);
+            console.log("User response received: ", userDetResponse);
+            setUserDetails(userDetResponse.data);
+            setCharities(userDetResponse.data.Charities);
 
             console.log("Get services provided by the user: ");
             //await getSvcsOffrdAndPruneThem();
             await getActiveOblySvcByUsrAndPruneThem();
         };
 
-    fetchProfileData();
-  }, []);
+        fetchProfileData();
+    }, []);
 
     // --------  click handlers --------
 
@@ -299,29 +300,29 @@ export default function Profile(props) {
                             <div id="upcommingSvcs">
                                 <p className='svcsSectionHeading'>Upcoming</p>
 
-                {activeSvc.map((svc) => (
-                  <SummaryCard
-                    key={svc.id}
-                    id={svc.id}
-                    title={svc.title}
-                    isCustomer={svc.isCustomer}
-                    isServiceProvider={svc.isServiceProvider}
-                    isBooked={svc.isBooked}
-                    isReadyForPayment={svc.isReadyForPayment}
-                    firstName={svc.ServiceProvider.firstName}
-                    lastName={svc.ServiceProvider.lastName}
-                    basePrice={svc.basePrice}
-                    serviceDate={svc.serviceDate}
-                    timeLeft={svc.timeLeft}
-                    charityName={svc.Charity.charityName}
-                    paymentLink={svc.paymentLink}
-                    token={token}
-                    btnSubmit={handleBtnSubmit}
-                    status={svc.status}
-                  />
-                ))}
-              </div>
-            </div>
+                                {activeSvc.map((svc) => (
+                                    <SummaryCard
+                                        key={svc.id}
+                                        id={svc.id}
+                                        title={svc.title}
+                                        isCustomer={svc.isCustomer}
+                                        isServiceProvider={svc.isServiceProvider}
+                                        isBooked={svc.isBooked}
+                                        isReadyForPayment={svc.isReadyForPayment}
+                                        firstName={svc.ServiceProvider.firstName}
+                                        lastName={svc.ServiceProvider.lastName}
+                                        basePrice={svc.basePrice}
+                                        serviceDate={svc.serviceDate}
+                                        timeLeft={svc.timeLeft}
+                                        charityName={svc.Charity.charityName}
+                                        paymentLink={svc.paymentLink}
+                                        token={token}
+                                        btnSubmit={handleBtnSubmit}
+                                        status={svc.status}
+                                    />
+                                ))}
+                            </div>
+                        </div>
 
                         <div id='pastSvcscontainer'>
                             <label id="errMsg2" style={{ color: lblcolor, textWrap: 'wrap', maxWidth: '400px', textAlign: 'left' }}>{lblText}</label>

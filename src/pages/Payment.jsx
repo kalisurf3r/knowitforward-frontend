@@ -3,6 +3,18 @@ import { HeartOutline, ArrowBackOutline } from 'react-ionicons';
 import './Payment.css';
 
 export default function Payment(props) {
+    const token = localStorage.getItem("token");
+    const decodedToken = jwtDecode(token);
+    const expirationTime = decodedToken.exp * 1000;
+    const navigate = useNavigate();
+    let userId;
+
+    if (Date.now() >= expirationTime) {
+        console.error("Invalid token");
+        // throw new Error("Invalid token cannot fetch data")
+        navigate('/');
+    }
+    userId = decodedToken.id;
     const { username, charityname } = useParams();
     return (<>
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', justifyContent: 'center', alignItems: "center" }}>
