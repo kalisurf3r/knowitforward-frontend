@@ -232,7 +232,7 @@ console.log('req.body', data);
       </div>
 
       <div>
-        <h3 className="text-center" style={{ marginTop: "60px" }}>
+        <h3 className="text-center">
           Tell us more about the service you're donating
         </h3>
       </div>

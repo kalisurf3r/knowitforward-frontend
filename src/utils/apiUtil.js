@@ -85,6 +85,22 @@ export const getServices = async () => {
     return response.json();
 };
 
+// api GET SELECTED SERVICES /api/services/select
+export const getSelectServices = async () => {
+    console.log("Quering for all services");
+    const url = API_PREFIX + "api/services/select";
+    console.log("services url: ", url);
+    const response = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    });
+
+    console.log("got back response from getServices api call as: ", response);
+    return response.json();
+};
+
 
 // api GET /api/charities
 export const getCharities = async () => {
@@ -211,9 +227,12 @@ export const loadAllData = async () => {
 export const loadServicesAndCharities = async () => {
     let response = {};
     const serviceData = await getServices();
+   // const serviceData = await getSelectServices();
     const charitiesData = await getCharities();
+    const categoriesData = await getCategories();
     response["services"] = serviceData;
     response["charities"] = charitiesData;
+    response["categories"] = categoriesData;
     console.log("Response data: ", response);
     return response;
 }

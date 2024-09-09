@@ -1,7 +1,3 @@
-/* * {
-    font-weight: 300;
-} */
-
 .home-page {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
@@ -67,16 +63,14 @@
 }
 
 #login-form {
-    /* font-size: 5vh; */
     color: var(--dark_gray);
     min-width: 500px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    border: .5px solid #B8B8B8;
+    margin: 25px 20px;
+    /* border: .5px solid #B8B8B8; */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.075);    
     padding: 10px 40px;
     border-radius: 10px;
     text-align: center;
-    /* margin: 19vh 5vw; */
 }
 
 .form-control {
@@ -86,7 +80,7 @@
 
 .or {
     font-size: 2rem;
-    margin: 0 7vw;
+    margin: 10px 20px;
 }
 
 #loginLink {
@@ -108,14 +102,12 @@
     font-size: 1.5rem;
     font-weight: 300;
     color: var(--dark_gray);
-    /* margin: 19vh 5vw; */
     background-color: var(--accent);
     border: outset 3px solid var(--accent);
     border-radius: 10px;
     box-shadow: 5px 5px 5px gray;
+    margin: 10px 20px;
 }
-
-/* .signup-button:hover { */
 
 .button {
     font-weight: 300;
@@ -128,21 +120,28 @@
 
 .services-section {
     background-color: var(--dark_gray);
-    height: 45vh;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.services-title {
+    font-size: 4vw;
+    font-weight: 200;
+    color: var(--light_gray);
+    padding: 10px;
+}
+
+.services-cards {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 5px;
 }
 
-.services-categories {
-    display: flex;
-    flex-wrap: wrap;
-    width: 56vw;
-    margin: 5vh 1vw;
-    /* justify-content: space-between; */
-}
-
-.services-category {
+/* .services-category {
     font-size: 3vh;
     color: var(--dark_gray);
     background-color: var(--light_gray);
@@ -153,26 +152,18 @@
     text-align: center;
     padding-top: 4vh;
     margin: 2vh 1vw;
-}
+} */
 
 .services-button {
-    font-size: 16pt;
+    font-size: 14pt;
     font-weight: 400;
     color: var(--dark_gray);
-    padding: 10px 20px;
-    margin: 20vh 0vw;
     background-color: var(--accent);
     border: outset 3px solid var(--accent);
     border-radius: 10px;
     box-shadow: 5px 5px 5px gray;
-}
-
-.services-title {
-    font-size: 7vh;
-    font-weight: 200;
-    color: var(--light_gray);
-    text-align: right;
-    margin: 18vh 0 18vh 2vw;
+    width: fit-content;
+    margin: 10px;
 }
 
 .charities-section {
@@ -184,15 +175,14 @@
     justify-content: space-around;
 }
 
-.charities-title {
+/* .charities-title {
     font-size: 7vh;
     font-weight: 200;
     text-align: left;
     position: relative;
-    /* top: 25vh; */
     margin: 0 2vw 0 2vw;
     padding-top: 25vh;
-}
+} */
 
 .charities-button {
     font-size: 16pt;
@@ -302,6 +292,16 @@
         margin: 2vh;
         width: auto;
     }
+
+    .services-title {
+        font-size: 5vw;
+    }
+
+    .services-button {
+        font-size: 12pt;
+        width: fit-content;
+        margin: 10px;
+    }
 }
 
 @media (max-width: 450px) {
@@ -312,5 +312,15 @@
 
     .mission-stmt {
         font-size: 5vw;
+    }
+
+    #login-form {
+        min-width: auto;
+        width: 400;
+        padding: 10px 40px;
+    }
+
+    .services-title {
+        font-size: 6vw;
     }
 }

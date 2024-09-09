@@ -49,11 +49,13 @@ export default function ServiceCard(props) {
                 <Card.Text className='svc-card-text'>
                     {props.serviceDesc}
                    
+                    { (!props.testState) ? '' : ( 
                     <div>
                     <ServiceModal show={showModal} handleClose={handleCloseModal} serviceDesc={props.serviceDesc} serviceProvideremail={props.serviceProvideremail} />
                     </div>
-                  
+                    )}
                 </Card.Text>
+            { (!props.testState) ? '' : ( 
                 <Card.Link href="#" className='svc-card-container'>
                     {/* CONDITIONAL RENDERING: only show 'Book' button when use is logged in */}
                     {props.isLoggedIn ? (
@@ -62,6 +64,7 @@ export default function ServiceCard(props) {
                         </button>
                     ) : (<></>)}
                 </Card.Link>
+            )}
             </Card>
 
             

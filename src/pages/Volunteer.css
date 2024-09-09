@@ -9,7 +9,7 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin: 2vh 5vw;
+    margin: 3vh 5vw 0 5vw;
 }
 
 .volunteer-img {
@@ -33,13 +33,16 @@ body {
     font-weight: 300;
 }
 
-
+.text-center {
+  margin-top: 3vh;
+}
 
 .volunteer-form-container {
-    border: 5px solid var(--dark-gray);
-    /* width: 50vw; */
-    /* display: flex; */
-    /* justify-content: center; */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.075); 
+    border-radius: 10px;
+    width: 70vw;
+    margin: 2vh 15vw;
+    padding-top: 2vh;
 }
 
 .form-style {
@@ -49,7 +52,6 @@ body {
     margin-top: 20px;
     justify-content: left;
     box-shadow: 5px 5px 5px var(--dark-gray);
-
 }
 
 .form-group-style {
@@ -175,4 +177,9 @@ body {
       font-size: 4vw;
     }
   
+    .volunteer-form-container {
+      width: 90vw;
+      margin: 2vh 5vw;
+    }
+
   }
