@@ -156,7 +156,7 @@ export default function Services(props) {
                     (element?.ServiceProvider?.id !== serviceProviderId) // Filter out services created by the logged-in user
               )
               .map((service) => (
-                <div key={service.id}>
+                <div className="svc-cards" key={service.id}>
                   <ServiceCard
                     key={service.id}
                     serviceId={service.id}

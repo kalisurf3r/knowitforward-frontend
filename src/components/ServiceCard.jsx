@@ -21,7 +21,7 @@ export default function ServiceCard(props) {
                 <Card.Title className='svc-card-title'>{props.serviceTitle}</Card.Title>
                 <Card.Body className='svc-card-top-container'>
                     <img className='svc-card-img' src={props.serviceImg} alt="" />
-                    <div>
+                    <div className='svc-provider'>
                         <Card.Text className='svc-card-provider'>
                             {props.serviceProviderFirstName}{" "}{props.serviceProviderLastName}
                         </Card.Text>
@@ -48,26 +48,25 @@ export default function ServiceCard(props) {
                 </ListGroup>
                 <Card.Text className='svc-card-text'>
                     {props.serviceDesc}
-                   
-                    { (!props.testState) ? '' : ( 
-                    <div>
-                    <ServiceModal show={showModal} handleClose={handleCloseModal} serviceDesc={props.serviceDesc} serviceProvideremail={props.serviceProvideremail} />
-                    </div>
-                    )}
                 </Card.Text>
-            { (!props.testState) ? '' : ( 
-                <Card.Link href="#" className='svc-card-container'>
-                    {/* CONDITIONAL RENDERING: only show 'Book' button when use is logged in */}
-                    {props.isLoggedIn ? (
-                        <button data-svc-id={props.serviceId} className='svc-card-button' onClick={(e) => props.btnSubmit(e, "book")}>
-                            Book
-                        </button>
-                    ) : (<></>)}
-                </Card.Link>
-            )}
+                {(props.testState) ? '' : (
+                    <div className='show-more'>
+                        <ServiceModal show={showModal} handleClose={handleCloseModal} serviceDesc={props.serviceDesc} serviceProvideremail={props.serviceProvideremail} />
+                    </div>
+                )}
+                {(props.testState) ? '' : (
+                    <Card.Link href="#" className='svc-card-container'>
+                        {/* CONDITIONAL RENDERING: only show 'Book' button when use is logged in */}
+                        {props.isLoggedIn ? (
+                            <button data-svc-id={props.serviceId} className='svc-card-button' onClick={(e) => props.btnSubmit(e, "book")}>
+                                Book
+                            </button>
+                        ) : (<></>)}
+                    </Card.Link>
+                )}
             </Card>
 
-            
+
         </div>
     )
 }
