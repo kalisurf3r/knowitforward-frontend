@@ -10,7 +10,7 @@
     margin: 2vh auto;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 12px rgba(128, 128, 128, 0.4);
     display: flex;
     padding: 10px;
 }
