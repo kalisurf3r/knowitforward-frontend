@@ -2,7 +2,7 @@
     height: 340px;
     border-radius: 10px;
     --bs-card-border-width: 0;
-    box-shadow: 0 8px 12px rgba(128, 128, 128, 0.4);    
+    box-shadow: 0 8px 12px rgba(128, 128, 128, 0.4);
     /* margin: 5px; */
 }
 
@@ -75,7 +75,7 @@
 .svc-card-text {
     -webkit-box-orient: vertical;
     display: -webkit-box;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 3;
     font-size: 9pt;
     font-weight: 300;
     text-wrap: wrap;
