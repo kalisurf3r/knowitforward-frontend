@@ -34,7 +34,7 @@ export default function ServiceModal(props) {
                 </li>
             </ul> */}
             <FontAwesomeIcon icon={faCircleInfo} />{" "}
-            <span id="showmorelink" onClick={handleShowModal} style={{ fontWeight: '300', marginLeft: '0.7rem', cursor: 'pointer', fontWeight: "bolder" }}>More Info</span>
+            <span id="showmorelink" onClick={handleShowModal} style={{ marginLeft: '0.7rem', cursor: 'pointer', fontWeight: "bolder" }}>More Info</span>
 
             <Modal show={showModal} onHide={handleCloseModal}>
                 <Modal.Header closeButton style={modalHeaderStyle}>
