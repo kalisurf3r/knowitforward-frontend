@@ -14,8 +14,14 @@
 }
 
 .services-header h1 {
-    /* text-align: center; */
-    /* text-align: left; */
+    text-align: left;
+}
+
+#signUpErrMsg {
+    text-align: center; 
+    color: blue;
+    font-size: 16pt;
+    font-weight: 600;
 }
 
 .services-content {
@@ -111,3 +117,5 @@ h5 {
 
 
 }
+
+

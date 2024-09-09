@@ -1,0 +1,10 @@
+#backToProfile {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--dark_gray);
+    /* margin: 19vh 5vw; */
+    background-color: var(--accent);
+    border: outset 3px solid var(--accent);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px gray;
+}

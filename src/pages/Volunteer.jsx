@@ -144,6 +144,11 @@ export default function Volunteer() {
   const handleVolunteerSubmit = async (event) => {
     event.preventDefault();
     const token = localStorage.getItem("token");
+    let serviceProviderId = null;
+    if (token) {
+      const decodedToken = jwtDecode(token);
+      serviceProviderId = decodedToken ? decodedToken.id : null;
+    }
     if (!token) {
       console.error("No JWT token found");
       return;
@@ -159,7 +164,7 @@ export default function Volunteer() {
       CategoryId: selectedCategory.id,
       charity: selectedCharity.charityName,
       CharityId: selectedCharity.id,
-      ServiceProviderId: userId
+      ServiceProviderId: serviceProviderId
     };
 console.log('req.body', data);
     try {
