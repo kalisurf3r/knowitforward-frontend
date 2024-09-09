@@ -33,12 +33,12 @@ function getUniqueRandomIndices(arrayLength, count) {
 export default function Home(props) {
 
     // we create our sample set of Services
-    const [testState, setTestState] = useState(true);
+    const [testState, setTestState] = useState(false);
     const currentRoute = useLocation();
     console.log("Path: ", currentRoute);
-    if(currentRoute.pathname == '/') {
-        if(testState == true) {
-            setTestState(false);
+    if (currentRoute.pathname == '/') {
+        if (testState == false) {
+            setTestState(true);
         }
     }
     const [show, setShow] = useState(false);
@@ -73,7 +73,7 @@ export default function Home(props) {
     const selectServices = filterServices(cardsToDisplay);
     // Filter our Services Dataset(all) and grab our three indexes
     function filterServices(indicesArr) {
-        const selected = indicesArr.map( elem => {
+        const selected = indicesArr.map(elem => {
             return services[elem];
         });
         return selected
@@ -106,26 +106,28 @@ export default function Home(props) {
             <div className='services-section'>
                 <h3 className='services-title'>Services We Offer</h3>
                 {/* Display only 3 random cards on the homepage */}
-                {selectServices.map((service) => ( 
-                    <div className='services-cards' key={service.id}>
-                        <ServiceCard
-                            key={service.id}
-                            serviceId={service.id}
-                            serviceTitle={service.title}
-                            serviceImg={service.ServiceProvider.profileImgUrl}
-                            serviceProviderFirstName={service.ServiceProvider.firstName}
-                            serviceProviderLastName={service.ServiceProvider.lastName}
-                            serviceRating={service.ServiceProvider.ratings}
-                            serviceCost={service.basePrice}
-                            serviceDate={service.serviceDate}
-                            serviceTimeLeft={service.timeLeft}
-                            charityLogo={service.Charity.logoImgUrl}
-                            serviceDesc={service.description}
-                            serviceProvideremail={service.ServiceProvider.email}
-                            testState={testState}
-                        />
-                    </div>
-                ))}
+                <div className='services-cards' >
+                    {selectServices.map((service) => (
+                        <div className='svcs-cards' >
+                            <ServiceCard
+                                key={service.id}
+                                serviceId={service.id}
+                                serviceTitle={service.title}
+                                serviceImg={service.ServiceProvider.profileImgUrl}
+                                serviceProviderFirstName={service.ServiceProvider.firstName}
+                                serviceProviderLastName={service.ServiceProvider.lastName}
+                                serviceRating={service.ServiceProvider.ratings}
+                                serviceCost={service.basePrice}
+                                serviceDate={service.serviceDate}
+                                serviceTimeLeft={service.timeLeft}
+                                charityLogo={service.Charity.logoImgUrl}
+                                serviceDesc={service.description}
+                                serviceProvideremail={service.ServiceProvider.email}
+                                testState={testState}
+                            />
+                        </div>
+                    ))}
+                </div>
 
                 <button className='services-button' onClick={goServices}>more...</button>
 

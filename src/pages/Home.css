@@ -67,7 +67,7 @@
     min-width: 500px;
     margin: 25px 20px;
     /* border: .5px solid #B8B8B8; */
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.075);    
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.075);
     padding: 10px 40px;
     border-radius: 10px;
     text-align: center;
@@ -137,22 +137,15 @@
 .services-cards {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    margin: 5px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    /* margin: 5px; */
+    width: 90vw;
 }
 
-/* .services-category {
-    font-size: 3vh;
-    color: var(--dark_gray);
-    background-color: var(--light_gray);
-    border-radius: 10px;
-    height: 12vh;
-    width: 15vw;
-    min-width: 155px;
-    text-align: center;
-    padding-top: 4vh;
-    margin: 2vh 1vw;
-} */
+.svcs-cards {
+    margin: 5px;
+}
 
 .services-button {
     font-size: 14pt;
@@ -262,6 +255,12 @@
 
     .signup-button {
         margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 866px) {
+    .services-cards {
+        /* width: 40vw; */
     }
 }
 
