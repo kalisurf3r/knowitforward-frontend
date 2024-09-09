@@ -191,8 +191,6 @@ export default function Profile(props) {
     {/* <FontAwesomeIcon icon={faStar} />  */ }
 
     return (
-
-
         <>
             <h1 id='profileHeader'>My Profile</h1>
             <div className="container-fluid profilePageContainer">
@@ -353,7 +351,7 @@ export default function Profile(props) {
                         </div>
 
                     </div>
-
+                    <a href="/payment/Amrita Nair/charity/Red Cross"><button>pay</button></a>
                 </div>
 
             </div>
