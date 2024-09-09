@@ -24,7 +24,7 @@ export default function Profile(props) {
     let userId;
 
     if (Date.now() >= expirationTime) {
-        console.errpr("Invalid token");
+        console.error("Invalid token");
         // throw new Error("Invalid token cannot fetch data")
         navigate('/');
         //TODO: 
@@ -48,12 +48,13 @@ export default function Profile(props) {
         document.getElementById('activeOnlySvcscontainer').style.display = 'block';
 
         const svcsOffrd = await getSvcsAsServiceProvider(userId, token);
-        console.log("Services that were offered by this user are: ", svcsOffrd.data);
+        console.log("Active services that are posted by this user are: ", svcsOffrd.data);
 
         svcsOffrd.data.forEach((svc) => {
             console.log(svc.status);
             svc.isServiceProvider = true;
             svc.isCustomer = false;
+            svc.color = '#134074'
             if (svc.status === 'Active') {
                 activeOnly.push(svc);
             }
@@ -77,14 +78,21 @@ export default function Profile(props) {
             svc.isCustomer = false;
             if (svc.status === "Booked") {
                 svc.isBooked = true;
+                svc.color = 'green';
+                console.log("cutomer email: ", svc.Customer.email);
                 active.push(svc);
             } else if (svc.status === "Ready for payment") {
+                console.log("cutomer email for payment: ", svc.Customer.email);
+                svc.color = 'orange';
                 svc.isReadyForPayment = true;
                 active.push(svc);
             } else if (svc.status === "Closed") {
+                svc.color = 'red';
                 past.push(svc);
             }
         });
+        console.log("Active svcs inget svcs off: ");
+        console.log(active);
         setActiveSvc(active);
         setPastSvc(past);
     }
@@ -104,12 +112,15 @@ export default function Profile(props) {
             svc.isServiceProvider = false;
             svc.isCustomer = true;
             if (svc.status === "Booked") {
+                svc.color = 'green';
                 svc.isBooked = true;
                 active.push(svc);
             } else if (svc.status === "Ready for payment") {
+                svc.color = 'orange';
                 svc.isReadyForPayment = true;
                 active.push(svc);
             } else if (svc.status === "Closed") {
+                svc.color = 'red';
                 past.push(svc);
             }
         });
@@ -141,7 +152,8 @@ export default function Profile(props) {
 
     const handleActiveSvcClick = async (e) => {
         setActiveTab('open');
-
+        setLblText("");
+        setlblcolor("");
 
         await getActiveOblySvcByUsrAndPruneThem();
     }
@@ -149,12 +161,18 @@ export default function Profile(props) {
     const handleSvcOffrdClick = async (e) => {
         setActiveTab('Offered');
         setActiveOnlySvc([]);
+        setLblText("");
+        setlblcolor("");
+
 
         await getSvcsOffrdAndPruneThem();
     }
 
     const handleSvcBookedClick = async (e) => {
         setActiveTab('Booked');
+        setLblText("");
+        setlblcolor("");
+
 
         setActiveOnlySvc([]);
         await getSvcsBookedAndPruneThem();
@@ -170,11 +188,13 @@ export default function Profile(props) {
         console.log('response from PUT call');
         //TODO: Feedback to the user that the update was successful and refresh the page.
         if (response.status === 200) {
-            // setLblText("Service status updated successfully");
-            // setlblcolor('blue');
+            setLblText("Service status updated successfully");
+            setlblcolor('blue');
             await getSvcsOffrdAndPruneThem();
             // navigate('/profile')
         } else {
+            setLblText("Error when trying to update the service state to Done state.");
+            setlblcolor("red");
             // setLblText("Failed to update service status");
             // setlblcolor('red');
         }
@@ -194,6 +214,7 @@ export default function Profile(props) {
     return (
         <>
             <h1 id='profileHeader'>My Profile</h1>
+            <p id="errMsg1" style={{ color: lblcolor, textWrap: 'wrap' }}>{lblText}</p>
             <div className="container-fluid profilePageContainer">
                 <div className='row'>
                     <div className='col col-md-3 col-sm-6 col-12 userDetailsSection'>
@@ -264,7 +285,7 @@ export default function Profile(props) {
 
                         <div id='activeOnlySvcscontainer'>
 
-                            <label id="errMsg1" style={{ color: lblcolor, textWrap: 'wrap', maxWidth: '400px', textAlign: 'left' }}>{lblText}</label>
+
                             <div id="acticeSvcs">
                                 {/* <p className='mt-5 asvcsSectionHeading'>Upcoming</p> */}
 
@@ -274,12 +295,15 @@ export default function Profile(props) {
                                             key={svc.id}
                                             id={svc.id}
                                             title={svc.title}
+                                            serviceDesc={svc.description}
+                                            serviceProvideremail={svc.ServiceProvider.email}
                                             isCustomer={svc.isCustomer}
                                             isServiceProvider={svc.isServiceProvider}
                                             isBooked={svc.isBooked}
                                             isReadyForPayment={svc.isReadyForPayment}
                                             firstName={svc.ServiceProvider.firstName}
                                             lastName={svc.ServiceProvider.lastName}
+                                            offerEndDate={svc.offerEndDate}
                                             basePrice={svc.basePrice}
                                             serviceDate={svc.serviceDate}
                                             timeLeft={svc.timeLeft}
@@ -288,6 +312,7 @@ export default function Profile(props) {
                                             token={token}
                                             btnSubmit={handleBtnSubmit}
                                             status={svc.status}
+                                            color={svc.color}
                                         />
                                     ))
                                 }
@@ -295,8 +320,6 @@ export default function Profile(props) {
                         </div>
 
                         <div id='upcommingSvcscontainer'>
-
-                            <label id="errMsg1" style={{ color: lblcolor, textWrap: 'wrap', maxWidth: '400px', textAlign: 'left' }}>{lblText}</label>
                             <div id="upcommingSvcs">
                                 <p className='svcsSectionHeading'>Upcoming</p>
 
@@ -304,6 +327,9 @@ export default function Profile(props) {
                                     <SummaryCard
                                         key={svc.id}
                                         id={svc.id}
+                                        serviceDesc={svc.description}
+                                        serviceProvideremail={svc.ServiceProvider.email}
+                                        customerEmail={svc.Customer.email}
                                         title={svc.title}
                                         isCustomer={svc.isCustomer}
                                         isServiceProvider={svc.isServiceProvider}
@@ -311,6 +337,7 @@ export default function Profile(props) {
                                         isReadyForPayment={svc.isReadyForPayment}
                                         firstName={svc.ServiceProvider.firstName}
                                         lastName={svc.ServiceProvider.lastName}
+                                        offerEndDate={svc.offerEndDate}
                                         basePrice={svc.basePrice}
                                         serviceDate={svc.serviceDate}
                                         timeLeft={svc.timeLeft}
@@ -319,13 +346,13 @@ export default function Profile(props) {
                                         token={token}
                                         btnSubmit={handleBtnSubmit}
                                         status={svc.status}
+                                        color={svc.color}
                                     />
                                 ))}
                             </div>
                         </div>
 
                         <div id='pastSvcscontainer'>
-                            <label id="errMsg2" style={{ color: lblcolor, textWrap: 'wrap', maxWidth: '400px', textAlign: 'left' }}>{lblText}</label>
                             <div id="pastSvcs">
                                 <p className='svcsSectionHeading'>History</p>
                                 {
@@ -334,9 +361,13 @@ export default function Profile(props) {
                                             key={svc.id}
                                             id={svc.id}
                                             title={svc.title}
+                                            serviceDesc={svc.description}
+                                            serviceProvideremail={svc.ServiceProvider.email}
+                                            customerEmail={svc.Customer.email}
                                             isCustomer={svc.isCustomer}
                                             isServiceProvider={svc.isServiceProvider}
                                             isBooked={svc.isBooked}
+                                            offerEndDate={svc.offerEndDate}
                                             isReadyForPayment={svc.isReadyForPayment}
                                             firstName={svc.ServiceProvider.firstName}
                                             lastName={svc.ServiceProvider.lastName}
@@ -346,13 +377,13 @@ export default function Profile(props) {
                                             charityName={svc.Charity.charityName}
                                             token={token}
                                             status={svc.status}
+                                            color={svc.color}
                                         />
                                     ))
                                 }</div>
                         </div>
 
                     </div>
-                    <a href="/payment/Amrita Nair/charity/Red Cross"><button>pay</button></a>
                 </div>
 
             </div>

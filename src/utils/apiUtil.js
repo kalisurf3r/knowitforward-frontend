@@ -1,5 +1,5 @@
-const API_PREFIX = "https://knowitforward.onrender.com/";
-// const API_PREFIX = "http://localhost:3004/"
+// const API_PREFIX = "https://knowitforward.onrender.com/";
+const API_PREFIX = "http://localhost:3004/"
 
 
 export const login = async (userObj) => {
@@ -227,7 +227,7 @@ export const loadAllData = async () => {
 export const loadServicesAndCharities = async () => {
     let response = {};
     const serviceData = await getServices();
-   // const serviceData = await getSelectServices();
+    // const serviceData = await getSelectServices();
     const charitiesData = await getCharities();
     const categoriesData = await getCategories();
     response["services"] = serviceData;
