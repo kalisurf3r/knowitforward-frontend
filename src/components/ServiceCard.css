@@ -99,6 +99,15 @@
     /* text-decoration: underline; */
 }
 
+.svc-card-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 60px;
+    padding: 0;
+    margin: 0;
+}
+
 .svc-card-button {
     font-size: 12pt;
     font-weight: 300;
