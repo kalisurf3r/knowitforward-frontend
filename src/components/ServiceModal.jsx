@@ -37,7 +37,6 @@ export default function ServiceModal(props) {
                 </Modal.Header>
                 <Modal.Body>
                     <p>{props.serviceDesc}</p>
-                    <p><b>Contact Servicer:</b> <a href={`mailto:${props.serviceProvideremail}`}>{props.serviceProvideremail}</a></p>
                     {
                         props.price ? (<>
                             <p style={{ fontWeight: '300' }}><b>Price:</b> ${props.price} </p>
@@ -58,6 +57,34 @@ export default function ServiceModal(props) {
                             <p style={{ fontWeight: '300' }}><b>Charity:</b>  {props.charity}</p>
                         </>) : (<></>)
                     }
+                </Modal.Body>
+                <Modal.Body>
+                    <p>
+                        <b>Service Provider: </b>
+                        <a href={`mailto:${props.serviceProvideremail}`}>
+                            {props.serviceProvideremail}
+                        </a>
+                    </p>
+                    {
+                        props.serviceProviderProfession ? (
+
+                            <p>
+                                <b>Profession: </b>
+                                {props.serviceProviderProfession}
+                            </p>
+                        ) :
+                            (<></>)
+                    }
+                    {
+                        props.serviceProviderAboutMe ? (
+                            <p>
+                                "{props.serviceProviderAboutMe}"
+                            </p>
+                        ) :
+                            (<></>)
+                    }
+                </Modal.Body>
+                <Modal.Body>
                     {
                         props.customerEmail ? (
                             <p><b>Contact Customer:</b> <a href={`mailto: ${props.customerEmail}`}>{props.customerEmail}</a></p>

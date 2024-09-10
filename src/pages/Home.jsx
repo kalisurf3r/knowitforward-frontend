@@ -104,7 +104,7 @@ export default function Home(props) {
             }
 
             <div className='services-section'>
-                <h3 className='services-title'>Services We Offer</h3>
+                <h4 className='services-title'>Services We Offer</h4>
                 {/* Display only 3 random cards on the homepage */}
                 <div className='services-cards' >
                     {selectServices.map((service) => (

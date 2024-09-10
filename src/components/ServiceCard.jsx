@@ -56,7 +56,12 @@ export default function ServiceCard(props) {
                 {
                     (props.testState) ? '' : (
 
-                        <ServiceModal show={showModal} marginleft='2px' fontsize='9pt' marginleft2='0.2rem' handleClose={handleCloseModal} serviceDesc={props.serviceDesc} serviceProvideremail={props.serviceProvideremail} />
+                        <ServiceModal show={showModal} marginleft='2px' fontsize='9pt' 
+                        marginleft2='0.2rem' handleClose={handleCloseModal} 
+                        serviceDesc={props.serviceDesc} 
+                        serviceProvideremail={props.serviceProvideremail}
+                        serviceProviderAboutMe={props.serviceProviderAboutMe} 
+                        serviceProviderProfession={props.serviceProviderProfession} />
 
                     )
                 }
