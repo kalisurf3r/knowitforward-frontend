@@ -31,7 +31,7 @@ export default function Services(props) {
     const token = localStorage.getItem("token");
     const decodedToken = jwtDecode(token);
     const expirationTime = decodedToken.exp * 1000;
-    
+
 
     if (Date.now() >= expirationTime) {
       console.log("Invalid token");
@@ -66,13 +66,13 @@ export default function Services(props) {
     serviceProviderId = decodedToken ? decodedToken.id : null;
   }
 
-  
+
   return (
     <>
       <div className="services-page">
         <div className="services-header">
           <h1 className="title">Book a Service</h1>
-          
+
         </div>
         <p id="signUpErrMsg">{labeltext}</p>
         <div className="services-content">
@@ -153,7 +153,7 @@ export default function Services(props) {
                     categorySelection === "all-categories") &&
                   (element?.Charity?.charityName === charitySelection ||
                     charitySelection === "all-charities") &&
-                    (element?.ServiceProvider?.id !== serviceProviderId) // Filter out services created by the logged-in user
+                  (element?.ServiceProvider?.id !== serviceProviderId) // Filter out services created by the logged-in user
               )
               .map((service) => (
                 <div className="svc-cards" key={service.id}>
@@ -164,6 +164,8 @@ export default function Services(props) {
                     serviceImg={service.ServiceProvider.profileImgUrl}
                     serviceProviderFirstName={service.ServiceProvider.firstName}
                     serviceProviderLastName={service.ServiceProvider.lastName}
+                    serviceProviderAboutMe={service.ServiceProvider.aboutMe}
+                    serviceProviderProfession={service.ServiceProvider.profession}
                     serviceRating={service.ServiceProvider.ratings}
                     serviceCost={service.basePrice}
                     serviceDate={service.serviceDate}
@@ -174,7 +176,7 @@ export default function Services(props) {
                     btnSubmit={handleBtnSubmit}
                     isLoggedIn={props.isLoggedIn}
                   />
-                    
+
                 </div>
               ))}
           </div>

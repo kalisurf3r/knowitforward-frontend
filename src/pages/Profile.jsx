@@ -94,6 +94,12 @@ export default function Profile(props) {
         console.log("Active svcs inget svcs off: ");
         console.log(active);
         setActiveSvc(active);
+        const sorted = past.sort((a, b) => {
+            const aDate = new Date(a.updatedAt);
+            const bDate = new Date(b.updatedAt);
+
+            return bDate - aDate
+        })
         setPastSvc(past);
     }
 
@@ -294,6 +300,8 @@ export default function Profile(props) {
                                             isReadyForPayment={svc.isReadyForPayment}
                                             firstName={svc.ServiceProvider.firstName}
                                             lastName={svc.ServiceProvider.lastName}
+                                            serviceProviderAboutMe={svc.ServiceProvider.aboutMe}
+                                            serviceProviderProfession={svc.ServiceProvider.profession}
                                             offerEndDate={svc.offerEndDate}
                                             basePrice={svc.basePrice}
                                             serviceDate={svc.serviceDate}
@@ -328,6 +336,8 @@ export default function Profile(props) {
                                         isReadyForPayment={svc.isReadyForPayment}
                                         firstName={svc.ServiceProvider.firstName}
                                         lastName={svc.ServiceProvider.lastName}
+                                        serviceProviderAboutMe={svc.ServiceProvider.aboutMe}
+                                        serviceProviderProfession={svc.ServiceProvider.profession}
                                         offerEndDate={svc.offerEndDate}
                                         basePrice={svc.basePrice}
                                         serviceDate={svc.serviceDate}
@@ -362,6 +372,8 @@ export default function Profile(props) {
                                             isReadyForPayment={svc.isReadyForPayment}
                                             firstName={svc.ServiceProvider.firstName}
                                             lastName={svc.ServiceProvider.lastName}
+                                            serviceProviderAboutMe={svc.ServiceProvider.aboutMe}
+                                            serviceProviderProfession={svc.ServiceProvider.profession}
                                             basePrice={svc.basePrice}
                                             serviceDate={svc.serviceDate}
                                             timeLeft={svc.timeLeft}
