@@ -48,13 +48,13 @@
 }
 
 .userPersonalDetails {
-    margin-left: 1rem;
+    margin-left: 0.9rem;
 }
 
 .userDet {
     margin-bottom: 0;
     font-weight: 300;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .userPic {
@@ -246,6 +246,7 @@
 
 
 
+
 @media (max-width: 780px) {
     .userDetailsSection {
         margin: 0 auto;
@@ -253,7 +254,8 @@
     }
 
     #upcommingSvcs,
-    #pastSvcs {
+    #pastSvcs,
+    #acticeSvcs {
 
         justify-content: center;
     }
@@ -285,8 +287,10 @@
         min-width: 60%;
     }
 
+
     #upcommingSvcs,
-    #pastSvcs {
+    #pastSvcs,
+    #acticeSvcs {
 
         justify-content: center;
     }
@@ -317,6 +321,13 @@
     .userDetailsSection {
         margin: 0 auto;
         min-width: 100%;
+    }
+
+    #upcommingSvcs,
+    #pastSvcs,
+    #acticeSvcs {
+
+        justify-content: center;
     }
 
     /* .userDet {

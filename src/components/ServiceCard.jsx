@@ -19,19 +19,23 @@ export default function ServiceCard(props) {
             <Card key={props.id} style={{ width: '250px' }}>
 
                 <Card.Title className='svc-card-title'>{props.serviceTitle}</Card.Title>
-                <Card.Body className='svc-card-top-container'>
-                    <img className='svc-card-img' src={props.serviceImg} alt="" />
-                    <div className='svc-provider'>
-                        <Card.Text className='svc-card-provider'>
-                            {props.serviceProviderFirstName}{" "}{props.serviceProviderLastName}
-                        </Card.Text>
-                        <Card.Text className='svc-card-provider'>
-                            {props.serviceRating}⭐️
-                        </Card.Text>
+                <div>
+                    <div className='svc-card-top-container'>
+                        <div className='svc-card-img-container'>
+                            <img className='svc-card-img' src={props.serviceImg} alt="" />
+                        </div>
+                        <div>
+                            <Card.Text className='svc-card-provider'>
+                                {props.serviceProviderFirstName}{" "}{props.serviceProviderLastName}
+                            </Card.Text>
+                            <Card.Text className='svc-card-provider'>
+                                {props.serviceRating}⭐️
+                            </Card.Text>
+                        </div>
                     </div>
-                </Card.Body>
-                <ListGroup className="list-group-flush svccardlistgroup">
-                    <div>
+                </div>
+                <div className="svccardlistgroup">
+                    <ListGroup className="list-group-flush ">
                         <ListGroup.Item className='list-group-item  svccardlistgroupitem'><FontAwesomeIcon icon={faDollarSign} />
                             {"   "}{props.serviceCost}
                         </ListGroup.Item>
@@ -41,32 +45,36 @@ export default function ServiceCard(props) {
                         <ListGroup.Item className='list-group-item svccardlistgroupitem'><FontAwesomeIcon icon={faHourglassEnd} />
                             {"   "}{props.serviceTimeLeft}
                         </ListGroup.Item>
-                    </div>
-                    <ListGroup.Item className='svc-card-container'>
-                        <img className='svc-card-logo' src={props.charityLogo} alt="" />
-                    </ListGroup.Item>
-                </ListGroup>
+                    </ListGroup>
+                    {/* <div className='svc-card-container'> */}
+                    <img className='svc-card-logo' src={props.charityLogo} alt="" />
+                    {/* </div> */}
+                </div>
                 <Card.Text className='svc-card-text'>
                     {props.serviceDesc}
                 </Card.Text>
-                {(props.testState) ? '' : (
-                    <div className='show-more'>
-                        <ServiceModal show={showModal} handleClose={handleCloseModal} serviceDesc={props.serviceDesc} serviceProvideremail={props.serviceProvideremail} />
-                    </div>
-                )}
-                {(props.testState) ? '' : (
-                    <Card.Link href="#" className='svc-card-container'>
-                        {/* CONDITIONAL RENDERING: only show 'Book' button when use is logged in */}
-                        {props.isLoggedIn ? (
-                            <button data-svc-id={props.serviceId} className='svc-card-button' onClick={(e) => props.btnSubmit(e, "book")}>
-                                Book
-                            </button>
-                        ) : (<></>)}
-                    </Card.Link>
-                )}
-            </Card>
+                {
+                    (props.testState) ? '' : (
+
+                        <ServiceModal show={showModal} marginleft='2px' fontsize='9pt' marginleft2='0.2rem' handleClose={handleCloseModal} serviceDesc={props.serviceDesc} serviceProvideremail={props.serviceProvideremail} />
+
+                    )
+                }
+                {
+                    (props.testState) ? '' : (
+                        <Card.Link href="#" className='svc-card-container'>
+                            {/* CONDITIONAL RENDERING: only show 'Book' button when use is logged in */}
+                            {props.isLoggedIn ? (
+                                <button data-svc-id={props.serviceId} fontsize='9pt' className='svc-card-button' onClick={(e) => props.btnSubmit(e, "book")}>
+                                    Book
+                                </button>
+                            ) : (<></>)}
+                        </Card.Link>
+                    )
+                }
+            </Card >
 
 
-        </div>
+        </div >
     )
 }
