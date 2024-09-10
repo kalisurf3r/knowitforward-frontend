@@ -19,7 +19,7 @@ export default function ServiceModal(props) {
     }
 
     const showMoreStyle = {
-        color: '#415a77',
+        color: 'var(--dark_gray)',
         cursor: 'pointer',
         listStyle: 'none'
     }
@@ -28,13 +28,8 @@ export default function ServiceModal(props) {
     // onClick={handleShowModal} style={showMoreStyle}
     return (
         <div>
-            {/* <ul>
-                <li style={showMoreStyle}>
-
-                </li>
-            </ul> */}
-            <FontAwesomeIcon icon={faCircleInfo} />{" "}
-            <span id="showmorelink" onClick={handleShowModal} style={{ marginLeft: '0.7rem', cursor: 'pointer', fontWeight: "bolder" }}>More Info</span>
+            <FontAwesomeIcon style={{ marginLeft: props.marginleft, fontSize: props.fontsize, }} icon={faCircleInfo} />{" "}
+            <span id="showmorelink" onClick={handleShowModal} style={{ marginLeft: props.marginleft2, fontSize: props.fontsize, cursor: 'pointer', fontWeight: "bolder" }}>More Info</span>
 
             <Modal show={showModal} onHide={handleCloseModal}>
                 <Modal.Header closeButton style={modalHeaderStyle}>
@@ -56,6 +51,11 @@ export default function ServiceModal(props) {
                     {
                         props.offerEndDate ? (<>
                             <p style={{ fontWeight: '300' }}><b>Offer End Date:</b>  {new Date(props.offerEndDate).toDateString()}</p>
+                        </>) : (<></>)
+                    }
+                    {
+                        props.charity ? (<>
+                            <p style={{ fontWeight: '300' }}><b>Charity:</b>  {props.charity}</p>
                         </>) : (<></>)
                     }
                     {

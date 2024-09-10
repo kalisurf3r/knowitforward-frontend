@@ -215,7 +215,7 @@ export default function Profile(props) {
         <>
             <h1 id='profileHeader'>My Profile</h1>
             <p id="errMsg1" style={{ color: lblcolor, textWrap: 'wrap' }}>{lblText}</p>
-            <div className="container-fluid profilePageContainer">
+            <div className="profilePageContainer">
                 <div className='row'>
                     <div className='col col-md-3 col-sm-6 col-12 userDetailsSection'>
                         <div className='userPicAndPersonalDetails'>
@@ -242,15 +242,6 @@ export default function Profile(props) {
                                     {" "}{userDetails.email}</p>
                             </div>
                         </div>
-                        {/* <p className="aboutMe">{userDetails.aboutMe}</p>
-                        <div className='userCharities'>
-                            {
-                                charities.map((ch) => (
-                                    <img className="chLogo" key={ch.id} src={ch.logoImgUrl} alt="charity logo"></img>
-                                ))
-                            }
-                        </div> */}
-                        {/* defaultActiveKey="0" */}
                         <Accordion flush style={{ background: 'var(--light_gray)' }}>
                             <Accordion.Item className="kitaccitem" eventKey="0">
                                 <Accordion.Header className="userProfileAccordionItem" style={{ backgroundColor: "#ebf2ea" }} >About Me</Accordion.Header>
@@ -385,7 +376,6 @@ export default function Profile(props) {
 
                     </div>
                 </div>
-
             </div>
         </>
     );
