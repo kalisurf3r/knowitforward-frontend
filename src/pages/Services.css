@@ -1,6 +1,7 @@
 .services-page {
     background-color: var(--light_gray);
     margin: 0;
+    min-height: 85vh;
 }
 
 .services-header {
