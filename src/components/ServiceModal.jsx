@@ -54,6 +54,11 @@ export default function ServiceModal(props) {
                         </>) : (<></>)
                     }
                     {
+                        props.charity ? (<>
+                            <p style={{ fontWeight: '300' }}><b>Charity:</b>  {props.charity}</p>
+                        </>) : (<></>)
+                    }
+                    {
                         props.customerEmail ? (
                             <p><b>Contact Customer:</b> <a href={`mailto: ${props.customerEmail}`}>{props.customerEmail}</a></p>
                         ) : (<></>)

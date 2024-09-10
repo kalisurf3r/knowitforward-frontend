@@ -42,6 +42,7 @@ export default function SummaryCard(props) {
                                 customerEmail={props.customerEmail}
                                 serviceDesc={props.serviceDesc}
                                 marginleft2='0.7rem'
+                                charity={props.charityName}
                                 serviceProvideremail={props.serviceProvideremail} />
                             {/* TODO: required info */}
                         </li>
